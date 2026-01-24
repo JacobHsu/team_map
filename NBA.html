@@ -113,6 +113,40 @@
             border-radius: 4px;
             flex-shrink: 0;
         }
+        .spread-badge {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 1px 4px;
+            border-radius: 3px;
+            margin-left: 4px;
+            font-family: 'Roboto', monospace;
+            vertical-align: middle;
+        }
+        .spread-badge.favorite {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        .spread-badge.underdog {
+            background-color: #fbe9e7;
+            color: #c62828;
+        }
+        .spread-badge.final {
+            background-color: #eeeeee;
+            color: #616161;
+        }
+        @keyframes live-pulse {
+            0%, 100% { background-color: transparent; }
+            50% { background-color: rgba(0, 0, 0, 0.04); }
+        }
+        .legend-item.live {
+            animation: live-pulse 1s ease-in-out infinite;
+        }
+        .legend-item .polymarket-logo.winner-expected {
+            filter: drop-shadow(0 0 4px rgba(255, 193, 7, 0.8));
+        }
+        .legend-item .polymarket-logo.winner-upset {
+            filter: drop-shadow(0 0 8px rgba(255, 193, 7, 0.9));
+        }
         /* -- 更新: 優化英文和縮寫的樣式 -- */
         .team-name-container .name-en-abbr {
             font-size: 13px;  /* 放大字體 */
@@ -395,7 +429,7 @@
             legendItem.innerHTML = `
                 <img src="${team.logo}" alt="${team.name}">
                 <div class="team-name-container">
-                    <div class="name-zh">${team.name}</div>
+                    <div class="name-zh">${team.name} <span class="spread-badge" id="spread-${team.abbr}" style="display:none;"></span></div>
                     <div class="name-en-abbr">${team.name_en} (${team.abbr})</div>
                 </div>
                 <img class="polymarket-logo" src="https://polymarket.com/_next/image?url=https%3A%2F%2Fpolymarket-upload.s3.us-east-2.amazonaws.com%2FNBA%2BTeam%2BLogos%2F${team.abbr}.png&w=96&q=75" alt="${team.abbr}" onerror="this.style.display='none'">
@@ -420,6 +454,174 @@
                 legendContainer.appendChild(legendItem);
             }
         });
+
+        // ESPN abbreviation mapping (ESPN uses different abbrs for some teams)
+        const espnAbbrMap = {
+            'NY': 'NYK',
+            'NO': 'NOP',
+            'SA': 'SAS',
+            'GS': 'GSW',
+            'UTAH': 'UTA',
+            'WSH': 'WAS'
+        };
+
+        function applyTodaySpread(abbr, spreadLine, isLive) {
+            const badge = document.getElementById(`spread-${abbr}`);
+            if (badge) {
+                badge.textContent = (spreadLine > 0 ? '+' : '') + spreadLine;
+                badge.className = 'spread-badge';
+                badge.classList.add(spreadLine < 0 ? 'favorite' : 'underdog');
+                badge.style.display = 'inline-block';
+            }
+            const legendItem = document.querySelector(`.legend-item[data-team-abbr="${abbr}"]`);
+            if (legendItem) {
+                const logo = legendItem.querySelector('.polymarket-logo');
+                if (logo) {
+                    logo.classList.remove('winner-expected', 'winner-upset');
+                }
+                if (isLive) {
+                    legendItem.classList.add('live');
+                }
+            }
+        }
+
+        function processToday(data) {
+            if (!data.events) return;
+            const liveGamePromises = [];
+
+            data.events.forEach(event => {
+                const competition = event.competitions[0];
+                const isLive = event.status.type.name === 'STATUS_IN_PROGRESS';
+
+                if (competition.odds && competition.odds[0]) {
+                    // Scheduled games: odds available in scoreboard
+                    const odds = competition.odds[0];
+                    competition.competitors.forEach(competitor => {
+                        let abbr = competitor.team.abbreviation;
+                        abbr = espnAbbrMap[abbr] || abbr;
+                        const isHome = competitor.homeAway === 'home';
+                        let spreadLine = null;
+                        if (odds.pointSpread) {
+                            const teamOdds = isHome ? odds.pointSpread.home : odds.pointSpread.away;
+                            if (teamOdds && teamOdds.close) {
+                                spreadLine = parseFloat(teamOdds.close.line);
+                            }
+                        }
+                        if (spreadLine !== null) {
+                            applyTodaySpread(abbr, spreadLine, isLive);
+                        }
+                    });
+                } else if (isLive) {
+                    // In-progress games: fetch summary for pickcenter odds
+                    const promise = fetch(`https://site.web.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=${event.id}`)
+                        .then(res => res.json())
+                        .then(summary => {
+                            if (!summary.pickcenter || !summary.pickcenter[0]) return;
+                            const pickcenter = summary.pickcenter[0];
+                            const competitors = summary.header.competitions[0].competitors;
+                            competitors.forEach(competitor => {
+                                let abbr = competitor.team.abbreviation;
+                                abbr = espnAbbrMap[abbr] || abbr;
+                                const isHome = competitor.homeAway === 'home';
+                                let spreadLine = null;
+                                if (pickcenter.pointSpread) {
+                                    const teamOdds = isHome ? pickcenter.pointSpread.home : pickcenter.pointSpread.away;
+                                    if (teamOdds && teamOdds.close) {
+                                        spreadLine = parseFloat(teamOdds.close.line);
+                                    }
+                                }
+                                if (spreadLine !== null) {
+                                    applyTodaySpread(abbr, spreadLine, true);
+                                }
+                            });
+                        });
+                    liveGamePromises.push(promise);
+                }
+            });
+
+            return Promise.all(liveGamePromises);
+        }
+
+        function processFinishedGame(summaryData, winnersMap) {
+            if (!summaryData.pickcenter || !summaryData.pickcenter[0]) return;
+            if (!summaryData.header || !summaryData.header.competitions) return;
+
+            const pickcenter = summaryData.pickcenter[0];
+            const competitors = summaryData.header.competitions[0].competitors;
+
+            competitors.forEach(competitor => {
+                let abbr = competitor.team.abbreviation;
+                abbr = espnAbbrMap[abbr] || abbr;
+                const isHome = competitor.homeAway === 'home';
+
+                let spreadLine = null;
+                if (pickcenter.pointSpread) {
+                    const teamOdds = isHome ? pickcenter.pointSpread.home : pickcenter.pointSpread.away;
+                    if (teamOdds && teamOdds.close) {
+                        spreadLine = parseFloat(teamOdds.close.line);
+                    }
+                }
+
+                if (spreadLine !== null) {
+                    const badge = document.getElementById(`spread-${abbr}`);
+                    if (badge) {
+                        badge.textContent = (spreadLine > 0 ? '+' : '') + spreadLine;
+                        badge.className = 'spread-badge final';
+                        badge.style.display = 'inline-block';
+                    }
+
+                    if (winnersMap[abbr]) {
+                        const isUpset = spreadLine > 0; // underdog won
+                        const legendItem = document.querySelector(`.legend-item[data-team-abbr="${abbr}"]`);
+                        if (legendItem) {
+                            const logo = legendItem.querySelector('.polymarket-logo');
+                            if (logo) logo.classList.add(isUpset ? 'winner-upset' : 'winner-expected');
+                        }
+                    }
+                }
+            });
+        }
+
+        function fetchSpreads() {
+            // Calculate yesterday in US Eastern Time (UTC-5)
+            const now = new Date();
+            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+            const etNow = new Date(utc + (-5 * 3600000));
+            const etYesterday = new Date(etNow);
+            etYesterday.setDate(etYesterday.getDate() - 1);
+            const yStr = etYesterday.getFullYear() +
+                String(etYesterday.getMonth() + 1).padStart(2, '0') +
+                String(etYesterday.getDate()).padStart(2, '0');
+
+            // Fetch yesterday's scoreboard, then fetch summary for each finished game
+            fetch(`https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates=${yStr}`)
+                .then(res => res.json())
+                .then(data => {
+                    if (!data.events) return;
+                    const finishedGames = data.events.filter(e => e.status.type.name === 'STATUS_FINAL');
+
+                    const summaryPromises = finishedGames.map(event => {
+                        const winnersMap = {};
+                        event.competitions[0].competitors.forEach(c => {
+                            let abbr = c.team.abbreviation;
+                            abbr = espnAbbrMap[abbr] || abbr;
+                            if (c.winner) winnersMap[abbr] = true;
+                        });
+
+                        return fetch(`https://site.web.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=${event.id}`)
+                            .then(res => res.json())
+                            .then(summary => processFinishedGame(summary, winnersMap));
+                    });
+
+                    return Promise.all(summaryPromises);
+                })
+                .then(() => fetch('https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard'))
+                .then(res => res.json())
+                .then(data => processToday(data))
+                .catch(err => console.warn('Failed to fetch spreads:', err));
+        }
+
+        fetchSpreads();
     </script>
 
 </body>

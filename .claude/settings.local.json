@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:polymarket.com)",
-      "WebFetch(domain:polymarket-upload.s3.us-east-2.amazonaws.com)"
+      "WebFetch(domain:polymarket-upload.s3.us-east-2.amazonaws.com)",
+      "WebSearch",
+      "WebFetch(domain:site.api.espn.com)",
+      "WebFetch(domain:site.web.api.espn.com)"
     ]
   }
 }
