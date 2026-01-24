@@ -105,6 +105,14 @@
             font-weight: 700; /* 使用 Bold 字重 */
             color: #000;
         }
+        .legend-item .polymarket-logo {
+            width: 32px;
+            height: 32px;
+            margin-left: auto;
+            object-fit: cover;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
         /* -- 更新: 優化英文和縮寫的樣式 -- */
         .team-name-container .name-en-abbr {
             font-size: 13px;  /* 放大字體 */
@@ -390,6 +398,7 @@
                     <div class="name-zh">${team.name}</div>
                     <div class="name-en-abbr">${team.name_en} (${team.abbr})</div>
                 </div>
+                <img class="polymarket-logo" src="https://polymarket.com/_next/image?url=https%3A%2F%2Fpolymarket-upload.s3.us-east-2.amazonaws.com%2FNBA%2BTeam%2BLogos%2F${team.abbr}.png&w=96&q=75" alt="${team.abbr}" onerror="this.style.display='none'">
             `;
             
             legendItem.addEventListener('click', function() {

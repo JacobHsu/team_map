@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:polymarket.com)",
+      "WebFetch(domain:polymarket-upload.s3.us-east-2.amazonaws.com)"
+    ]
+  }
+}
