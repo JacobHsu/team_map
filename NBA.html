@@ -152,6 +152,12 @@
             font-size: 13px;  /* 放大字體 */
             color: #555;      /* 使用清晰的深灰色 */
         }
+        .standing-rank {
+            font-size: 11px;
+            font-weight: 700;
+            color: #17408b;
+            margin-left: 4px;
+        }
         .leaflet-control-reset {
             background-color: white;
             width: 34px;
@@ -430,7 +436,7 @@
                 <img src="${team.logo}" alt="${team.name}">
                 <div class="team-name-container">
                     <div class="name-zh">${team.name} <span class="spread-badge" id="spread-${team.abbr}" style="display:none;"></span></div>
-                    <div class="name-en-abbr">${team.name_en} (${team.abbr})</div>
+                    <div class="name-en-abbr">${team.name_en} (${team.abbr}) <span class="standing-rank" id="rank-${team.abbr}"></span></div>
                 </div>
                 <img class="polymarket-logo" src="https://polymarket.com/_next/image?url=https%3A%2F%2Fpolymarket-upload.s3.us-east-2.amazonaws.com%2FNBA%2BTeam%2BLogos%2F${team.abbr}.png&w=96&q=75" alt="${team.abbr}" onerror="this.style.display='none'">
             `;
@@ -622,6 +628,39 @@
         }
 
         fetchSpreads();
+
+        // Fetch conference standings from ESPN API
+        function fetchStandings() {
+            fetch('https://site.web.api.espn.com/apis/v2/sports/basketball/nba/standings?season=2025')
+                .then(res => res.json())
+                .then(data => {
+                    if (!data.children) return;
+
+                    data.children.forEach(conference => {
+                        if (!conference.standings || !conference.standings.entries) return;
+
+                        conference.standings.entries.forEach(entry => {
+                            if (!entry.team) return;
+                            let abbr = entry.team.abbreviation;
+                            abbr = espnAbbrMap[abbr] || abbr;
+
+                            // Get conference rank from stats
+                            const rankStat = entry.stats.find(s => s.name === 'playoffSeed');
+                            const rank = rankStat ? rankStat.value : null;
+
+                            if (rank !== null) {
+                                const rankSpan = document.getElementById(`rank-${abbr}`);
+                                if (rankSpan) {
+                                    rankSpan.textContent = `#${Math.floor(rank)}`;
+                                }
+                            }
+                        });
+                    });
+                })
+                .catch(err => console.warn('Failed to fetch standings:', err));
+        }
+
+        fetchStandings();
     </script>
 
 </body>
