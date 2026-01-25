@@ -110,7 +110,8 @@
 
 - [Score Ticker](https://widgets.media.sportradar.com/usdemo#eyJzcG9ydCI6Im1sYiIsImNhdGVnb3J5IjoibGVhZ3VlIiwic2Vhc29uSWQiOjEyNTczNSwibWF0Y2hJZCI6NTUzMDkxODMsInRlYW1VaWQiOjU5MzAsInBsYXllcklkIjo4NjUxMDYsInBsYXllcklkcyI6WzE0ODczMjAsODQzMzMzLDg2NDIwOCwyMTM5NjA4LDE3NDUyMDUsODQzODY3LDg0OTE2MCwxNjkyNTYzLDEwNzk5MzgsMTM1ODQ3NCwxNTM5NzY5LDg0ODU2NywyMTQ2NTU0LDg2NTEwNiwxNjk0MzEzLDI1NTAyNzMsMTA3ODEyMiwxNTM1MjM1LDExMzQxNzksODQyNjk1LDE1MzkxODksMTc0OTk1Myw4NDE3NTcsMTM5OTU5MywyMzI0MzUxLDEwOTgxMjBdfQ==)
 - [Widgets Introduction](https://developer.sportradar.com/widgets/docs/getting-started)  
-- [Widgets.us.common.ScoreTicker](https://widgets.media.sportradar.com/usdocs/Widgets.us.common.ScoreTicker.html)
+- [Widgets.us.common.ScoreTicker](https://widgets.media.sportradar.com/usdocs/Widgets.us.common.ScoreTicker.html)  
+- [Score Ticker](https://developer.sportradar.com/widgets/docs/nfl-score-ticker)  
 
 ### 實作方法
 

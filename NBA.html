@@ -299,13 +299,16 @@
                                 window.location.protocol === 'file:';
 
             const tickerContainer = document.getElementById('scoreTickerContainer');
+            const pageTitle = document.querySelector('h1');
 
             if (isLocalhost) {
-                // Show Sportradar widget on localhost
+                // Show Sportradar widget on localhost, hide title
                 tickerContainer.classList.remove('hidden');
+                if (pageTitle) pageTitle.style.display = 'none';
             } else {
-                // Hide Sportradar widget and show fallback on deployed sites
+                // Hide Sportradar widget and show title on deployed sites
                 tickerContainer.classList.add('hidden');
+                if (pageTitle) pageTitle.style.display = '';
             }
         }
 
