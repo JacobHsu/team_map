@@ -255,6 +255,194 @@
         .ticker-fallback.show {
             display: block;
         }
+
+        /* ESPN Custom Score Ticker Styles - Sportradar Style */
+        .espn-ticker-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+            flex-shrink: 0;
+            overflow: hidden;
+            display: none;
+            position: relative;
+        }
+        .espn-ticker-container.show {
+            display: block;
+        }
+        .espn-ticker-scroll {
+            display: flex;
+            align-items: center;
+            overflow-x: auto;
+            scrollbar-width: none;
+            padding: 8px 0;
+        }
+        .espn-ticker-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        /* Date navigation - inline with games */
+        .ticker-date-nav {
+            display: flex;
+            align-items: center;
+            padding: 0 12px;
+            border-right: 1px solid #e0e0e0;
+            flex-shrink: 0;
+            gap: 6px;
+        }
+        .ticker-date-nav button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            font-size: 16px;
+            color: #666;
+            transition: color 0.15s;
+        }
+        .ticker-date-nav button:hover {
+            color: #333;
+        }
+        .ticker-date-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.2;
+        }
+        .ticker-date-text .day {
+            font-size: 11px;
+            font-weight: 600;
+            color: #333;
+            text-transform: uppercase;
+        }
+        .ticker-date-text .date {
+            font-size: 11px;
+            color: #666;
+            text-transform: uppercase;
+        }
+        .ticker-game {
+            display: flex;
+            align-items: center;
+            padding: 4px 12px;
+            border-right: 1px solid #e0e0e0;
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: background-color 0.15s;
+            gap: 2px;
+        }
+        .ticker-game:hover {
+            background-color: #f5f5f5;
+        }
+        .ticker-game:last-child {
+            border-right: none;
+        }
+        .ticker-game.live {
+            background-color: #fef7f7;
+        }
+        /* Team display: Logo on top, Abbr below */
+        .ticker-team {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 32px;
+        }
+        .ticker-team img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+        .ticker-team .abbr {
+            font-size: 10px;
+            font-weight: 700;
+            color: #333;
+            margin-top: 2px;
+        }
+        /* Score/Status section in the middle */
+        .ticker-middle {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 6px;
+            min-width: 55px;
+        }
+        .ticker-middle .status-line {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            font-weight: 500;
+            text-align: center;
+        }
+        .ticker-middle .status-line.live {
+            color: #c9082a;
+            font-weight: 700;
+        }
+        .ticker-middle .score-line {
+            font-size: 14px;
+            font-weight: 700;
+            color: #333;
+            text-align: center;
+        }
+        .ticker-middle .score-line .winner {
+            color: #000;
+        }
+        .ticker-middle .score-line .loser {
+            color: #999;
+        }
+        /* Scheduled game: date (18px bold) + time (12px bold, padding-top 4px) */
+        .ticker-middle .date-line {
+            font-size: 18px;
+            font-weight: 700;
+            color: #333;
+            text-align: center;
+        }
+        .ticker-middle .time-line {
+            font-size: 12px;
+            font-weight: 700;
+            color: #666;
+            line-height: 14px;
+            padding-top: 4px;
+            text-align: center;
+        }
+        .ticker-no-games {
+            text-align: center;
+            color: #666;
+            padding: 15px 20px;
+            font-size: 13px;
+            flex-shrink: 0;
+        }
+        /* Scroll arrows for games list */
+        .ticker-scroll-arrow {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+        }
+        .ticker-scroll-arrow.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .ticker-scroll-arrow.left {
+            left: 100px; /* After date nav */
+            background: linear-gradient(to right, #fff 60%, transparent);
+        }
+        .ticker-scroll-arrow.right {
+            right: 0;
+            background: linear-gradient(to left, #fff 60%, transparent);
+        }
+        .ticker-scroll-arrow svg {
+            width: 20px;
+            height: 20px;
+            fill: #666;
+        }
+        .ticker-scroll-arrow:hover svg {
+            fill: #333;
+        }
     </style>
 </head>
 <body>
@@ -262,9 +450,30 @@
     <div class="dashboard-container">
         <h1>NBA 球隊位置互動儀表板</h1>
 
-        <!-- Sportradar Score Ticker -->
+        <!-- Sportradar Score Ticker (localhost only) -->
         <div class="score-ticker-container" id="scoreTickerContainer">
             <div class="sr-widget" data-sr-widget="us.common.scoreTicker" data-sr-sport="nba"></div>
+        </div>
+
+        <!-- ESPN Custom Score Ticker (cloud/deployed sites) -->
+        <div class="espn-ticker-container" id="espnTickerContainer">
+            <div class="ticker-scroll-arrow left" id="tickerScrollLeft">
+                <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </div>
+            <div class="ticker-scroll-arrow right" id="tickerScrollRight">
+                <svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
+            </div>
+            <div class="espn-ticker-scroll" id="espnTickerScroll">
+                <div class="ticker-date-nav">
+                    <button id="tickerPrevDay">‹</button>
+                    <div class="ticker-date-text" id="tickerDateText">
+                        <span class="day">MON</span>
+                        <span class="date">JAN 26</span>
+                    </div>
+                    <button id="tickerNextDay">›</button>
+                </div>
+                <div class="ticker-no-games">載入中...</div>
+            </div>
         </div>
 
         <div class="main-content">
@@ -291,29 +500,502 @@
     </div>
 
     <script>
-        // Check if running on localhost and manage Sportradar widget visibility
+        // Check if running on localhost and manage ticker visibility
         function checkLocalhost() {
             const isLocalhost = window.location.hostname === 'localhost' ||
                                 window.location.hostname === '127.0.0.1' ||
                                 window.location.hostname === '' ||
                                 window.location.protocol === 'file:';
 
-            const tickerContainer = document.getElementById('scoreTickerContainer');
+            const sportradarTicker = document.getElementById('scoreTickerContainer');
+            const espnTicker = document.getElementById('espnTickerContainer');
             const pageTitle = document.querySelector('h1');
 
             if (isLocalhost) {
-                // Show Sportradar widget on localhost, hide title
-                tickerContainer.classList.remove('hidden');
+                // Show Sportradar ticker on localhost only, hide ESPN ticker and title
+                sportradarTicker.classList.remove('hidden');
+                espnTicker.classList.remove('show');
                 if (pageTitle) pageTitle.style.display = 'none';
+                // Don't call fetchEspnTicker() on localhost
             } else {
-                // Hide Sportradar widget and show title on deployed sites
-                tickerContainer.classList.add('hidden');
-                if (pageTitle) pageTitle.style.display = '';
+                // Hide Sportradar, show ESPN ticker on deployed sites, hide title
+                sportradarTicker.classList.add('hidden');
+                espnTicker.classList.add('show');
+                if (pageTitle) pageTitle.style.display = 'none';
+                fetchEspnTicker();
             }
         }
 
-        // Run the check when page loads
-        document.addEventListener('DOMContentLoaded', checkLocalhost);
+        // ESPN Ticker: day offset from today (-1=yesterday, 0=today, 1=tomorrow)
+        let tickerDayOffset = 0;
+
+        // Get date with offset from today in LOCAL timezone, returns YYYYMMDD
+        // This ensures the date navigation matches the user's local time
+        function getDateWithOffset(offset) {
+            // Get current time in local timezone
+            const now = new Date();
+            const localDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+            localDate.setDate(localDate.getDate() + offset);
+            
+            return localDate.getFullYear() +
+                String(localDate.getMonth() + 1).padStart(2, '0') +
+                String(localDate.getDate()).padStart(2, '0');
+        }
+
+        // Format YYYYMMDD to display (e.g., "MON JAN 26") - using local timezone
+        function formatDateForDisplay(yyyymmdd) {
+            const year = parseInt(yyyymmdd.substring(0, 4));
+            const month = parseInt(yyyymmdd.substring(4, 6)) - 1;
+            const day = parseInt(yyyymmdd.substring(6, 8));
+            const date = new Date(year, month, day, 12, 0, 0);
+            const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+            const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+            return {
+                day: days[date.getDay()],
+                date: `${months[date.getMonth()]} ${date.getDate()}`
+            };
+        }
+
+        // Update navigation arrow visibility (hide at boundaries)
+        function updateNavArrows() {
+            const prevBtn = document.getElementById('tickerPrevDay');
+            const nextBtn = document.getElementById('tickerNextDay');
+            // Hide left arrow at yesterday (-1), hide right arrow at tomorrow (+1)
+            prevBtn.style.visibility = tickerDayOffset <= -1 ? 'hidden' : 'visible';
+            nextBtn.style.visibility = tickerDayOffset >= 1 ? 'hidden' : 'visible';
+        }
+
+        // Fetch ESPN ticker with a custom display label (for fallback to yesterday while showing today's date)
+        function fetchEspnTickerWithLabel(fetchDate, displayLabelDate) {
+            const container = document.getElementById('espnTickerScroll');
+            const dateTextEl = document.getElementById('tickerDateText');
+
+            console.log('=== ESPN Ticker With Label ===');
+            console.log('Fetch date:', fetchDate);
+            console.log('Display label date:', displayLabelDate);
+
+            const url = `https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates=${fetchDate}`;
+
+            fetch(url)
+                .then(res => res.json())
+                .then(data => {
+                    // Keep date nav, clear games
+                    const dateNav = container.querySelector('.ticker-date-nav');
+                    container.innerHTML = '';
+                    container.appendChild(dateNav);
+
+                    // Use the displayLabelDate for the date label (shows "today" even when fetching yesterday)
+                    const formatted = formatDateForDisplay(displayLabelDate);
+                    dateTextEl.innerHTML = `
+                        <span class="day">${formatted.day}</span>
+                        <span class="date">${formatted.date}</span>
+                    `;
+
+                    if (!data.events || data.events.length === 0) {
+                        container.innerHTML = '';
+                        container.appendChild(dateNav);
+                        const noGames = document.createElement('div');
+                        noGames.className = 'ticker-no-games';
+                        noGames.textContent = '無比賽';
+                        container.appendChild(noGames);
+                        return;
+                    }
+
+                    // Render games (reuse the same rendering logic)
+                    const tickerAbbrMap = {
+                        'NY': 'NYK', 'NO': 'NOP', 'SA': 'SAS',
+                        'GS': 'GSW', 'UTAH': 'UTA', 'WSH': 'WAS'
+                    };
+                    const mapAbbr = (abbr) => tickerAbbrMap[abbr] || abbr;
+
+                    data.events.forEach(event => {
+                        const competition = event.competitions[0];
+                        const status = event.status.type;
+                        const isLive = status.name === 'STATUS_IN_PROGRESS';
+                        const isFinal = status.name === 'STATUS_FINAL';
+                        const isScheduled = status.name === 'STATUS_SCHEDULED';
+
+                        const homeTeam = competition.competitors.find(c => c.homeAway === 'home');
+                        const awayTeam = competition.competitors.find(c => c.homeAway === 'away');
+                        const awayAbbr = mapAbbr(awayTeam.team.abbreviation);
+                        const homeAbbr = mapAbbr(homeTeam.team.abbreviation);
+
+                        const gameCard = document.createElement('div');
+                        gameCard.className = 'ticker-game';
+                        if (isLive) gameCard.classList.add('live');
+
+                        const awayDiv = document.createElement('div');
+                        awayDiv.className = 'ticker-team';
+                        awayDiv.innerHTML = `
+                            <img src="${awayTeam.team.logo}" alt="${awayAbbr}">
+                            <span class="abbr">${awayAbbr}</span>
+                        `;
+
+                        const middleDiv = document.createElement('div');
+                        middleDiv.className = 'ticker-middle';
+
+                        if (isScheduled) {
+                            const gameDate = new Date(event.date);
+                            const dateShort = `${gameDate.getMonth() + 1}/${gameDate.getDate()}`;
+                            const timeStr = gameDate.toLocaleTimeString('en-US', {
+                                hour: 'numeric', minute: '2-digit', hour12: true
+                            });
+                            middleDiv.innerHTML = `
+                                <span class="date-line">${dateShort}</span>
+                                <span class="time-line">${timeStr}</span>
+                            `;
+                        } else if (isLive) {
+                            middleDiv.innerHTML = `
+                                <span class="status-line live">${status.detail || 'LIVE'}</span>
+                                <span class="score-line">${awayTeam.score} - ${homeTeam.score}</span>
+                            `;
+                        } else {
+                            const awayClass = awayTeam.winner ? 'winner' : 'loser';
+                            const homeClass = homeTeam.winner ? 'winner' : 'loser';
+                            middleDiv.innerHTML = `
+                                <span class="status-line">FINAL</span>
+                                <span class="score-line"><span class="${awayClass}">${awayTeam.score}</span> - <span class="${homeClass}">${homeTeam.score}</span></span>
+                            `;
+                        }
+
+                        const homeDiv = document.createElement('div');
+                        homeDiv.className = 'ticker-team';
+                        homeDiv.innerHTML = `
+                            <img src="${homeTeam.team.logo}" alt="${homeAbbr}">
+                            <span class="abbr">${homeAbbr}</span>
+                        `;
+
+                        gameCard.appendChild(awayDiv);
+                        gameCard.appendChild(middleDiv);
+                        gameCard.appendChild(homeDiv);
+                        container.appendChild(gameCard);
+                    });
+
+                    setTimeout(updateScrollArrows, 100);
+                })
+                .catch(err => {
+                    console.warn('Failed to fetch ESPN ticker with label:', err);
+                });
+        }
+
+        // Fetch and render ESPN score ticker (Sportradar style)
+        // Uses cross-day query: fetches both target date and previous date from ESPN API,
+        // then merges all games that have UTC dates falling on the target date
+        function fetchEspnTicker(forceDate = null) {
+            const container = document.getElementById('espnTickerScroll');
+            const dateTextEl = document.getElementById('tickerDateText');
+
+            // Get date based on current offset (or use forced date for fallback)
+            const requestDate = forceDate || getDateWithOffset(tickerDayOffset);
+
+            // Update navigation arrows
+            updateNavArrows();
+
+            // Debug
+            console.log('=== ESPN Ticker Debug (Cross-Day) ===');
+            console.log('Offset:', tickerDayOffset);
+            console.log('Request date:', requestDate);
+            console.log('Force date:', forceDate);
+            console.log('Local now:', new Date().toString());
+
+            // Calculate previous day for cross-day query
+            const prevDate = (() => {
+                const d = new Date(requestDate.slice(0, 4), parseInt(requestDate.slice(4, 6)) - 1, parseInt(requestDate.slice(6, 8)));
+                d.setDate(d.getDate() - 1);
+                const year = d.getFullYear();
+                const month = String(d.getMonth() + 1).padStart(2, '0');
+                const day = String(d.getDate()).padStart(2, '0');
+                return `${year}${month}${day}`;
+            })();
+
+            console.log('Previous date for cross-day query:', prevDate);
+
+            // Build URLs for both dates
+            const urlCurrent = `https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates=${requestDate}`;
+            const urlPrev = `https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates=${prevDate}`;
+
+            // Fetch both dates in parallel
+            Promise.all([
+                fetch(urlCurrent).then(res => res.json()),
+                fetch(urlPrev).then(res => res.json())
+            ])
+                .then(([dataCurrent, dataPrev]) => {
+                    // Target date for filtering - use LOCAL timezone
+                    const targetYear = parseInt(requestDate.slice(0, 4));
+                    const targetMonth = parseInt(requestDate.slice(4, 6)) - 1;
+                    const targetDay = parseInt(requestDate.slice(6, 8));
+                    const targetDateStr = `${requestDate.slice(0, 4)}-${requestDate.slice(4, 6)}-${requestDate.slice(6, 8)}`;
+                    console.log('Target LOCAL date for filtering:', targetDateStr);
+
+                    // Merge events from both responses, filtering by LOCAL date
+                    const allEvents = [];
+                    const seenIds = new Set();
+
+                    // Helper to check if event's LOCAL date matches target
+                    const matchesTargetDate = (event) => {
+                        // Convert UTC time to local date
+                        const gameDate = new Date(event.date);
+                        const localYear = gameDate.getFullYear();
+                        const localMonth = gameDate.getMonth();
+                        const localDay = gameDate.getDate();
+                        const matches = localYear === targetYear && localMonth === targetMonth && localDay === targetDay;
+                        if (matches) {
+                            console.log('Match:', event.shortName, 'UTC:', event.date, 'Local:', gameDate.toLocaleString());
+                        }
+                        return matches;
+                    };
+
+                    // Add events from current date query
+                    if (dataCurrent.events) {
+                        dataCurrent.events.forEach(event => {
+                            if (matchesTargetDate(event) && !seenIds.has(event.id)) {
+                                allEvents.push(event);
+                                seenIds.add(event.id);
+                            }
+                        });
+                    }
+
+                    // Add events from previous date query (for games that span timezone boundaries)
+                    if (dataPrev.events) {
+                        dataPrev.events.forEach(event => {
+                            if (matchesTargetDate(event) && !seenIds.has(event.id)) {
+                                allEvents.push(event);
+                                seenIds.add(event.id);
+                                console.log('Added from prev day API:', event.shortName, event.date);
+                            }
+                        });
+                    }
+
+                    // Sort by game time
+                    allEvents.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+                    console.log('Total merged events:', allEvents.length);
+
+                    // Smart date logic (Sportradar style):
+                    // If offset=0, no forceDate, and all games are scheduled (none live/final),
+                    // fall back to yesterday's games but KEEP today's date label
+                    if (tickerDayOffset === 0 && !forceDate && allEvents.length > 0) {
+                        const hasLiveOrFinal = allEvents.some(event => {
+                            const statusName = event.status.type.name;
+                            return statusName === 'STATUS_IN_PROGRESS' || statusName === 'STATUS_FINAL';
+                        });
+                        if (!hasLiveOrFinal) {
+                            console.log('All games scheduled, falling back to yesterday (keeping today label)...');
+                            // Pass today's date as the display label, but fetch yesterday's games
+                            fetchEspnTickerWithLabel(getDateWithOffset(-1), getDateWithOffset(0));
+                            return;
+                        }
+                    }
+
+                    // Keep date nav, clear games
+                    const dateNav = container.querySelector('.ticker-date-nav');
+                    container.innerHTML = '';
+                    container.appendChild(dateNav);
+
+                    // Update date display
+                    // Use displayLabel if provided (for fallback cases), otherwise use requestDate
+                    const displayDate = forceDate ? getDateWithOffset(tickerDayOffset) : requestDate;
+                    const formatted = formatDateForDisplay(displayDate);
+                    console.log('Display date:', displayDate, 'Day:', formatted.day);
+                    dateTextEl.innerHTML = `
+                        <span class="day">${formatted.day}</span>
+                        <span class="date">${formatted.date}</span>
+                    `;
+
+                    if (allEvents.length === 0) {
+                        const noGames = document.createElement('div');
+                        noGames.className = 'ticker-no-games';
+                        noGames.textContent = '無比賽';
+                        container.appendChild(noGames);
+                        return;
+                    }
+
+                    // Abbreviation mapping (ESPN -> standard)
+                    const tickerAbbrMap = {
+                        'NY': 'NYK', 'NO': 'NOP', 'SA': 'SAS',
+                        'GS': 'GSW', 'UTAH': 'UTA', 'WSH': 'WAS'
+                    };
+                    const mapAbbr = (abbr) => tickerAbbrMap[abbr] || abbr;
+
+                    allEvents.forEach(event => {
+                        const competition = event.competitions[0];
+                        const status = event.status.type;
+                        const isLive = status.name === 'STATUS_IN_PROGRESS';
+                        const isFinal = status.name === 'STATUS_FINAL';
+                        const isScheduled = status.name === 'STATUS_SCHEDULED';
+                        const isPostponed = status.name === 'STATUS_POSTPONED';
+
+                        // Skip postponed games
+                        if (isPostponed) {
+                            console.log('Skipping postponed game:', event.shortName);
+                            return;
+                        }
+
+                        // Show all games (scheduled, live, final)
+
+                        // Get teams
+                        const homeTeam = competition.competitors.find(c => c.homeAway === 'home');
+                        const awayTeam = competition.competitors.find(c => c.homeAway === 'away');
+
+                        // Map abbreviations
+                        const awayAbbr = mapAbbr(awayTeam.team.abbreviation);
+                        const homeAbbr = mapAbbr(homeTeam.team.abbreviation);
+
+                        // Create game card
+                        const gameCard = document.createElement('div');
+                        gameCard.className = 'ticker-game';
+                        if (isLive) gameCard.classList.add('live');
+
+                        // Away team (left): Logo on top, Abbr below
+                        const awayDiv = document.createElement('div');
+                        awayDiv.className = 'ticker-team';
+                        awayDiv.innerHTML = `
+                            <img src="${awayTeam.team.logo}" alt="${awayAbbr}">
+                            <span class="abbr">${awayAbbr}</span>
+                        `;
+
+                        // Middle section: depends on game status
+                        const middleDiv = document.createElement('div');
+                        middleDiv.className = 'ticker-middle';
+
+                        if (isScheduled) {
+                            // Scheduled: show date and time in LOCAL timezone (like Sportradar)
+                            const gameDate = new Date(event.date);
+                            const dateShort = `${gameDate.getMonth() + 1}/${gameDate.getDate()}`;
+                            const timeStr = gameDate.toLocaleTimeString('en-US', {
+                                hour: 'numeric',
+                                minute: '2-digit',
+                                hour12: true
+                            });
+                            middleDiv.innerHTML = `
+                                <span class="date-line">${dateShort}</span>
+                                <span class="time-line">${timeStr}</span>
+                            `;
+                        } else if (isLive) {
+                            // Live: show status (Q3 5:23) on top, score below
+                            const awayScore = awayTeam.score;
+                            const homeScore = homeTeam.score;
+                            middleDiv.innerHTML = `
+                                <span class="status-line live">${status.detail || 'LIVE'}</span>
+                                <span class="score-line">${awayScore} - ${homeScore}</span>
+                            `;
+                        } else {
+                            // Final: show FINAL on top, score below
+                            const awayClass = awayTeam.winner ? 'winner' : 'loser';
+                            const homeClass = homeTeam.winner ? 'winner' : 'loser';
+                            middleDiv.innerHTML = `
+                                <span class="status-line">FINAL</span>
+                                <span class="score-line"><span class="${awayClass}">${awayTeam.score}</span> - <span class="${homeClass}">${homeTeam.score}</span></span>
+                            `;
+                        }
+
+                        // Home team (right): Logo on top, Abbr below
+                        const homeDiv = document.createElement('div');
+                        homeDiv.className = 'ticker-team';
+                        homeDiv.innerHTML = `
+                            <img src="${homeTeam.team.logo}" alt="${homeAbbr}">
+                            <span class="abbr">${homeAbbr}</span>
+                        `;
+
+                        gameCard.appendChild(awayDiv);
+                        gameCard.appendChild(middleDiv);
+                        gameCard.appendChild(homeDiv);
+                        container.appendChild(gameCard);
+                    });
+
+                    // Update scroll arrows after content is rendered
+                    setTimeout(updateScrollArrows, 100);
+                })
+                .catch(err => {
+                    console.warn('Failed to fetch ESPN ticker:', err);
+                    const dateNav = container.querySelector('.ticker-date-nav');
+                    container.innerHTML = '';
+                    container.appendChild(dateNav);
+                    const noGames = document.createElement('div');
+                    noGames.className = 'ticker-no-games';
+                    noGames.textContent = '無法載入';
+                    container.appendChild(noGames);
+                    setTimeout(updateScrollArrows, 100);
+                });
+        }
+
+        // Run when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            checkLocalhost();
+
+            // Date navigation event listeners
+            document.getElementById('tickerPrevDay').addEventListener('click', () => {
+                if (tickerDayOffset > -1) {
+                    tickerDayOffset--;
+                    fetchEspnTicker();
+                }
+            });
+            document.getElementById('tickerNextDay').addEventListener('click', () => {
+                if (tickerDayOffset < 1) {
+                    tickerDayOffset++;
+                    fetchEspnTicker();
+                }
+            });
+
+            // Scroll arrows visibility for games list
+            const tickerScroll = document.getElementById('espnTickerScroll');
+            tickerScroll.addEventListener('scroll', updateScrollArrows);
+            window.addEventListener('resize', updateScrollArrows);
+
+            // Scroll arrow click handlers
+            document.getElementById('tickerScrollLeft').addEventListener('click', () => scrollTicker(-1));
+            document.getElementById('tickerScrollRight').addEventListener('click', () => scrollTicker(1));
+
+            // Initial arrow state
+            setTimeout(updateScrollArrows, 500);
+        });
+
+        // Update scroll arrow visibility based on scroll position
+        function updateScrollArrows() {
+            const container = document.getElementById('espnTickerScroll');
+            const leftArrow = document.getElementById('tickerScrollLeft');
+            const rightArrow = document.getElementById('tickerScrollRight');
+
+            if (!container || !leftArrow || !rightArrow) return;
+
+            const scrollLeft = container.scrollLeft;
+            const scrollWidth = container.scrollWidth;
+            const clientWidth = container.clientWidth;
+            const dateNavWidth = 100; // Approximate width of date nav
+
+            // Show left arrow if scrolled past the beginning
+            if (scrollLeft > 10) {
+                leftArrow.classList.add('show');
+            } else {
+                leftArrow.classList.remove('show');
+            }
+
+            // Show right arrow if there's more content to scroll
+            if (scrollLeft + clientWidth < scrollWidth - 10) {
+                rightArrow.classList.add('show');
+            } else {
+                rightArrow.classList.remove('show');
+            }
+        }
+
+        // Scroll the games list
+        function scrollTicker(direction) {
+            const container = document.getElementById('espnTickerScroll');
+            const scrollAmount = 200; // Pixels to scroll
+            container.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+
+        // Auto-refresh ESPN ticker every 60 seconds when visible
+        setInterval(() => {
+            const espnTicker = document.getElementById('espnTickerContainer');
+            if (espnTicker.classList.contains('show')) {
+                // Refresh with current date to stay on same day
+                fetchEspnTicker();
+            }
+        }, 60000);
 
         const initialCenter = [39.8283, -98.5795];
         const initialZoom = 4;

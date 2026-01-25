@@ -5,7 +5,9 @@
       "WebFetch(domain:polymarket-upload.s3.us-east-2.amazonaws.com)",
       "WebSearch",
       "WebFetch(domain:site.api.espn.com)",
-      "WebFetch(domain:site.web.api.espn.com)"
+      "WebFetch(domain:site.web.api.espn.com)",
+      "WebFetch(domain:developer.sportradar.com)",
+      "WebFetch(domain:www.google.com)"
     ]
   }
 }
