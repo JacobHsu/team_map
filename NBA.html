@@ -611,7 +611,10 @@
                     data.events.forEach(event => {
                         const competition = event.competitions[0];
                         const status = event.status.type;
-                        const isLive = status.name === 'STATUS_IN_PROGRESS';
+                        // Include halftime, end of period, and other mid-game states as "live"
+                        const isLive = status.name === 'STATUS_IN_PROGRESS' || 
+                                       status.name === 'STATUS_HALFTIME' || 
+                                       status.name === 'STATUS_END_PERIOD';
                         const isFinal = status.name === 'STATUS_FINAL';
                         const isScheduled = status.name === 'STATUS_SCHEDULED';
 
@@ -820,7 +823,10 @@
                     allEvents.forEach(event => {
                         const competition = event.competitions[0];
                         const status = event.status.type;
-                        const isLive = status.name === 'STATUS_IN_PROGRESS';
+                        // Include halftime, end of period, and other mid-game states as "live"
+                        const isLive = status.name === 'STATUS_IN_PROGRESS' || 
+                                       status.name === 'STATUS_HALFTIME' || 
+                                       status.name === 'STATUS_END_PERIOD';
                         const isFinal = status.name === 'STATUS_FINAL';
                         const isScheduled = status.name === 'STATUS_SCHEDULED';
                         const isPostponed = status.name === 'STATUS_POSTPONED';
