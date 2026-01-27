@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
@@ -214,8 +214,8 @@
             padding-bottom: 4px;
             margin-bottom: 4px;
         }
-        .tooltip-details { 
-            color: #333; 
+        .tooltip-details {
+            color: #333;
             font-size: 14px;
         }
         .tooltip-details .name-en {
@@ -536,7 +536,7 @@
             const now = new Date();
             const localDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
             localDate.setDate(localDate.getDate() + offset);
-            
+
             return localDate.getFullYear() +
                 String(localDate.getMonth() + 1).padStart(2, '0') +
                 String(localDate.getDate()).padStart(2, '0');
@@ -612,8 +612,8 @@
                         const competition = event.competitions[0];
                         const status = event.status.type;
                         // Include halftime, end of period, and other mid-game states as "live"
-                        const isLive = status.name === 'STATUS_IN_PROGRESS' || 
-                                       status.name === 'STATUS_HALFTIME' || 
+                        const isLive = status.name === 'STATUS_IN_PROGRESS' ||
+                                       status.name === 'STATUS_HALFTIME' ||
                                        status.name === 'STATUS_END_PERIOD';
                         const isFinal = status.name === 'STATUS_FINAL';
                         const isScheduled = status.name === 'STATUS_SCHEDULED';
@@ -824,8 +824,8 @@
                         const competition = event.competitions[0];
                         const status = event.status.type;
                         // Include halftime, end of period, and other mid-game states as "live"
-                        const isLive = status.name === 'STATUS_IN_PROGRESS' || 
-                                       status.name === 'STATUS_HALFTIME' || 
+                        const isLive = status.name === 'STATUS_IN_PROGRESS' ||
+                                       status.name === 'STATUS_HALFTIME' ||
                                        status.name === 'STATUS_END_PERIOD';
                         const isFinal = status.name === 'STATUS_FINAL';
                         const isScheduled = status.name === 'STATUS_SCHEDULED';
@@ -1019,7 +1019,7 @@
             { name: "紐約尼克", name_en: "New York Knicks", abbr: "NYK", city: "紐約", state: "NY", lat: 40.7505, lon: -73.9934, logo: "https://a.espncdn.com/i/teamlogos/nba/500/nyk.png", league: "East", division: "Atlantic" },
             { name: "費城76人", name_en: "Philadelphia 76ers", abbr: "PHI", city: "費城", state: "PA", lat: 39.9012, lon: -75.1720, logo: "https://a.espncdn.com/i/teamlogos/nba/500/phi.png", league: "East", division: "Atlantic" },
             { name: "多倫多暴龍", name_en: "Toronto Raptors", abbr: "TOR", city: "多倫多", state: "ON", lat: 43.6435, lon: -79.3791, logo: "https://a.espncdn.com/i/teamlogos/nba/500/tor.png", league: "East", division: "Atlantic" },
-            
+
             // Eastern Conference - Central
             { name: "芝加哥公牛", name_en: "Chicago Bulls", abbr: "CHI", city: "芝加哥", state: "IL", lat: 41.8807, lon: -87.6742, logo: "https://a.espncdn.com/i/teamlogos/nba/500/chi.png", league: "East", division: "Central" },
             { name: "克里夫蘭騎士", name_en: "Cleveland Cavaliers", abbr: "CLE", city: "克里夫蘭", state: "OH", lat: 41.4966, lon: -81.6882, logo: "https://a.espncdn.com/i/teamlogos/nba/500/cle.png", league: "East", division: "Central" },
@@ -1086,7 +1086,7 @@
                 btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 2h2v4h-2V5zm-4 8h2v6H8v-6zm8-2h2v8h-2v-8zm-4 4h2v4h-2v-4zM8 7h2v4H8V7z"/></svg>';
                 L.DomEvent.on(btn, 'click', function (e) {
                     L.DomEvent.stop(e);
-                    window.open('https://www.oddsportal.com/basketball/usa/nba/', '_blank');
+                    window.location.href = 'odds';
                 });
                 return btn;
             },
@@ -1131,7 +1131,7 @@
                 </div>
                 <img class="polymarket-logo" src="https://polymarket.com/_next/image?url=https%3A%2F%2Fpolymarket-upload.s3.us-east-2.amazonaws.com%2FNBA%2BTeam%2BLogos%2F${team.abbr}.png&w=96&q=75" alt="${team.abbr}" onerror="this.style.display='none'">
             `;
-            
+
             legendItem.addEventListener('click', function() {
                 const teamAbbr = this.dataset.teamAbbr;
                 const targetMarker = markers[teamAbbr];

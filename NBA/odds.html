@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA Betting Odds</title>
+    <link rel="icon" type="image/png" href="https://www.nba.com/favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #fafafa;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            padding: 20px 30px;
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        h1 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #333;
+        }
+        .main-content {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+        }
+        .calendar-sidebar {
+            width: 280px;
+            background: #fff;
+            border-right: 1px solid #eee;
+            padding: 20px;
+            flex-shrink: 0;
+            overflow-y: auto;
+        }
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .calendar-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #333;
+        }
+                .calendar-weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 2px;
+            margin-bottom: 5px;
+        }
+        .calendar-weekdays span {
+            text-align: center;
+            font-size: 11px;
+            font-weight: 500;
+            color: #999;
+            padding: 5px 0;
+        }
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 2px;
+        }
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            border-radius: 6px;
+            cursor: default;
+            color: #ccc;
+            background: #fafafa;
+            transition: all 0.15s;
+        }
+        .calendar-day.other-month {
+            color: #ddd;
+        }
+        .calendar-day.has-data {
+            background: #fff;
+            color: #333;
+            cursor: pointer;
+            border: 1px solid #eee;
+        }
+        .calendar-day.has-data:hover {
+            background: #f0f7ff;
+            border-color: #3b82f6;
+        }
+        .calendar-day.selected {
+            background: #3b82f6;
+            color: #fff;
+            border-color: #3b82f6;
+        }
+        .calendar-day.today {
+            font-weight: 700;
+        }
+        .calendar-day.today.has-data:not(.selected) {
+            border-color: #3b82f6;
+        }
+        .data-count {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            font-size: 12px;
+            color: #999;
+        }
+        .data-count strong {
+            color: #3b82f6;
+        }
+        .screenshot-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            overflow: auto;
+            background: #fafafa;
+            position: relative;
+        }
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            color: #666;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.15s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            z-index: 10;
+        }
+        .nav-arrow:hover:not(:disabled) {
+            background: #f5f5f5;
+            border-color: #3b82f6;
+            color: #3b82f6;
+        }
+        .nav-arrow:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+        .nav-arrow.prev { left: 20px; }
+        .nav-arrow.next { right: 20px; }
+        .screenshot {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        .no-image {
+            text-align: center;
+            color: #bbb;
+        }
+        .no-image svg {
+            width: 64px;
+            height: 64px;
+            fill: #ddd;
+            margin-bottom: 15px;
+        }
+        .no-image p {
+            font-size: 14px;
+        }
+        .keyboard-hint {
+            font-size: 11px;
+            color: #bbb;
+            margin-top: 20px;
+        }
+        .keyboard-hint kbd {
+            display: inline-block;
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: inherit;
+            font-size: 10px;
+        }
+        .loading {
+            color: #999;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>NBA Betting Odds</h1>
+    </header>
+
+    <div class="main-content">
+        <div class="calendar-sidebar">
+            <div class="calendar-header">
+                <span class="calendar-title" id="calendarTitle">2024 年 1 月</span>
+            </div>
+            <div class="calendar-weekdays">
+                <span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span>
+            </div>
+            <div class="calendar-days" id="calendarDays"></div>
+            <div class="data-count" id="dataCount">
+                掃描中...
+            </div>
+            <div class="keyboard-hint">
+                <kbd>←</kbd> <kbd>→</kbd> 切換日期
+            </div>
+        </div>
+
+        <div class="screenshot-container">
+            <button class="nav-arrow prev" id="prevDay" aria-label="上一日">‹</button>
+            <img class="screenshot" id="screenshot" src="" alt="NBA Odds Screenshot" style="display: none;">
+            <div class="no-image" id="noImage">
+                <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                <p>選擇有資料的日期</p>
+            </div>
+            <button class="nav-arrow next" id="nextDay" aria-label="下一日">›</button>
+        </div>
+    </div>
+
+    <script>
+        const screenshot = document.getElementById('screenshot');
+        const noImage = document.getElementById('noImage');
+        const calendarTitle = document.getElementById('calendarTitle');
+        const calendarDays = document.getElementById('calendarDays');
+        const dataCount = document.getElementById('dataCount');
+        const prevDayBtn = document.getElementById('prevDay');
+        const nextDayBtn = document.getElementById('nextDay');
+
+        // Screenshot path (relative to NBA folder)
+        const SCREENSHOT_PATH = '../screenshots';
+
+        // Available days (will be populated by scanning)
+        const availableDays = new Set();
+        let currentMonth = new Date().getMonth();
+        let currentYear = new Date().getFullYear();
+        let selectedDay = null;
+
+        // Scan for available screenshots (1-31)
+        async function scanAvailableScreenshots() {
+            const promises = [];
+            for (let day = 1; day <= 31; day++) {
+                const dayStr = String(day).padStart(2, '0');
+                const imgPath = `${SCREENSHOT_PATH}/oddsportal_nba_${dayStr}.png`;
+
+                promises.push(new Promise(resolve => {
+                    const img = new Image();
+                    img.onload = () => resolve(day);
+                    img.onerror = () => resolve(null);
+                    img.src = imgPath;
+                }));
+            }
+
+            const results = await Promise.all(promises);
+            results.forEach(day => {
+                if (day !== null) availableDays.add(day);
+            });
+
+            dataCount.innerHTML = `共 <strong>${availableDays.size}</strong> 筆資料`;
+            renderCalendar();
+
+            // Auto-select the most recent available day
+            if (availableDays.size > 0) {
+                const today = new Date().getDate();
+                // Find the closest available day to today (prefer today or earlier)
+                let bestDay = null;
+                for (let d = today; d >= 1; d--) {
+                    if (availableDays.has(d)) { bestDay = d; break; }
+                }
+                if (!bestDay) {
+                    for (let d = today + 1; d <= 31; d++) {
+                        if (availableDays.has(d)) { bestDay = d; break; }
+                    }
+                }
+                if (bestDay) selectDay(bestDay);
+            }
+        }
+
+        function renderCalendar() {
+            const firstDay = new Date(currentYear, currentMonth, 1);
+            const lastDay = new Date(currentYear, currentMonth + 1, 0);
+            const startPadding = firstDay.getDay();
+            const totalDays = lastDay.getDate();
+            const today = new Date();
+
+            calendarTitle.textContent = `${currentYear} 年 ${currentMonth + 1} 月`;
+            calendarDays.innerHTML = '';
+
+            // Previous month padding
+            const prevMonthLast = new Date(currentYear, currentMonth, 0).getDate();
+            for (let i = startPadding - 1; i >= 0; i--) {
+                const dayEl = document.createElement('div');
+                dayEl.className = 'calendar-day other-month';
+                dayEl.textContent = prevMonthLast - i;
+                calendarDays.appendChild(dayEl);
+            }
+
+            // Current month days
+            for (let day = 1; day <= totalDays; day++) {
+                const dayEl = document.createElement('div');
+                dayEl.className = 'calendar-day';
+                dayEl.textContent = day;
+
+                const isToday = today.getDate() === day &&
+                               today.getMonth() === currentMonth &&
+                               today.getFullYear() === currentYear;
+
+                if (isToday) dayEl.classList.add('today');
+                if (availableDays.has(day)) {
+                    dayEl.classList.add('has-data');
+                    dayEl.addEventListener('click', () => selectDay(day));
+                }
+                if (selectedDay === day) dayEl.classList.add('selected');
+
+                calendarDays.appendChild(dayEl);
+            }
+
+            // Next month padding
+            const totalCells = startPadding + totalDays;
+            const remaining = totalCells % 7 === 0 ? 0 : 7 - (totalCells % 7);
+            for (let i = 1; i <= remaining; i++) {
+                const dayEl = document.createElement('div');
+                dayEl.className = 'calendar-day other-month';
+                dayEl.textContent = i;
+                calendarDays.appendChild(dayEl);
+            }
+        }
+
+        function selectDay(day) {
+            selectedDay = day;
+            renderCalendar();
+            updateArrowStates();
+
+            const dayStr = String(day).padStart(2, '0');
+            const imgPath = `${SCREENSHOT_PATH}/oddsportal_nba_${dayStr}.png`;
+
+            screenshot.src = imgPath;
+            screenshot.style.display = 'block';
+            noImage.style.display = 'none';
+        }
+
+        function updateArrowStates() {
+            const sortedDays = Array.from(availableDays).sort((a, b) => a - b);
+            const currentIndex = sortedDays.indexOf(selectedDay);
+
+            prevDayBtn.disabled = currentIndex <= 0;
+            nextDayBtn.disabled = currentIndex >= sortedDays.length - 1;
+        }
+
+        function navigateDay(direction) {
+            if (availableDays.size === 0) return;
+
+            const sortedDays = Array.from(availableDays).sort((a, b) => a - b);
+            const currentIndex = sortedDays.indexOf(selectedDay);
+
+            if (direction === -1 && currentIndex > 0) {
+                selectDay(sortedDays[currentIndex - 1]);
+            } else if (direction === 1 && currentIndex < sortedDays.length - 1) {
+                selectDay(sortedDays[currentIndex + 1]);
+            }
+        }
+
+        // Event listeners
+        prevDayBtn.addEventListener('click', () => navigateDay(-1));
+        nextDayBtn.addEventListener('click', () => navigateDay(1));
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') navigateDay(-1);
+            else if (e.key === 'ArrowRight') navigateDay(1);
+        });
+
+        // Initialize
+        prevDayBtn.disabled = true;
+        nextDayBtn.disabled = true;
+        scanAvailableScreenshots();
+    </script>
+</body>
+</html>
