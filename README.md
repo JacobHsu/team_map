@@ -132,3 +132,29 @@
      data-sr-sport="mlb">
 </div>
 ```
+
+## OddsPortal 截圖
+
+自動擷取 [OddsPortal NBA](https://www.oddsportal.com/basketball/usa/nba/) 賠率頁面截圖。
+
+### 手動執行
+
+```bash
+# 安裝依賴
+pip install -r requirements.txt
+
+# 設定 API Key（首次）
+# 建立 .env 檔案，內容：
+# SCREENSHOTONE_ACCESS_KEY=your_api_key
+
+# 執行截圖
+python screenshot.py
+```
+
+截圖儲存於 `screenshots/oddsportal_nba_DD.png`（DD = 日期 01-31）。
+
+### GitHub Actions 自動執行
+
+- **執行時間**：每日台灣 07:00（NBA 賽季 10-6 月）
+- **設定方式**：到 repo Settings → Secrets → Actions，新增 `SCREENSHOTONE_ACCESS_KEY`
+- **手動觸發**：Actions → Daily Screenshot → Run workflow
