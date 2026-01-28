@@ -8,7 +8,9 @@
       "WebFetch(domain:site.web.api.espn.com)",
       "WebFetch(domain:developer.sportradar.com)",
       "WebFetch(domain:www.google.com)",
-      "Bash(copy \"D:\\\\1-github\\\\team_map\\\\NBA.html\" \"D:\\\\1-github\\\\team_map\\\\NBA\\\\index.html\")"
+      "Bash(copy \"D:\\\\1-github\\\\team_map\\\\NBA.html\" \"D:\\\\1-github\\\\team_map\\\\NBA\\\\index.html\")",
+      "WebFetch(domain:widgets.proballers.com)",
+      "WebFetch(domain:www.proballers.com)"
     ]
   }
 }

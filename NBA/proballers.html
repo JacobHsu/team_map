@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA Schedule - Proballers</title>
+    <link rel="icon" type="image/png" href="https://www.proballers.com/images/favicon.ico">
+    <style>
+        body, header {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #fafafa;
+            min-height: 100vh;
+        }
+        header {
+            padding: 15px 30px;
+            background: #f0f0f0;
+            text-align: center;
+        }
+        header a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #2563eb;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        header a:hover {
+            opacity: 0.8;
+        }
+        header img {
+            width: 28px;
+            height: 28px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="https://widgets.proballers.com/en" target="_blank" rel="noreferrer" title="Proballers">
+            <img src="https://www.proballers.com/images/favicon.ico" alt="Proballers">
+            <span>Proballers</span>
+        </a>
+    </header>
+
+    <!-- League Schedule Results Banner (iframe 隔離避免 CSS 衝突) -->
+    <iframe src="proballers-schedule.html" style="width: 100%; height: 200px; border: none; margin-top: 20px;"></iframe>
+
+    <!-- League Standings Banner -->
+    <script src="https://widgets.proballers.com/dist/league-standings-banner-widget-v1.0.js"></script>
+    <script>window.addEventListener("load", (event) => { PbLeagueStandingsBannerWidget.render() })</script>
+    <div class="proballers-widget-league-standings-banner" data-proballers-widget-id="3474617e-bb0d-4792-9e2a-838b1ae1ce15" data-proballers-base-url="https://widgets.proballers.com" style="font-family: Montserrat, sans-serif;">
+        <a href="https://www.proballers.com/" target="_blank" rel="noreferrer">See stats on Proballers</a>
+    </div>
+
+
+    <script src="https://widgets.proballers.com/dist/team-schedule-results-full-widget-v1.0.js"></script><script>window.addEventListener("load", (event) => { PbTeamScheduleResultsFullWidget.render() })</script><div class="proballers-widget-team-schedule-results-full" data-proballers-widget-id="2665a464-cafc-4f4c-96fb-3addd16c719f"  style="font-family: Montserrat, sans-serif;"><a href="https://www.proballers.com/" target="_blank" rel="noreferrer">Oklahoma City Thunder (OKC)</a></div>
+
+
+</body>
+</html>
