@@ -31,6 +31,7 @@ def build_screenshot_url(target: dict) -> str:
         "viewport_width": 1920,
         "viewport_height": 1080,
         "delay": 3,  # Wait for page to load
+        "scripts": "document.querySelectorAll('[class*=\"modal\"], [class*=\"popup\"], [class*=\"overlay\"], [class*=\"banner\"]').forEach(el => el.remove());",
     }
 
     if target.get("selector"):
