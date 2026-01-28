@@ -929,6 +929,15 @@
         document.addEventListener('DOMContentLoaded', () => {
             checkLocalhost();
 
+            // Keyboard shortcuts: Shift+O = odds.html, Shift+P = proballers.html
+            document.addEventListener('keydown', (e) => {
+                if (e.shiftKey && e.key === 'O') {
+                    window.open('odds.html', '_blank');
+                } else if (e.shiftKey && e.key === 'P') {
+                    window.open('proballers.html', '_blank');
+                }
+            });
+
             // Date navigation event listeners
             document.getElementById('tickerPrevDay').addEventListener('click', () => {
                 if (tickerDayOffset > -1) {
