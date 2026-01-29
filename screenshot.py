@@ -30,7 +30,7 @@ def build_screenshot_url(target: dict) -> str:
         "block_cookie_banners": str(target.get("block_cookie_banners", True)).lower(),
         "viewport_width": 1920,
         "viewport_height": 1080,
-        "delay": 3,  # Wait for page to load
+        "delay": target.get("delay", 3),  # Use custom delay or default 3s
         "scripts": "document.querySelectorAll('[class*=\"modal\"], [class*=\"popup\"], [class*=\"overlay\"], [class*=\"banner\"]').forEach(el => el.remove());",
     }
 
