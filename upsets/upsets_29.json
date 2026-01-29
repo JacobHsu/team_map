@@ -1,0 +1,54 @@
+{
+  "date": "2026-01-29",
+  "updated": "2026-01-29 23:11",
+  "total_games": 9,
+  "upset_count": 5,
+  "upset_rate": 56,
+  "upsets": [
+    {
+      "winner_tricode": "ATL",
+      "winner": "Atlanta Hawks",
+      "winner_score": 117,
+      "winner_odds": 170,
+      "loser_tricode": "BOS",
+      "loser": "Boston Celtics",
+      "loser_score": 106
+    },
+    {
+      "winner_tricode": "ORL",
+      "winner": "Orlando Magic",
+      "winner_score": 133,
+      "winner_odds": 125,
+      "loser_tricode": "MIA",
+      "loser": "Miami Heat",
+      "loser_score": 124
+    },
+    {
+      "winner_tricode": "SAS",
+      "winner": "San Antonio Spurs",
+      "winner_score": 111,
+      "winner_odds": 120,
+      "loser_tricode": "HOU",
+      "loser": "Houston Rockets",
+      "loser_score": 99
+    },
+    {
+      "winner_tricode": "IND",
+      "winner": "Indiana Pacers",
+      "winner_score": 113,
+      "winner_odds": 106,
+      "loser_tricode": "CHI",
+      "loser": "Chicago Bulls",
+      "loser_score": 110
+    },
+    {
+      "winner_tricode": "NYK",
+      "winner": "New York Knicks",
+      "winner_score": 119,
+      "winner_odds": 104,
+      "loser_tricode": "TOR",
+      "loser": "Toronto Raptors",
+      "loser_score": 92
+    }
+  ]
+}

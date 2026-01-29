@@ -57,7 +57,7 @@
             font-weight: 600;
             color: #333;
         }
-                .calendar-weekdays {
+        .calendar-weekdays {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             gap: 2px;
@@ -121,15 +121,21 @@
         .data-count strong {
             color: #3b82f6;
         }
+        .content-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: auto;
+        }
         .screenshot-container {
             flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 30px;
-            overflow: auto;
             background: #fafafa;
             position: relative;
+            min-height: 400px;
         }
         .nav-arrow {
             position: absolute;
@@ -195,11 +201,54 @@
             font-family: inherit;
             font-size: 10px;
         }
-        .loading {
-            color: #999;
+        
+        /* Underdog line with logos */
+        .underdog-line {
+            padding: 15px 30px;
+            background: #fff;
+            border-top: 1px solid #eee;
             font-size: 14px;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .underdog-date {
+            font-weight: 700;
+            color: #000;
+        }
+        .underdog-label {
+            color: #000;
+            font-weight: 600;
+        }
+        .underdog-teams {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .underdog-team {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+        .underdog-team img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+        .underdog-team span {
+            font-weight: 600;
+            color: #333;
+        }
+        .underdog-count {
+            color: #888;
+            font-size: 13px;
         }
     </style>
+
 </head>
 <body>
     <header>
@@ -223,14 +272,21 @@
             </div>
         </div>
 
-        <div class="screenshot-container">
-            <button class="nav-arrow prev" id="prevDay" aria-label="上一日">‹</button>
-            <img class="screenshot" id="screenshot" src="" alt="NBA Odds Screenshot" style="display: none;">
-            <div class="no-image" id="noImage">
-                <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
-                <p>選擇有資料的日期</p>
+        <div class="content-area">
+            <div class="screenshot-container">
+                <button class="nav-arrow prev" id="prevDay" aria-label="上一日">‹</button>
+                <img class="screenshot" id="screenshot" src="" alt="NBA Odds Screenshot" style="display: none;">
+                <div class="no-image" id="noImage">
+                    <svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                    <p>選擇有資料的日期</p>
+                </div>
+                <button class="nav-arrow next" id="nextDay" aria-label="下一日">›</button>
             </div>
-            <button class="nav-arrow next" id="nextDay" aria-label="下一日">›</button>
+            
+            <!-- Simple underdog line -->
+            <div class="underdog-line" id="underdogLine">
+                underdog: -
+            </div>
         </div>
     </div>
 
@@ -242,23 +298,19 @@
         const dataCount = document.getElementById('dataCount');
         const prevDayBtn = document.getElementById('prevDay');
         const nextDayBtn = document.getElementById('nextDay');
+        const underdogLine = document.getElementById('underdogLine');
 
-        // Screenshot path (relative to NBA folder)
         const SCREENSHOT_PATH = '../screenshots';
-
-        // Available days (will be populated by scanning)
         const availableDays = new Set();
         let currentMonth = new Date().getMonth();
         let currentYear = new Date().getFullYear();
         let selectedDay = null;
 
-        // Scan for available screenshots (1-31)
         async function scanAvailableScreenshots() {
             const promises = [];
             for (let day = 1; day <= 31; day++) {
                 const dayStr = String(day).padStart(2, '0');
                 const imgPath = `${SCREENSHOT_PATH}/oddsportal_nba_${dayStr}.png`;
-
                 promises.push(new Promise(resolve => {
                     const img = new Image();
                     img.onload = () => resolve(day);
@@ -266,19 +318,14 @@
                     img.src = imgPath;
                 }));
             }
-
             const results = await Promise.all(promises);
             results.forEach(day => {
                 if (day !== null) availableDays.add(day);
             });
-
             dataCount.innerHTML = `共 <strong>${availableDays.size}</strong> 筆資料`;
             renderCalendar();
-
-            // Auto-select the most recent available day
             if (availableDays.size > 0) {
                 const today = new Date().getDate();
-                // Find the closest available day to today (prefer today or earlier)
                 let bestDay = null;
                 for (let d = today; d >= 1; d--) {
                     if (availableDays.has(d)) { bestDay = d; break; }
@@ -298,11 +345,8 @@
             const startPadding = firstDay.getDay();
             const totalDays = lastDay.getDate();
             const today = new Date();
-
             calendarTitle.textContent = `${currentYear} 年 ${currentMonth + 1} 月`;
             calendarDays.innerHTML = '';
-
-            // Previous month padding
             const prevMonthLast = new Date(currentYear, currentMonth, 0).getDate();
             for (let i = startPadding - 1; i >= 0; i--) {
                 const dayEl = document.createElement('div');
@@ -310,28 +354,19 @@
                 dayEl.textContent = prevMonthLast - i;
                 calendarDays.appendChild(dayEl);
             }
-
-            // Current month days
             for (let day = 1; day <= totalDays; day++) {
                 const dayEl = document.createElement('div');
                 dayEl.className = 'calendar-day';
                 dayEl.textContent = day;
-
-                const isToday = today.getDate() === day &&
-                               today.getMonth() === currentMonth &&
-                               today.getFullYear() === currentYear;
-
+                const isToday = today.getDate() === day && today.getMonth() === currentMonth && today.getFullYear() === currentYear;
                 if (isToday) dayEl.classList.add('today');
                 if (availableDays.has(day)) {
                     dayEl.classList.add('has-data');
                     dayEl.addEventListener('click', () => selectDay(day));
                 }
                 if (selectedDay === day) dayEl.classList.add('selected');
-
                 calendarDays.appendChild(dayEl);
             }
-
-            // Next month padding
             const totalCells = startPadding + totalDays;
             const remaining = totalCells % 7 === 0 ? 0 : 7 - (totalCells % 7);
             for (let i = 1; i <= remaining; i++) {
@@ -346,46 +381,68 @@
             selectedDay = day;
             renderCalendar();
             updateArrowStates();
-
             const dayStr = String(day).padStart(2, '0');
             const imgPath = `${SCREENSHOT_PATH}/oddsportal_nba_${dayStr}.png`;
-
             screenshot.src = imgPath;
             screenshot.style.display = 'block';
             noImage.style.display = 'none';
+            loadUpsetsData(day);
         }
 
         function updateArrowStates() {
             const sortedDays = Array.from(availableDays).sort((a, b) => a - b);
             const currentIndex = sortedDays.indexOf(selectedDay);
-
             prevDayBtn.disabled = currentIndex <= 0;
             nextDayBtn.disabled = currentIndex >= sortedDays.length - 1;
         }
 
         function navigateDay(direction) {
             if (availableDays.size === 0) return;
-
             const sortedDays = Array.from(availableDays).sort((a, b) => a - b);
             const currentIndex = sortedDays.indexOf(selectedDay);
-
             if (direction === -1 && currentIndex > 0) {
                 selectDay(sortedDays[currentIndex - 1]);
             } else if (direction === 1 && currentIndex < sortedDays.length - 1) {
                 selectDay(sortedDays[currentIndex + 1]);
             }
         }
+        
+        async function loadUpsetsData(day) {
+            // Load upsets data for selected day (upsets_DD.json) from upsets folder
+            const dayStr = String(day).padStart(2, '0');
+            try {
+                const response = await fetch(`../upsets/upsets_${dayStr}.json`);
+                if (!response.ok) throw new Error('No data');
+                const data = await response.json();
+                
+                if (data.upsets && data.upsets.length > 0) {
+                    const dateStr = data.date.substring(5).replace('-', '/'); // "01/29"
+                    const teamsHtml = data.upsets.map(u => {
+                        const logoUrl = `https://polymarket.com/_next/image?url=https%3A%2F%2Fpolymarket-upload.s3.us-east-2.amazonaws.com%2FNBA%2BTeam%2BLogos%2F${u.winner_tricode}.png&w=96&q=75`;
+                        return `<div class="underdog-team"><img src="${logoUrl}" alt="${u.winner_tricode}" onerror="this.style.display='none'"><span>${u.winner_tricode}</span></div>`;
+                    }).join('');
+                    
+                    underdogLine.innerHTML = `
+                        <span class="underdog-date">${dateStr}</span>
+                        <span class="underdog-label">underdog:</span>
+                        <div class="underdog-teams">${teamsHtml}</div>
+                        <span class="underdog-count">(${data.upset_count})</span>
+                    `;
+                } else {
+                    underdogLine.innerHTML = '<span class="underdog-label">underdog:</span> -';
+                }
+            } catch (error) {
+                underdogLine.innerHTML = '<span class="underdog-label">underdog:</span> -';
+            }
+        }
 
-        // Event listeners
         prevDayBtn.addEventListener('click', () => navigateDay(-1));
         nextDayBtn.addEventListener('click', () => navigateDay(1));
-
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft') navigateDay(-1);
             else if (e.key === 'ArrowRight') navigateDay(1);
         });
 
-        // Initialize
         prevDayBtn.disabled = true;
         nextDayBtn.disabled = true;
         scanAvailableScreenshots();

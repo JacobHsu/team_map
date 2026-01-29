@@ -31,10 +31,13 @@ jobs:
           SCREENSHOTONE_ACCESS_KEY: ${{ secrets.SCREENSHOTONE_ACCESS_KEY }}
         run: python screenshot.py
 
+      - name: Generate upsets data
+        run: python NBA/scrape_odds.py
+
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add screenshots/
+          git add screenshots/ upsets/
           git diff --staged --quiet || git commit -m "chore: update oddsportal screenshot $(date +%Y-%m-%d)"
           git push
