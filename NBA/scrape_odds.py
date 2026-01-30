@@ -103,6 +103,9 @@ def generate_upsets_json(games: list, output_path: str):
     
     Filename uses day of month (01-31) for automatic monthly rotation.
     e.g., upsets_27.json - will be overwritten next month on the 27th.
+    
+    Returns:
+        dict: Data with upset information including list of underdog tricodes
     """
     # Use Taiwan timezone (UTC+8)
     taiwan_tz = timezone(timedelta(hours=8))
@@ -138,6 +141,12 @@ def generate_upsets_json(games: list, output_path: str):
     print(f"Total games: {len(games)}, Upsets: {len(upsets)} ({data['upset_rate']}%)")
     for g in upsets:
         print(f"  🔥 {g['winner_tricode']} (+{g['winner_odds']}) beat {g['loser_tricode']} {g['winner_score']}-{g['loser_score']}")
+    
+    # Output underdog teams for GitHub Actions
+    if upsets:
+        underdog_teams = ",".join([g["winner_tricode"] for g in upsets])
+        print(f"\n::set-output name=underdogs::{underdog_teams}")
+        print(f"::set-output name=upset_count::{len(upsets)}")
     
     return data
 

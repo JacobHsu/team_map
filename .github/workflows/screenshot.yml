@@ -32,6 +32,7 @@ jobs:
         run: python screenshot.py
 
       - name: Generate upsets data
+        id: upsets
         run: python NBA/scrape_odds.py
 
       - name: Commit and push
@@ -39,5 +40,22 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add screenshots/ upsets/
-          git diff --staged --quiet || git commit -m "chore: update oddsportal screenshot $(date +%Y-%m-%d)"
+          
+          # Use Python to get Taiwan timezone date (UTC+8)
+          TAIWAN_DATE=$(python -c "from datetime import datetime, timezone, timedelta; print(datetime.now(timezone(timedelta(hours=8))).strftime('%Y-%m-%d'))")
+          TAIWAN_DAY=$(python -c "from datetime import datetime, timezone, timedelta; print(datetime.now(timezone(timedelta(hours=8))).strftime('%d'))")
+          
+          # Build commit message with underdog teams if any
+          COMMIT_MSG="chore: update oddsportal screenshot $TAIWAN_DATE"
+          
+          # Check if there are upsets and add to commit message
+          if [ -f "upsets/upsets_${TAIWAN_DAY}.json" ]; then
+            UPSET_COUNT=$(python -c "import json; data=json.load(open('upsets/upsets_${TAIWAN_DAY}.json')); print(data.get('upset_count', 0))")
+            if [ "$UPSET_COUNT" -gt 0 ]; then
+              UNDERDOGS=$(python -c "import json; data=json.load(open('upsets/upsets_${TAIWAN_DAY}.json')); print(','.join([u['winner_tricode'] for u in data.get('upsets', [])]))")
+              COMMIT_MSG="$COMMIT_MSG - $UNDERDOGS ($UPSET_COUNT)"
+            fi
+          fi
+          
+          git diff --staged --quiet || git commit -m "$COMMIT_MSG"
           git push
