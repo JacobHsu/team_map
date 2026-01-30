@@ -4,7 +4,7 @@ An upset is when the team with higher odds (underdog) wins.
 Outputs JSON data for odds.html to display.
 """
 import json
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 # NBA Team Tricode mapping
@@ -104,13 +104,16 @@ def generate_upsets_json(games: list, output_path: str):
     Filename uses day of month (01-31) for automatic monthly rotation.
     e.g., upsets_27.json - will be overwritten next month on the 27th.
     """
+    # Use Taiwan timezone (UTC+8)
+    taiwan_tz = timezone(timedelta(hours=8))
+    now_taiwan = datetime.now(taiwan_tz)
     
     upsets = [g for g in games if g["is_upset"]]
     upsets.sort(key=lambda x: x["winner_odds"], reverse=True)  # Biggest upsets first
     
     data = {
-        "date": datetime.now().strftime("%Y-%m-%d"),
-        "updated": datetime.now().strftime("%Y-%m-%d %H:%M"),
+        "date": now_taiwan.strftime("%Y-%m-%d"),
+        "updated": now_taiwan.strftime("%Y-%m-%d %H:%M"),
         "total_games": len(games),
         "upset_count": len(upsets),
         "upset_rate": round(len(upsets) / len(games) * 100) if games else 0,
@@ -142,7 +145,9 @@ def generate_upsets_json(games: list, output_path: str):
 if __name__ == "__main__":
     games = fetch_odds_data()
     # Use day of month for filename (01-31), same as screenshot naming
-    day_of_month = datetime.now().strftime("%d")
+    # Use Taiwan timezone (UTC+8) to match cron schedule
+    taiwan_tz = timezone(timedelta(hours=8))
+    day_of_month = datetime.now(taiwan_tz).strftime("%d")
     # Output to upsets folder (same level as screenshots folder)
     output_dir = Path(__file__).parent.parent / "upsets"
     output_dir.mkdir(parents=True, exist_ok=True)

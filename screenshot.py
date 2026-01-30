@@ -1,6 +1,6 @@
 import os
 import requests
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from dotenv import load_dotenv
 from urllib.parse import urlencode
@@ -49,7 +49,9 @@ def download_screenshot(target: dict, output_dir: str = "screenshots") -> str:
     Path(output_dir).mkdir(parents=True, exist_ok=True)
 
     url = build_screenshot_url(target)
-    day_of_month = datetime.now().strftime("%d")  # 01-31
+    # Use Taiwan timezone (UTC+8) to match cron schedule
+    taiwan_tz = timezone(timedelta(hours=8))
+    day_of_month = datetime.now(taiwan_tz).strftime("%d")  # 01-31
     filename = f"{target['name']}_{day_of_month}.png"
     filepath = Path(output_dir) / filename
 
@@ -72,7 +74,9 @@ def main():
         print("Error: SCREENSHOTONE_ACCESS_KEY not set in .env")
         return
 
-    print(f"Screenshot run: {datetime.now().isoformat()}")
+    # Use Taiwan timezone (UTC+8)
+    taiwan_tz = timezone(timedelta(hours=8))
+    print(f"Screenshot run: {datetime.now(taiwan_tz).isoformat()}")
     print("-" * 50)
 
     results = []
