@@ -1,0 +1,39 @@
+{
+  "date": "2026-01-30",
+  "updated": "2026-01-30 15:50",
+  "total_games": 8,
+  "upset_count": 3,
+  "upset_rate": 38,
+  "upsets": [
+    {
+      "winner_tricode": "MIN",
+      "winner": "Minnesota Timberwolves",
+      "winner_score": 123,
+      "winner_odds": 168,
+      "loser_tricode": "OKC",
+      "loser": "Oklahoma City Thunder",
+      "loser_score": 111,
+      "loser_odds": -200
+    },
+    {
+      "winner_tricode": "PHX",
+      "winner": "Phoenix Suns",
+      "winner_score": 114,
+      "winner_odds": 127,
+      "loser_tricode": "DET",
+      "loser": "Detroit Pistons",
+      "loser_score": 96,
+      "loser_odds": -152
+    },
+    {
+      "winner_tricode": "WAS",
+      "winner": "Washington Wizards",
+      "winner_score": 109,
+      "winner_odds": 106,
+      "loser_tricode": "MIL",
+      "loser": "Milwaukee Bucks",
+      "loser_score": 99,
+      "loser_odds": -127
+    }
+  ]
+}

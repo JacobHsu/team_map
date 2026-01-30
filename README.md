@@ -158,3 +158,60 @@ python screenshot.py
 - **執行時間**：每日台灣 07:00（NBA 賽季 10-6 月）
 - **設定方式**：到 repo Settings → Secrets → Actions，新增 `SCREENSHOTONE_ACCESS_KEY`
 - **手動觸發**：Actions → Daily Screenshot → Run workflow
+
+## NBA 賠率數據抓取
+
+使用 [Jina AI Reader](https://jina.ai/reader/) 從 OddsPortal 抓取 NBA 比賽結果和賠率數據，自動識別 underdog（爆冷門）比賽。
+
+### 功能特色
+
+- 🔄 **即時數據**：使用 Jina AI Reader API 抓取最新的比賽結果和賠率
+- 🎯 **自動識別爆冷門**：自動找出 underdog（賠率較高的隊伍）獲勝的比賽
+- 💾 **JSON 輸出**：生成結構化的 JSON 數據供前端顯示
+- 🔒 **容錯機制**：API 失敗時自動使用樣本數據作為後備
+
+### 手動執行
+
+```bash
+# 安裝依賴
+pip install -r requirements.txt
+
+# 設定 API Key（可選，但建議使用）
+# 在 .env 檔案中添加：
+# JINA_API_KEY=your_jina_api_key
+
+# 執行抓取
+python NBA/scrape_odds.py
+```
+
+### 輸出格式
+
+腳本會生成 `upsets/upsets_DD.json`（DD = 日期 01-31），包含：
+
+```json
+{
+  "date": "2026-01-30",
+  "updated": "2026-01-30 15:39",
+  "total_games": 22,
+  "upset_count": 6,
+  "upset_rate": 27,
+  "upsets": [
+    {
+      "winner_tricode": "ATL",
+      "winner": "Atlanta Hawks",
+      "winner_score": 117,
+      "winner_odds": 170,
+      "loser_tricode": "BOS",
+      "loser": "Boston Celtics",
+      "loser_score": 106
+    }
+  ]
+}
+```
+
+### API 說明
+
+- **Jina AI Reader**：將網頁轉換為乾淨的 Markdown 格式，方便解析
+- **免費額度**：每月有一定的免費請求額度
+- **申請方式**：訪問 [https://jina.ai/reader/](https://jina.ai/reader/) 獲取 API key
+
