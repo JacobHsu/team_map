@@ -9,19 +9,20 @@ on:
 
 permissions:
   contents: write
+  models: read
 
 jobs:
-  screenshot:
+  take-screenshot:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: '3.10'
 
       - name: Install dependencies
         run: pip install -r requirements.txt
@@ -31,9 +32,11 @@ jobs:
           SCREENSHOTONE_ACCESS_KEY: ${{ secrets.SCREENSHOTONE_ACCESS_KEY }}
         run: python screenshot.py
 
-      - name: Generate upsets data
-        id: upsets
-        run: python NBA/scrape_odds.py
+      - name: Analyze Odds and Identify Upsets (AI)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python NBA/analyze_odds.py
+        id: ups
 
       - name: Commit and push
         run: |
