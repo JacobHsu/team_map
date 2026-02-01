@@ -1,6 +1,14 @@
 import json
 
-with open('upsets/upsets_30.json', 'r', encoding='utf-8') as f:
+from datetime import datetime, timezone, timedelta
+
+# 取得台灣時區的日期
+taiwan_tz = timezone(timedelta(hours=8))
+day = datetime.now(taiwan_tz).strftime('%d')
+
+filename = f'upsets/upsets_{day}.json'
+
+with open(filename, 'r', encoding='utf-8') as f:
     data = json.load(f)
 
 print(f"Total upsets: {len(data['upsets'])}")
