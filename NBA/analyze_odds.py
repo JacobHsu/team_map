@@ -16,7 +16,9 @@ def encode_image(image_path):
 def analyze_screenshot():
     # 1. Setup paths
     base_dir = Path(__file__).parent.parent
-    screenshot_path = base_dir / "screenshots" / "oddsportal_nba_01.png"
+    taiwan_tz = timezone(timedelta(hours=8))
+    day = datetime.now(taiwan_tz).strftime('%d')
+    screenshot_path = base_dir / "screenshots" / f"oddsportal_nba_{day}.png"
     
     if not screenshot_path.exists():
         print(f"❌ Screenshot not found: {screenshot_path}")

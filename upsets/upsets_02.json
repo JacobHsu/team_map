@@ -1,29 +1,19 @@
 {
   "total_games": 5,
-  "upset_count": 2,
-  "upset_rate": 40,
+  "upset_count": 1,
+  "upset_rate": 20,
   "upsets": [
     {
-      "winner_tricode": "IND",
-      "winner": "Indiana Pacers",
-      "winner_score": 129,
-      "winner_odds": 102,
-      "loser_tricode": "ATL",
-      "loser": "Atlanta Hawks",
-      "loser_score": 124,
-      "loser_odds": -120
-    },
-    {
-      "winner_tricode": "HOU",
-      "winner": "Houston Rockets",
-      "winner_score": 111,
-      "winner_odds": -435,
-      "loser_tricode": "DAL",
-      "loser": "Dallas Mavericks",
-      "loser_score": 107,
-      "loser_odds": 326
+      "winner_tricode": "LAC",
+      "winner": "Los Angeles Clippers",
+      "winner_score": 117,
+      "winner_odds": 127,
+      "loser_tricode": "PHX",
+      "loser": "Phoenix Suns",
+      "loser_score": 93,
+      "loser_odds": -152
     }
   ],
   "date": "2026-02-02",
-  "updated": "2026-02-02 07:04"
+  "updated": "2026-02-02 12:00"
 }

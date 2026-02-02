@@ -159,16 +159,16 @@ python screenshot.py
 - **設定方式**：到 repo Settings → Secrets → Actions，新增 `SCREENSHOTONE_ACCESS_KEY`
 - **手動觸發**：Actions → Daily Screenshot → Run workflow
 
-## NBA 賠率數據抓取
+## NBA 賠率分析
 
-使用 [Jina AI Reader](https://jina.ai/reader/) 從 OddsPortal 抓取 NBA 比賽結果和賠率數據，自動識別 underdog（爆冷門）比賽。
+使用 AI 視覺分析從 OddsPortal 截圖中提取 NBA 比賽結果和賠率，自動識別 upset（爆冷門）比賽。
 
 ### 功能特色
 
-- 🔄 **即時數據**：使用 Jina AI Reader API 抓取最新的比賽結果和賠率
-- 🎯 **自動識別爆冷門**：自動找出 underdog（賠率較高的隊伍）獲勝的比賽
-- 💾 **JSON 輸出**：生成結構化的 JSON 數據供前端顯示
-- 🔒 **容錯機制**：API 失敗時自動使用樣本數據作為後備
+- 📸 **截圖分析**：從 OddsPortal 截圖中提取比賽數據
+- 🤖 **AI 視覺辨識**：使用 GitHub Models (GPT-4o) 分析圖片內容
+- 🎯 **自動識別 Upset**：找出 underdog（正賠率）擊敗 favorite（負賠率）的比賽
+- 💾 **JSON 輸出**：生成結構化的 JSON 數據
 
 ### 手動執行
 
@@ -176,12 +176,15 @@ python screenshot.py
 # 安裝依賴
 pip install -r requirements.txt
 
-# 設定 API Key（可選，但建議使用）
-# 在 .env 檔案中添加：
-# JINA_API_KEY=your_jina_api_key
+# 設定環境變數（在 .env 檔案中）
+# SCREENSHOTONE_ACCESS_KEY=your_key  # 截圖 API
+# GITHUB_TOKEN=your_token            # GitHub Models API
 
-# 執行抓取
-python NBA/scrape_odds.py
+# 執行截圖
+python screenshot.py
+
+# 分析賠率並識別 upsets
+python NBA/analyze_odds.py
 ```
 
 ### 輸出格式
@@ -190,28 +193,29 @@ python NBA/scrape_odds.py
 
 ```json
 {
-  "date": "2026-01-30",
-  "updated": "2026-01-30 15:39",
-  "total_games": 22,
-  "upset_count": 6,
-  "upset_rate": 27,
+  "date": "2026-02-02",
+  "updated": "2026-02-02 12:00",
+  "total_games": 5,
+  "upset_count": 1,
+  "upset_rate": 20,
   "upsets": [
     {
-      "winner_tricode": "ATL",
-      "winner": "Atlanta Hawks",
+      "winner_tricode": "LAC",
+      "winner": "Los Angeles Clippers",
       "winner_score": 117,
-      "winner_odds": 170,
-      "loser_tricode": "BOS",
-      "loser": "Boston Celtics",
-      "loser_score": 106
+      "winner_odds": 127,
+      "loser_tricode": "PHX",
+      "loser": "Phoenix Suns",
+      "loser_score": 93,
+      "loser_odds": -152
     }
   ]
 }
 ```
 
-### API 說明
+### Upset 判斷規則
 
-- **Jina AI Reader**：將網頁轉換為乾淨的 Markdown 格式，方便解析
-- **免費額度**：每月有一定的免費請求額度
-- **申請方式**：訪問 [https://jina.ai/reader/](https://jina.ai/reader/) 獲取 API key
+- **正賠率 vs 負賠率**：正賠率（如 +127）的 underdog 擊敗負賠率（如 -152）的 favorite = Upset
+- **雙負賠率**：賠率較高（接近 0）的隊伍贏 = 輕微 Upset
+- **雙正賠率**：賠率較高的隊伍贏 = Upset
 
