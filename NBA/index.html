@@ -1194,14 +1194,22 @@
 
         function processToday(data) {
             if (!data.events) return;
-            const liveGamePromises = [];
+            const gamePromises = [];
 
             data.events.forEach(event => {
                 const competition = event.competitions[0];
-                const isLive = event.status.type.name === 'STATUS_IN_PROGRESS';
+                const statusName = event.status.type.name;
+                const isLive = statusName === 'STATUS_IN_PROGRESS' ||
+                               statusName === 'STATUS_HALFTIME' ||
+                               statusName === 'STATUS_END_PERIOD';
+                const isScheduled = statusName === 'STATUS_SCHEDULED';
+                const isFinal = statusName === 'STATUS_FINAL';
+
+                // Skip finished games (they're handled by fetchSpreads for yesterday)
+                if (isFinal) return;
 
                 if (competition.odds && competition.odds[0]) {
-                    // Scheduled games: odds available in scoreboard
+                    // Odds available in scoreboard
                     const odds = competition.odds[0];
                     competition.competitors.forEach(competitor => {
                         let abbr = competitor.team.abbreviation;
@@ -1218,8 +1226,8 @@
                             applyTodaySpread(abbr, spreadLine, isLive);
                         }
                     });
-                } else if (isLive) {
-                    // In-progress games: fetch summary for pickcenter odds
+                } else if (isLive || isScheduled) {
+                    // Fetch summary for pickcenter odds (for both live and scheduled games)
                     const promise = fetch(`https://site.web.api.espn.com/apis/site/v2/sports/basketball/nba/summary?event=${event.id}`)
                         .then(res => res.json())
                         .then(summary => {
@@ -1238,15 +1246,16 @@
                                     }
                                 }
                                 if (spreadLine !== null) {
-                                    applyTodaySpread(abbr, spreadLine, true);
+                                    applyTodaySpread(abbr, spreadLine, isLive);
                                 }
                             });
-                        });
-                    liveGamePromises.push(promise);
+                        })
+                        .catch(err => console.warn('Failed to fetch summary for event:', event.id, err));
+                    gamePromises.push(promise);
                 }
             });
 
-            return Promise.all(liveGamePromises);
+            return Promise.all(gamePromises);
         }
 
         function processFinishedGame(summaryData, winnersMap) {
@@ -1290,15 +1299,29 @@
         }
 
         function fetchSpreads() {
-            // Calculate yesterday in US Eastern Time (UTC-5)
+            // Calculate dates in US Eastern Time (UTC-5)
             const now = new Date();
             const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
             const etNow = new Date(utc + (-5 * 3600000));
+
+            // Yesterday (for finished games)
             const etYesterday = new Date(etNow);
             etYesterday.setDate(etYesterday.getDate() - 1);
             const yStr = etYesterday.getFullYear() +
                 String(etYesterday.getMonth() + 1).padStart(2, '0') +
                 String(etYesterday.getDate()).padStart(2, '0');
+
+            // Today (ET)
+            const tStr = etNow.getFullYear() +
+                String(etNow.getMonth() + 1).padStart(2, '0') +
+                String(etNow.getDate()).padStart(2, '0');
+
+            // Tomorrow (ET) - for users in Asia who are a day ahead
+            const etTomorrow = new Date(etNow);
+            etTomorrow.setDate(etTomorrow.getDate() + 1);
+            const tmStr = etTomorrow.getFullYear() +
+                String(etTomorrow.getMonth() + 1).padStart(2, '0') +
+                String(etTomorrow.getDate()).padStart(2, '0');
 
             // Fetch yesterday's scoreboard, then fetch summary for each finished game
             fetch(`https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates=${yStr}`)
@@ -1322,7 +1345,12 @@
 
                     return Promise.all(summaryPromises);
                 })
-                .then(() => fetch('https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard'))
+                // Fetch today's games (ET)
+                .then(() => fetch(`https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates=${tStr}`))
+                .then(res => res.json())
+                .then(data => processToday(data))
+                // Also fetch tomorrow's games (ET) for users in Asia
+                .then(() => fetch(`https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates=${tmStr}`))
                 .then(res => res.json())
                 .then(data => processToday(data))
                 .catch(err => console.warn('Failed to fetch spreads:', err));
