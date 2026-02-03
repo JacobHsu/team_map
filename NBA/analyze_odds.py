@@ -1,148 +1,219 @@
 """
-Analyze NBA odds screenshot using GitHub Models (GPT-4o).
-Extracts game data and identifies upsets directly from the image.
+Analyze NBA game results and identify upsets using The Odds API.
+Compares completed game scores with cached pre-game odds.
 """
 import os
 import json
-import base64
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
-from openai import OpenAI
 
-def encode_image(image_path):
-    with open(image_path, "rb") as image_file:
-        return base64.b64encode(image_file.read()).decode('utf-8')
+import requests
+from dotenv import load_dotenv
 
-def analyze_screenshot():
-    # 1. Setup paths
+load_dotenv()
+
+
+# NBA team name to tricode mapping
+TEAM_TRICODES = {
+    "Atlanta Hawks": "ATL",
+    "Boston Celtics": "BOS",
+    "Brooklyn Nets": "BKN",
+    "Charlotte Hornets": "CHA",
+    "Chicago Bulls": "CHI",
+    "Cleveland Cavaliers": "CLE",
+    "Dallas Mavericks": "DAL",
+    "Denver Nuggets": "DEN",
+    "Detroit Pistons": "DET",
+    "Golden State Warriors": "GSW",
+    "Houston Rockets": "HOU",
+    "Indiana Pacers": "IND",
+    "Los Angeles Clippers": "LAC",
+    "Los Angeles Lakers": "LAL",
+    "Memphis Grizzlies": "MEM",
+    "Miami Heat": "MIA",
+    "Milwaukee Bucks": "MIL",
+    "Minnesota Timberwolves": "MIN",
+    "New Orleans Pelicans": "NOP",
+    "New York Knicks": "NYK",
+    "Oklahoma City Thunder": "OKC",
+    "Orlando Magic": "ORL",
+    "Philadelphia 76ers": "PHI",
+    "Phoenix Suns": "PHX",
+    "Portland Trail Blazers": "POR",
+    "Sacramento Kings": "SAC",
+    "San Antonio Spurs": "SAS",
+    "Toronto Raptors": "TOR",
+    "Utah Jazz": "UTA",
+    "Washington Wizards": "WAS",
+}
+
+
+def get_tricode(team_name: str) -> str:
+    """Get team tricode from full name."""
+    return TEAM_TRICODES.get(team_name, team_name[:3].upper())
+
+
+def is_underdog(odds: int) -> bool:
+    """Check if odds indicate underdog (positive American odds)."""
+    return odds > 0
+
+
+def determine_upset(winner_odds: int, loser_odds: int) -> bool:
+    """
+    Determine if the result is an upset.
+    An upset occurs when the underdog (positive odds) beats the favorite (negative odds).
+    """
+    # Classic upset: underdog (positive) beats favorite (negative)
+    if winner_odds > 0 and loser_odds < 0:
+        return True
+    # Both negative: winner had higher (less negative) odds = subtle underdog
+    if winner_odds < 0 and loser_odds < 0 and winner_odds > loser_odds:
+        return True
+    # Both positive: winner had higher odds = underdog
+    if winner_odds > 0 and loser_odds > 0 and winner_odds > loser_odds:
+        return True
+    return False
+
+
+def analyze_odds():
+    """Fetch game results and compare with cached odds to identify upsets."""
+    api_key = os.environ.get("THE_ODDS_API_KEY")
+    if not api_key:
+        print("THE_ODDS_API_KEY not set")
+        return
+
     base_dir = Path(__file__).parent.parent
     taiwan_tz = timezone(timedelta(hours=8))
-    day = datetime.now(taiwan_tz).strftime('%d')
-    screenshot_path = base_dir / "screenshots" / f"oddsportal_nba_{day}.png"
-    
-    if not screenshot_path.exists():
-        print(f"❌ Screenshot not found: {screenshot_path}")
+    now = datetime.now(taiwan_tz)
+    day = now.strftime("%d")
+
+    # Load cached odds from previous day
+    cache_dir = base_dir / "odds_cache"
+    cache_path = cache_dir / f"odds_{day}.json"
+
+    if not cache_path.exists():
+        print(f"No odds cache found: {cache_path}")
+        print("Run fetch_odds.py first to cache pre-game odds.")
         return
 
-    print(f"📸 Analyzing screenshot: {screenshot_path}")
+    with open(cache_path, "r", encoding="utf-8") as f:
+        odds_data = json.load(f)
 
-    # 2. Prepare OpenAI client for GitHub Models
-    token = os.environ.get("GITHUB_TOKEN")
-    endpoint = "https://models.inference.ai.azure.com"
-    model_name = "gpt-4o"
+    print(f"Loaded odds cache: {odds_data['date']} ({len(odds_data['games'])} games)")
 
-    if not token:
-        print("❌ GITHUB_TOKEN not set. Cannot use GitHub Models.")
-        print("   If running locally, ensure you have set GITHUB_TOKEN in your environment.")
-        return
+    # Build lookup by game ID
+    odds_lookup = {g["id"]: g for g in odds_data["games"]}
 
-    client = OpenAI(
-        base_url=endpoint,
-        api_key=token,
-    )
-
-    # 3. Encode image
-    base64_image = encode_image(screenshot_path)
-
-    # 4. Define Prompt
-    system_prompt = """
-    You are an expert NBA data analyst. Your job is to extract game results and odds from a screenshot of OddsPortal.
-    
-    Rules for extraction:
-    1. Identify all COMPLETED games (games with final scores).
-    2. Extract: Home Team, Away Team, Home Score, Away Score, Home Odds, Away Odds.
-       - Odds are usually in American format (e.g., +150, -120).
-       - If odds are Decimal (e.g., 2.50), convert to American:
-         - >= 2.00: (Decimal - 1) * 100
-         - < 2.00: -100 / (Decimal - 1)
-    3. Determine the WINNER.
-    4. Identify UPSETS. An upset is when the team with POSITIVE odds (the underdog, e.g., +150) wins against a team with NEGATIVE odds (the favorite, e.g., -180).
-       - If both have negative odds (rare), the one with higher odds (closer to 0) is the subtle underdog.
-       - If both have positive odds, the one with higher odds is the underdog.
-    
-    Output JSON format ONLY:
-    {
-        "total_games": 5,
-        "upset_count": 2,
-        "upset_rate": 40,
-        "upsets": [
-            {
-                "winner_tricode": "TRICODE", (e.g., LAL, BOS)
-                "winner": "Full Team Name",
-                "winner_score": 110,
-                "winner_odds": 150,
-                "loser_tricode": "TRICODE",
-                "loser": "Full Team Name",
-                "loser_score": 105,
-                "loser_odds": -180
-            }
-        ]
+    # Fetch completed game scores
+    url = "https://api.the-odds-api.com/v4/sports/basketball_nba/scores"
+    params = {
+        "apiKey": api_key,
+        "daysFrom": 1,
     }
-    """
 
-    user_prompt = "Extract today's completed NBA games from this image and identify any upsets."
+    print("Fetching game scores...")
+    response = requests.get(url, params=params)
 
-    # 5. Call Model
-    try:
-        print("🤖 Sending request to GitHub Models (GPT-4o)...")
-        response = client.chat.completions.create(
-            messages=[
-                {
-                    "role": "system",
-                    "content": system_prompt,
-                },
-                {
-                    "role": "user",
-                    "content": [
-                        {"type": "text", "text": user_prompt},
-                        {
-                            "type": "image_url",
-                            "image_url": {
-                                "url": f"data:image/png;base64,{base64_image}",
-                                "detail": "high"
-                            },
-                        },
-                    ],
-                },
-            ],
-            model=model_name,
-            temperature=0.1,
-            response_format={"type": "json_object"}
+    if response.status_code != 200:
+        print(f"API error: {response.status_code} - {response.text}")
+        return
+
+    scores = response.json()
+    completed = [g for g in scores if g.get("completed")]
+    print(f"Found {len(completed)} completed games")
+
+    # Analyze each completed game
+    upsets = []
+    total_games = 0
+
+    for game in completed:
+        game_id = game["id"]
+        cached = odds_lookup.get(game_id)
+
+        if not cached:
+            print(f"  Skipping {game['away_team']} @ {game['home_team']} - no cached odds")
+            continue
+
+        # Get scores
+        scores_map = {}
+        for score in game.get("scores", []):
+            scores_map[score["name"]] = int(score["score"])
+
+        home_score = scores_map.get(game["home_team"], 0)
+        away_score = scores_map.get(game["away_team"], 0)
+
+        if home_score == 0 and away_score == 0:
+            print(f"  Skipping {game['away_team']} @ {game['home_team']} - no scores")
+            continue
+
+        total_games += 1
+
+        # Determine winner
+        if home_score > away_score:
+            winner = game["home_team"]
+            winner_score = home_score
+            winner_odds = cached["home_odds"]
+            loser = game["away_team"]
+            loser_score = away_score
+            loser_odds = cached["away_odds"]
+        else:
+            winner = game["away_team"]
+            winner_score = away_score
+            winner_odds = cached["away_odds"]
+            loser = game["home_team"]
+            loser_score = home_score
+            loser_odds = cached["home_odds"]
+
+        winner_tricode = get_tricode(winner)
+        loser_tricode = get_tricode(loser)
+
+        print(
+            f"  {winner_tricode} {winner_score} - {loser_score} {loser_tricode} "
+            f"(odds: {winner_odds} vs {loser_odds})"
         )
 
-        content = response.choices[0].message.content
-        print("✅ Received response from AI")
-        
-        # 6. Process and Save Data
-        data = json.loads(content)
-        
-        # Add metadata
-        taiwan_tz = timezone(timedelta(hours=8))
-        now = datetime.now(taiwan_tz)
-        data["date"] = now.strftime("%Y-%m-%d")
-        data["updated"] = now.strftime("%Y-%m-%d %H:%M")
-        
-        # Save to upsets/upsets_DD.json
-        day_str = now.strftime("%d")
-        output_dir = base_dir / "upsets"
-        output_dir.mkdir(parents=True, exist_ok=True)
-        output_path = output_dir / f"upsets_{day_str}.json"
-        
-        with open(output_path, "w", encoding="utf-8") as f:
-            json.dump(data, f, ensure_ascii=False, indent=2)
-            
-        print(f"💾 Saved upsets data to: {output_path}")
-        print(f"📊 Identified {data['upset_count']} upsets from {data['total_games']} games.")
-        
-        # Set outputs for GitHub Actions
-        if data.get("upsets"):
-            underdogs = ",".join([u["winner_tricode"] for u in data["upsets"]])
-            print(f"::set-output name=underdogs::{underdogs}")
-            print(f"::set-output name=upset_count::{data['upset_count']}")
+        # Check if upset
+        if winner_odds is not None and loser_odds is not None:
+            if determine_upset(winner_odds, loser_odds):
+                upsets.append({
+                    "winner_tricode": winner_tricode,
+                    "winner": winner,
+                    "winner_score": winner_score,
+                    "winner_odds": winner_odds,
+                    "loser_tricode": loser_tricode,
+                    "loser": loser,
+                    "loser_score": loser_score,
+                    "loser_odds": loser_odds,
+                })
+                print(f"    ^ UPSET!")
 
-    except Exception as e:
-        print(f"❌ Error during AI analysis: {e}")
-        # Could implement fallback here if needed
+    # Build output data
+    upset_rate = round(len(upsets) / total_games * 100, 2) if total_games > 0 else 0
+    output_data = {
+        "total_games": total_games,
+        "upset_count": len(upsets),
+        "upset_rate": upset_rate,
+        "upsets": upsets,
+        "date": now.strftime("%Y-%m-%d"),
+        "updated": now.strftime("%Y-%m-%d %H:%M"),
+    }
+
+    # Save to upsets/upsets_DD.json
+    output_dir = base_dir / "upsets"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    output_path = output_dir / f"upsets_{day}.json"
+
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(output_data, f, ensure_ascii=False, indent=2)
+
+    print(f"\nSaved to {output_path}")
+    print(f"Total: {total_games} games, {len(upsets)} upsets ({upset_rate}%)")
+
+    # Show remaining API credits
+    remaining = response.headers.get("x-requests-remaining")
+    used = response.headers.get("x-requests-used")
+    print(f"API credits: {remaining} remaining, {used} used")
+
 
 if __name__ == "__main__":
-    analyze_screenshot()
+    analyze_odds()

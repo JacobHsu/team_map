@@ -1,29 +1,19 @@
 {
-  "total_games": 6,
-  "upset_count": 2,
+  "total_games": 3,
+  "upset_count": 1,
   "upset_rate": 33.33,
   "upsets": [
     {
-      "winner_tricode": "OKC",
-      "winner": "Oklahoma City Thunder",
-      "winner_score": 121,
-      "winner_odds": 193,
-      "loser_tricode": "DEN",
-      "loser": "Denver Nuggets",
-      "loser_score": 111,
-      "loser_odds": -238
-    },
-    {
-      "winner_tricode": "CLE",
-      "winner": "Cleveland Cavaliers",
-      "winner_score": 130,
-      "winner_odds": 149,
-      "loser_tricode": "POR",
-      "loser": "Portland Trail Blazers",
-      "loser_score": 111,
-      "loser_odds": -179
+      "winner_tricode": "MEM",
+      "winner": "Memphis Grizzlies",
+      "winner_score": 137,
+      "winner_odds": 240,
+      "loser_tricode": "MIN",
+      "loser": "Minnesota Timberwolves",
+      "loser_score": 128,
+      "loser_odds": -303
     }
   ],
   "date": "2026-02-03",
-  "updated": "2026-02-03 07:05"
+  "updated": "2026-02-03 23:15"
 }

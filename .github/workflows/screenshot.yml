@@ -1,19 +1,33 @@
-name: Daily Screenshot
+name: NBA Odds & Upsets
 
 on:
   schedule:
-    # Run daily at 23:00 UTC (07:00 Taiwan time next day)
-    # Only during NBA season: Oct-Jun
+    # Job 1: Fetch pre-game odds at UTC 10:00 (Taiwan 18:00)
+    # Before NBA games start
+    - cron: '0 10 * 1-6,10-12 *'
+    # Job 2: Analyze results at UTC 23:00 (Taiwan 07:00 next day)
+    # After games complete
     - cron: '0 23 * 1-6,10-12 *'
-  workflow_dispatch:  # Allow manual trigger
+  workflow_dispatch:
+    inputs:
+      job:
+        description: 'Which job to run'
+        required: true
+        default: 'both'
+        type: choice
+        options:
+          - fetch-odds
+          - analyze-results
+          - both
 
 permissions:
   contents: write
-  models: read
 
 jobs:
-  take-screenshot:
+  fetch-odds:
     runs-on: ubuntu-latest
+    # Run at UTC 10:00 or manual trigger
+    if: github.event.schedule == '0 10 * 1-6,10-12 *' || github.event.inputs.job == 'fetch-odds' || github.event.inputs.job == 'both'
 
     steps:
       - name: Checkout repository
@@ -27,31 +41,61 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Take screenshot
+      - name: Fetch pre-game odds
+        env:
+          THE_ODDS_API_KEY: ${{ secrets.THE_ODDS_API_KEY }}
+        run: python NBA/fetch_odds.py
+
+      - name: Commit and push odds cache
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add odds_cache/
+
+          TAIWAN_DATE=$(python -c "from datetime import datetime, timezone, timedelta; print(datetime.now(timezone(timedelta(hours=8))).strftime('%Y-%m-%d'))")
+
+          git diff --staged --quiet || git commit -m "chore: cache NBA odds $TAIWAN_DATE"
+          git push
+
+  analyze-results:
+    runs-on: ubuntu-latest
+    # Run at UTC 23:00 or manual trigger
+    if: github.event.schedule == '0 23 * 1-6,10-12 *' || github.event.inputs.job == 'analyze-results' || github.event.inputs.job == 'both'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Take screenshot (backup)
         env:
           SCREENSHOTONE_ACCESS_KEY: ${{ secrets.SCREENSHOTONE_ACCESS_KEY }}
         run: python screenshot.py
+        continue-on-error: true
 
-      - name: Analyze Odds and Identify Upsets (AI)
+      - name: Analyze game results and identify upsets
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          THE_ODDS_API_KEY: ${{ secrets.THE_ODDS_API_KEY }}
         run: python NBA/analyze_odds.py
-        id: ups
 
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add screenshots/ upsets/
-          
-          # Use Python to get Taiwan timezone date (UTC+8)
+          git add screenshots/ upsets/ odds_cache/
+
           TAIWAN_DATE=$(python -c "from datetime import datetime, timezone, timedelta; print(datetime.now(timezone(timedelta(hours=8))).strftime('%Y-%m-%d'))")
           TAIWAN_DAY=$(python -c "from datetime import datetime, timezone, timedelta; print(datetime.now(timezone(timedelta(hours=8))).strftime('%d'))")
-          
-          # Build commit message with underdog teams if any
-          COMMIT_MSG="chore: update oddsportal screenshot $TAIWAN_DATE"
-          
-          # Check if there are upsets and add to commit message
+
+          COMMIT_MSG="chore: update NBA upsets $TAIWAN_DATE"
+
           if [ -f "upsets/upsets_${TAIWAN_DAY}.json" ]; then
             UPSET_COUNT=$(python -c "import json; data=json.load(open('upsets/upsets_${TAIWAN_DAY}.json')); print(data.get('upset_count', 0))")
             if [ "$UPSET_COUNT" -gt 0 ]; then
@@ -59,6 +103,6 @@ jobs:
               COMMIT_MSG="$COMMIT_MSG - $UNDERDOGS ($UPSET_COUNT)"
             fi
           fi
-          
+
           git diff --staged --quiet || git commit -m "$COMMIT_MSG"
           git push
