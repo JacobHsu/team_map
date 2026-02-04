@@ -5,9 +5,9 @@ on:
     # Job 1: Fetch pre-game odds at UTC 10:00 (Taiwan 18:00)
     # Before NBA games start
     - cron: '0 10 * 1-6,10-12 *'
-    # Job 2: Analyze results at UTC 23:00 (Taiwan 07:00 next day)
+    # Job 2: Analyze results at UTC 07:00 (Taiwan 15:00)
     # After games complete
-    - cron: '0 23 * 1-6,10-12 *'
+    - cron: '0 7 * 1-6,10-12 *'
   workflow_dispatch:
     inputs:
       job:
@@ -59,8 +59,8 @@ jobs:
 
   analyze-results:
     runs-on: ubuntu-latest
-    # Run at UTC 23:00 or manual trigger
-    if: github.event.schedule == '0 23 * 1-6,10-12 *' || github.event.inputs.job == 'analyze-results' || github.event.inputs.job == 'both'
+    # Run at UTC 07:00 or manual trigger
+    if: github.event.schedule == '0 7 * 1-6,10-12 *' || github.event.inputs.job == 'analyze-results' || github.event.inputs.job == 'both'
 
     steps:
       - name: Checkout repository

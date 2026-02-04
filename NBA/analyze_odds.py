@@ -87,9 +87,11 @@ def analyze_odds():
     now = datetime.now(taiwan_tz)
     day = now.strftime("%d")
 
-    # Load cached odds from previous day
+    # Load cached odds from previous day (when odds were fetched)
+    # Analysis runs the next day at 15:00 TW time
+    prev_day = (now - timedelta(days=1)).strftime("%d")
     cache_dir = base_dir / "odds_cache"
-    cache_path = cache_dir / f"odds_{day}.json"
+    cache_path = cache_dir / f"odds_{prev_day}.json"
 
     if not cache_path.exists():
         print(f"No odds cache found: {cache_path}")
