@@ -1,0 +1,49 @@
+{
+  "total_games": 10,
+  "upset_count": 4,
+  "upset_rate": 40.0,
+  "upsets": [
+    {
+      "winner_tricode": "UTA",
+      "winner": "Utah Jazz",
+      "winner_score": 131,
+      "winner_odds": 134,
+      "loser_tricode": "IND",
+      "loser": "Indiana Pacers",
+      "loser_score": 122,
+      "loser_odds": -158
+    },
+    {
+      "winner_tricode": "ATL",
+      "winner": "Atlanta Hawks",
+      "winner_score": 127,
+      "winner_odds": 134,
+      "loser_tricode": "MIA",
+      "loser": "Miami Heat",
+      "loser_score": 115,
+      "loser_odds": -158
+    },
+    {
+      "winner_tricode": "MIL",
+      "winner": "Milwaukee Bucks",
+      "winner_score": 131,
+      "winner_odds": 122,
+      "loser_tricode": "CHI",
+      "loser": "Chicago Bulls",
+      "loser_score": 115,
+      "loser_odds": -144
+    },
+    {
+      "winner_tricode": "PHI",
+      "winner": "Philadelphia 76ers",
+      "winner_score": 113,
+      "winner_odds": 124,
+      "loser_tricode": "GSW",
+      "loser": "Golden State Warriors",
+      "loser_score": 94,
+      "loser_odds": -146
+    }
+  ],
+  "date": "2026-02-04",
+  "updated": "2026-02-04 15:24"
+}
