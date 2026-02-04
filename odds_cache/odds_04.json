@@ -1,0 +1,76 @@
+{
+  "date": "2026-02-04",
+  "fetched": "2026-02-04 18:15",
+  "games": [
+    {
+      "id": "9c5539dbfdce420a92a829805150949a",
+      "home_team": "New York Knicks",
+      "away_team": "Denver Nuggets",
+      "home_tricode": "NYK",
+      "away_tricode": "DEN",
+      "commence_time": "2026-02-05T00:10:00Z",
+      "home_odds": -230,
+      "away_odds": 190
+    },
+    {
+      "id": "09a1c85451c2450418f5bcba90e220b9",
+      "home_team": "Toronto Raptors",
+      "away_team": "Minnesota Timberwolves",
+      "home_tricode": "TOR",
+      "away_tricode": "MIN",
+      "commence_time": "2026-02-05T00:40:00Z",
+      "home_odds": -102,
+      "away_odds": -116
+    },
+    {
+      "id": "8b816f6d79780a1772852263e815b070",
+      "home_team": "Houston Rockets",
+      "away_team": "Boston Celtics",
+      "home_tricode": "HOU",
+      "away_tricode": "BOS",
+      "commence_time": "2026-02-05T01:10:00Z",
+      "home_odds": -230,
+      "away_odds": 190
+    },
+    {
+      "id": "720fb0aa5ec9b76d0ba6782d87da5d6e",
+      "home_team": "Milwaukee Bucks",
+      "away_team": "New Orleans Pelicans",
+      "home_tricode": "MIL",
+      "away_tricode": "NOP",
+      "commence_time": "2026-02-05T01:10:00Z",
+      "home_odds": 152,
+      "away_odds": -180
+    },
+    {
+      "id": "7eb233edb6e9e03622d300ca7dd2c1df",
+      "home_team": "San Antonio Spurs",
+      "away_team": "Oklahoma City Thunder",
+      "home_tricode": "SAS",
+      "away_tricode": "OKC",
+      "commence_time": "2026-02-05T02:40:00Z",
+      "home_odds": 116,
+      "away_odds": -136
+    },
+    {
+      "id": "4336bce3a2a2e0e4ab7b6bd8f79693d8",
+      "home_team": "Sacramento Kings",
+      "away_team": "Memphis Grizzlies",
+      "home_tricode": "SAC",
+      "away_tricode": "MEM",
+      "commence_time": "2026-02-05T03:10:00Z",
+      "home_odds": -120,
+      "away_odds": 102
+    },
+    {
+      "id": "1fabd57d36993380babdef3c224d2992",
+      "home_team": "Los Angeles Clippers",
+      "away_team": "Cleveland Cavaliers",
+      "home_tricode": "LAC",
+      "away_tricode": "CLE",
+      "commence_time": "2026-02-05T03:40:00Z",
+      "home_odds": 106,
+      "away_odds": -124
+    }
+  ]
+}
