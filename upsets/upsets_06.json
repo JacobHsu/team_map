@@ -1,0 +1,39 @@
+{
+  "total_games": 8,
+  "upset_count": 3,
+  "upset_rate": 37.5,
+  "upsets": [
+    {
+      "winner_tricode": "WAS",
+      "winner": "Washington Wizards",
+      "winner_score": 126,
+      "winner_odds": 570,
+      "loser_tricode": "DET",
+      "loser": "Detroit Pistons",
+      "loser_score": 117,
+      "loser_odds": -820
+    },
+    {
+      "winner_tricode": "CHA",
+      "winner": "Charlotte Hornets",
+      "winner_score": 109,
+      "winner_odds": 132,
+      "loser_tricode": "HOU",
+      "loser": "Houston Rockets",
+      "loser_score": 99,
+      "loser_odds": -152
+    },
+    {
+      "winner_tricode": "GSW",
+      "winner": "Golden State Warriors",
+      "winner_score": 101,
+      "winner_odds": 205,
+      "loser_tricode": "PHX",
+      "loser": "Phoenix Suns",
+      "loser_score": 97,
+      "loser_odds": -255
+    }
+  ],
+  "date": "2026-02-06",
+  "updated": "2026-02-06 15:25"
+}
