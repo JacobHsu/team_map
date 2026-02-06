@@ -1,0 +1,66 @@
+{
+  "date": "2026-02-06",
+  "fetched": "2026-02-06 18:15",
+  "games": [
+    {
+      "id": "8ddd2769a5ffd8dccf14da6c31f1fc1c",
+      "home_team": "Boston Celtics",
+      "away_team": "Miami Heat",
+      "home_tricode": "BOS",
+      "away_tricode": "MIA",
+      "commence_time": "2026-02-07T00:40:00Z",
+      "home_odds": -250,
+      "away_odds": 205
+    },
+    {
+      "id": "69d971ab3826cab2feb87672c81b99cc",
+      "home_team": "Detroit Pistons",
+      "away_team": "New York Knicks",
+      "home_tricode": "DET",
+      "away_tricode": "NYK",
+      "commence_time": "2026-02-07T00:40:00Z",
+      "home_odds": 102,
+      "away_odds": -120
+    },
+    {
+      "id": "c9fbb4841a8939ef25c00d8012bf66d1",
+      "home_team": "Milwaukee Bucks",
+      "away_team": "Indiana Pacers",
+      "home_tricode": "MIL",
+      "away_tricode": "IND",
+      "commence_time": "2026-02-07T01:10:00Z",
+      "home_odds": 106,
+      "away_odds": -124
+    },
+    {
+      "id": "ca2f6578b0d06d2a06e2eb5cee12fd8e",
+      "home_team": "Minnesota Timberwolves",
+      "away_team": "New Orleans Pelicans",
+      "home_tricode": "MIN",
+      "away_tricode": "NOP",
+      "commence_time": "2026-02-07T01:10:00Z",
+      "home_odds": -450,
+      "away_odds": 350
+    },
+    {
+      "id": "ef8ae24fd705cab52010cac25b6abbba",
+      "home_team": "Portland Trail Blazers",
+      "away_team": "Memphis Grizzlies",
+      "home_tricode": "POR",
+      "away_tricode": "MEM",
+      "commence_time": "2026-02-07T03:00:00Z",
+      "home_odds": -270,
+      "away_odds": 220
+    },
+    {
+      "id": "e3d5928f680f116697bc4e6bb16f5862",
+      "home_team": "Sacramento Kings",
+      "away_team": "Los Angeles Clippers",
+      "home_tricode": "SAC",
+      "away_tricode": "LAC",
+      "commence_time": "2026-02-07T03:10:00Z",
+      "home_odds": 138,
+      "away_odds": -164
+    }
+  ]
+}
