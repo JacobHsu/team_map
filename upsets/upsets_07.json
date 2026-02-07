@@ -1,0 +1,39 @@
+{
+  "total_games": 6,
+  "upset_count": 3,
+  "upset_rate": 50.0,
+  "upsets": [
+    {
+      "winner_tricode": "DET",
+      "winner": "Detroit Pistons",
+      "winner_score": 118,
+      "winner_odds": 102,
+      "loser_tricode": "NYK",
+      "loser": "New York Knicks",
+      "loser_score": 80,
+      "loser_odds": -120
+    },
+    {
+      "winner_tricode": "NOP",
+      "winner": "New Orleans Pelicans",
+      "winner_score": 119,
+      "winner_odds": 350,
+      "loser_tricode": "MIN",
+      "loser": "Minnesota Timberwolves",
+      "loser_score": 115,
+      "loser_odds": -450
+    },
+    {
+      "winner_tricode": "MIL",
+      "winner": "Milwaukee Bucks",
+      "winner_score": 105,
+      "winner_odds": 106,
+      "loser_tricode": "IND",
+      "loser": "Indiana Pacers",
+      "loser_score": 99,
+      "loser_odds": -124
+    }
+  ],
+  "date": "2026-02-07",
+  "updated": "2026-02-07 15:18"
+}
