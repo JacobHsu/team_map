@@ -1,0 +1,29 @@
+{
+  "total_games": 10,
+  "upset_count": 2,
+  "upset_rate": 20.0,
+  "upsets": [
+    {
+      "winner_tricode": "HOU",
+      "winner": "Houston Rockets",
+      "winner_score": 112,
+      "winner_odds": 116,
+      "loser_tricode": "OKC",
+      "loser": "Oklahoma City Thunder",
+      "loser_score": 106,
+      "loser_odds": -136
+    },
+    {
+      "winner_tricode": "PHI",
+      "winner": "Philadelphia 76ers",
+      "winner_score": 109,
+      "winner_odds": 104,
+      "loser_tricode": "PHX",
+      "loser": "Phoenix Suns",
+      "loser_score": 103,
+      "loser_odds": -122
+    }
+  ],
+  "date": "2026-02-08",
+  "updated": "2026-02-08 15:21"
+}
