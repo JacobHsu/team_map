@@ -1,0 +1,46 @@
+{
+  "date": "2026-02-08",
+  "fetched": "2026-02-08 18:05",
+  "games": [
+    {
+      "id": "c2aacc97e9c2f14777db6a947e5b0772",
+      "home_team": "Boston Celtics",
+      "away_team": "New York Knicks",
+      "home_tricode": "BOS",
+      "away_tricode": "NYK",
+      "commence_time": "2026-02-08T17:40:00Z",
+      "home_odds": -174,
+      "away_odds": 146
+    },
+    {
+      "id": "c7739a581c938fedf4dd128cb53f31dc",
+      "home_team": "Washington Wizards",
+      "away_team": "Miami Heat",
+      "home_tricode": "WAS",
+      "away_tricode": "MIA",
+      "commence_time": "2026-02-08T19:10:00Z",
+      "home_odds": 360,
+      "away_odds": -460
+    },
+    {
+      "id": "9a4bb2e3bc9fd308b6e40f29e43ab2f1",
+      "home_team": "Toronto Raptors",
+      "away_team": "Indiana Pacers",
+      "home_tricode": "TOR",
+      "away_tricode": "IND",
+      "commence_time": "2026-02-08T20:10:00Z",
+      "home_odds": -360,
+      "away_odds": 290
+    },
+    {
+      "id": "8864122f2c28fd6b7621c0ee000c41fc",
+      "home_team": "Minnesota Timberwolves",
+      "away_team": "Los Angeles Clippers",
+      "home_tricode": "MIN",
+      "away_tricode": "LAC",
+      "commence_time": "2026-02-08T20:10:00Z",
+      "home_odds": -320,
+      "away_odds": 260
+    }
+  ]
+}
