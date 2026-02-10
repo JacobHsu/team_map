@@ -1,0 +1,39 @@
+{
+  "total_games": 10,
+  "upset_count": 3,
+  "upset_rate": 30.0,
+  "upsets": [
+    {
+      "winner_tricode": "BKN",
+      "winner": "Brooklyn Nets",
+      "winner_score": 123,
+      "winner_odds": 152,
+      "loser_tricode": "CHI",
+      "loser": "Chicago Bulls",
+      "loser_score": 115,
+      "loser_odds": -180
+    },
+    {
+      "winner_tricode": "UTA",
+      "winner": "Utah Jazz",
+      "winner_score": 115,
+      "winner_odds": 265,
+      "loser_tricode": "MIA",
+      "loser": "Miami Heat",
+      "loser_score": 111,
+      "loser_odds": -330
+    },
+    {
+      "winner_tricode": "POR",
+      "winner": "Portland Trail Blazers",
+      "winner_score": 135,
+      "winner_odds": 138,
+      "loser_tricode": "PHI",
+      "loser": "Philadelphia 76ers",
+      "loser_score": 118,
+      "loser_odds": -164
+    }
+  ],
+  "date": "2026-02-10",
+  "updated": "2026-02-10 15:31"
+}
