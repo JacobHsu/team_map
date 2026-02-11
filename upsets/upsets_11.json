@@ -1,0 +1,19 @@
+{
+  "total_games": 4,
+  "upset_count": 1,
+  "upset_rate": 25.0,
+  "upsets": [
+    {
+      "winner_tricode": "IND",
+      "winner": "Indiana Pacers",
+      "winner_score": 137,
+      "winner_odds": 480,
+      "loser_tricode": "NYK",
+      "loser": "New York Knicks",
+      "loser_score": 134,
+      "loser_odds": -650
+    }
+  ],
+  "date": "2026-02-11",
+  "updated": "2026-02-11 15:29"
+}
