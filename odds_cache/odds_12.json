@@ -1,0 +1,36 @@
+{
+  "date": "2026-02-12",
+  "fetched": "2026-02-12 18:17",
+  "games": [
+    {
+      "id": "1c3809071b6a6e313c87dee15e46bdc1",
+      "home_team": "Oklahoma City Thunder",
+      "away_team": "Milwaukee Bucks",
+      "home_tricode": "OKC",
+      "away_tricode": "MIL",
+      "commence_time": "2026-02-13T00:40:00Z",
+      "home_odds": -600,
+      "away_odds": 450
+    },
+    {
+      "id": "ad2db051928cbc4c1ed6a3b861ac4538",
+      "home_team": "Utah Jazz",
+      "away_team": "Portland Trail Blazers",
+      "home_tricode": "UTA",
+      "away_tricode": "POR",
+      "commence_time": "2026-02-13T02:10:00Z",
+      "home_odds": 230,
+      "away_odds": -280
+    },
+    {
+      "id": "fdb123a858af8d533d901707df45960f",
+      "home_team": "Los Angeles Lakers",
+      "away_team": "Dallas Mavericks",
+      "home_tricode": "LAL",
+      "away_tricode": "DAL",
+      "commence_time": "2026-02-13T03:10:00Z",
+      "home_odds": -260,
+      "away_odds": 215
+    }
+  ]
+}
