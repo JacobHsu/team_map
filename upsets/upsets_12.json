@@ -1,0 +1,59 @@
+{
+  "total_games": 14,
+  "upset_count": 5,
+  "upset_rate": 35.71,
+  "upsets": [
+    {
+      "winner_tricode": "MIL",
+      "winner": "Milwaukee Bucks",
+      "winner_score": 116,
+      "winner_odds": 350,
+      "loser_tricode": "ORL",
+      "loser": "Orlando Magic",
+      "loser_score": 108,
+      "loser_odds": -450
+    },
+    {
+      "winner_tricode": "IND",
+      "winner": "Indiana Pacers",
+      "winner_score": 115,
+      "winner_odds": 154,
+      "loser_tricode": "BKN",
+      "loser": "Brooklyn Nets",
+      "loser_score": 110,
+      "loser_odds": -184
+    },
+    {
+      "winner_tricode": "NYK",
+      "winner": "New York Knicks",
+      "winner_score": 138,
+      "winner_odds": 122,
+      "loser_tricode": "PHI",
+      "loser": "Philadelphia 76ers",
+      "loser_score": 89,
+      "loser_odds": -144
+    },
+    {
+      "winner_tricode": "MIA",
+      "winner": "Miami Heat",
+      "winner_score": 123,
+      "winner_odds": 100,
+      "loser_tricode": "NOP",
+      "loser": "New Orleans Pelicans",
+      "loser_score": 111,
+      "loser_odds": -118
+    },
+    {
+      "winner_tricode": "LAC",
+      "winner": "Los Angeles Clippers",
+      "winner_score": 105,
+      "winner_odds": 265,
+      "loser_tricode": "HOU",
+      "loser": "Houston Rockets",
+      "loser_score": 102,
+      "loser_odds": -330
+    }
+  ],
+  "date": "2026-02-12",
+  "updated": "2026-02-12 15:28"
+}
