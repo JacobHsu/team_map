@@ -1,0 +1,49 @@
+{
+  "total_games": 10,
+  "upset_count": 4,
+  "upset_rate": 40.0,
+  "upsets": [
+    {
+      "winner_tricode": "WAS",
+      "winner": "Washington Wizards",
+      "winner_score": 112,
+      "winner_odds": 126,
+      "loser_tricode": "IND",
+      "loser": "Indiana Pacers",
+      "loser_score": 105,
+      "loser_odds": -148
+    },
+    {
+      "winner_tricode": "ATL",
+      "winner": "Atlanta Hawks",
+      "winner_score": 117,
+      "winner_odds": 100,
+      "loser_tricode": "PHI",
+      "loser": "Philadelphia 76ers",
+      "loser_score": 107,
+      "loser_odds": -118
+    },
+    {
+      "winner_tricode": "DET",
+      "winner": "Detroit Pistons",
+      "winner_score": 126,
+      "winner_odds": 146,
+      "loser_tricode": "NYK",
+      "loser": "New York Knicks",
+      "loser_score": 111,
+      "loser_odds": -174
+    },
+    {
+      "winner_tricode": "LAC",
+      "winner": "Los Angeles Clippers",
+      "winner_score": 115,
+      "winner_odds": 152,
+      "loser_tricode": "DEN",
+      "loser": "Denver Nuggets",
+      "loser_score": 114,
+      "loser_odds": -180
+    }
+  ],
+  "date": "2026-02-20",
+  "updated": "2026-02-20 15:26"
+}
