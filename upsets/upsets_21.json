@@ -1,0 +1,29 @@
+{
+  "total_games": 9,
+  "upset_count": 2,
+  "upset_rate": 22.22,
+  "upsets": [
+    {
+      "winner_tricode": "WAS",
+      "winner": "Washington Wizards",
+      "winner_score": 131,
+      "winner_odds": 102,
+      "loser_tricode": "IND",
+      "loser": "Indiana Pacers",
+      "loser_score": 118,
+      "loser_odds": -120
+    },
+    {
+      "winner_tricode": "MIL",
+      "winner": "Milwaukee Bucks",
+      "winner_score": 139,
+      "winner_odds": 148,
+      "loser_tricode": "NOP",
+      "loser": "New Orleans Pelicans",
+      "loser_score": 118,
+      "loser_odds": -176
+    }
+  ],
+  "date": "2026-02-21",
+  "updated": "2026-02-21 15:17"
+}
