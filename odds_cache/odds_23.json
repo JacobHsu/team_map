@@ -1,0 +1,76 @@
+{
+  "date": "2026-02-23",
+  "fetched": "2026-02-23 18:19",
+  "games": [
+    {
+      "id": "a9dd69be152e9e5ad8597c9b96f16a53",
+      "home_team": "Detroit Pistons",
+      "away_team": "San Antonio Spurs",
+      "home_tricode": "DET",
+      "away_tricode": "SAS",
+      "commence_time": "2026-02-24T00:10:00Z",
+      "home_odds": -118,
+      "away_odds": 100
+    },
+    {
+      "id": "f21cba43c1660e818758a990b2912830",
+      "home_team": "Memphis Grizzlies",
+      "away_team": "Sacramento Kings",
+      "home_tricode": "MEM",
+      "away_tricode": "SAC",
+      "commence_time": "2026-02-24T01:10:00Z",
+      "home_odds": -190,
+      "away_odds": 160
+    },
+    {
+      "id": "b283b125c7b26126854be1e5ad045f3f",
+      "home_team": "Houston Rockets",
+      "away_team": "Utah Jazz",
+      "home_tricode": "HOU",
+      "away_tricode": "UTA",
+      "commence_time": "2026-02-24T02:40:00Z",
+      "home_odds": -850,
+      "away_odds": 590
+    },
+    {
+      "id": "9309db11d70c5cca506e8df2ce5e1fb3",
+      "home_team": "Toronto Raptors",
+      "away_team": "Oklahoma City Thunder",
+      "home_tricode": "TOR",
+      "away_tricode": "OKC",
+      "commence_time": "2026-02-25T00:40:00Z",
+      "home_odds": 112,
+      "away_odds": -132
+    },
+    {
+      "id": "a4f9fe2c493fda08ff19d7c349948824",
+      "home_team": "Cleveland Cavaliers",
+      "away_team": "New York Knicks",
+      "home_tricode": "CLE",
+      "away_tricode": "NYK",
+      "commence_time": "2026-02-25T01:10:00Z",
+      "home_odds": -158,
+      "away_odds": 134
+    },
+    {
+      "id": "0bd210b80d8411885dccc7164a922234",
+      "home_team": "Phoenix Suns",
+      "away_team": "Boston Celtics",
+      "home_tricode": "PHX",
+      "away_tricode": "BOS",
+      "commence_time": "2026-02-25T02:10:00Z",
+      "home_odds": 205,
+      "away_odds": -250
+    },
+    {
+      "id": "19016c4fd819260622e9fbaf8070d66a",
+      "home_team": "Los Angeles Lakers",
+      "away_team": "Orlando Magic",
+      "home_tricode": "LAL",
+      "away_tricode": "ORL",
+      "commence_time": "2026-02-25T03:40:00Z",
+      "home_odds": -235,
+      "away_odds": 194
+    }
+  ]
+}
