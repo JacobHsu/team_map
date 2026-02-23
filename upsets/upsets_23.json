@@ -1,0 +1,49 @@
+{
+  "total_games": 11,
+  "upset_count": 4,
+  "upset_rate": 36.36,
+  "upsets": [
+    {
+      "winner_tricode": "OKC",
+      "winner": "Oklahoma City Thunder",
+      "winner_score": 121,
+      "winner_odds": 138,
+      "loser_tricode": "CLE",
+      "loser": "Cleveland Cavaliers",
+      "loser_score": 113,
+      "loser_odds": -164
+    },
+    {
+      "winner_tricode": "GSW",
+      "winner": "Golden State Warriors",
+      "winner_score": 128,
+      "winner_odds": 176,
+      "loser_tricode": "DEN",
+      "loser": "Denver Nuggets",
+      "loser_score": 117,
+      "loser_odds": -210
+    },
+    {
+      "winner_tricode": "PHI",
+      "winner": "Philadelphia 76ers",
+      "winner_score": 135,
+      "winner_odds": 280,
+      "loser_tricode": "MIN",
+      "loser": "Minnesota Timberwolves",
+      "loser_score": 108,
+      "loser_odds": -350
+    },
+    {
+      "winner_tricode": "ORL",
+      "winner": "Orlando Magic",
+      "winner_score": 111,
+      "winner_odds": 138,
+      "loser_tricode": "LAC",
+      "loser": "Los Angeles Clippers",
+      "loser_score": 109,
+      "loser_odds": -164
+    }
+  ],
+  "date": "2026-02-23",
+  "updated": "2026-02-23 15:30"
+}
