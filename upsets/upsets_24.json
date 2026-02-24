@@ -1,0 +1,29 @@
+{
+  "total_games": 3,
+  "upset_count": 2,
+  "upset_rate": 66.67,
+  "upsets": [
+    {
+      "winner_tricode": "SAS",
+      "winner": "San Antonio Spurs",
+      "winner_score": 114,
+      "winner_odds": 100,
+      "loser_tricode": "DET",
+      "loser": "Detroit Pistons",
+      "loser_score": 103,
+      "loser_odds": -118
+    },
+    {
+      "winner_tricode": "SAC",
+      "winner": "Sacramento Kings",
+      "winner_score": 123,
+      "winner_odds": 160,
+      "loser_tricode": "MEM",
+      "loser": "Memphis Grizzlies",
+      "loser_score": 114,
+      "loser_odds": -190
+    }
+  ],
+  "date": "2026-02-24",
+  "updated": "2026-02-24 15:27"
+}
