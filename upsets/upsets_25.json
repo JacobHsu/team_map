@@ -1,0 +1,39 @@
+{
+  "total_games": 11,
+  "upset_count": 3,
+  "upset_rate": 27.27,
+  "upsets": [
+    {
+      "winner_tricode": "NOP",
+      "winner": "New Orleans Pelicans",
+      "winner_score": 113,
+      "winner_odds": 106,
+      "loser_tricode": "GSW",
+      "loser": "Golden State Warriors",
+      "loser_score": 109,
+      "loser_odds": -124
+    },
+    {
+      "winner_tricode": "MIL",
+      "winner": "Milwaukee Bucks",
+      "winner_score": 128,
+      "winner_odds": 172,
+      "loser_tricode": "MIA",
+      "loser": "Miami Heat",
+      "loser_score": 117,
+      "loser_odds": -210
+    },
+    {
+      "winner_tricode": "ORL",
+      "winner": "Orlando Magic",
+      "winner_score": 110,
+      "winner_odds": 168,
+      "loser_tricode": "LAL",
+      "loser": "Los Angeles Lakers",
+      "loser_score": 109,
+      "loser_odds": -200
+    }
+  ],
+  "date": "2026-02-25",
+  "updated": "2026-02-25 15:28"
+}
