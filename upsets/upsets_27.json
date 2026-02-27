@@ -1,0 +1,29 @@
+{
+  "total_games": 10,
+  "upset_count": 2,
+  "upset_rate": 20.0,
+  "upsets": [
+    {
+      "winner_tricode": "SAC",
+      "winner": "Sacramento Kings",
+      "winner_score": 130,
+      "winner_odds": 215,
+      "loser_tricode": "DAL",
+      "loser": "Dallas Mavericks",
+      "loser_score": 121,
+      "loser_odds": -260
+    },
+    {
+      "winner_tricode": "PHX",
+      "winner": "Phoenix Suns",
+      "winner_score": 113,
+      "winner_odds": 166,
+      "loser_tricode": "LAL",
+      "loser": "Los Angeles Lakers",
+      "loser_score": 110,
+      "loser_odds": -198
+    }
+  ],
+  "date": "2026-02-27",
+  "updated": "2026-02-27 15:25"
+}
