@@ -1,0 +1,19 @@
+{
+  "total_games": 5,
+  "upset_count": 1,
+  "upset_rate": 20.0,
+  "upsets": [
+    {
+      "winner_tricode": "MEM",
+      "winner": "Memphis Grizzlies",
+      "winner_score": 124,
+      "winner_odds": 194,
+      "loser_tricode": "DAL",
+      "loser": "Dallas Mavericks",
+      "loser_score": 105,
+      "loser_odds": -235
+    }
+  ],
+  "date": "2026-02-28",
+  "updated": "2026-02-28 15:13"
+}
