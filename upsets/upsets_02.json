@@ -1,19 +1,39 @@
 {
-  "total_games": 5,
-  "upset_count": 1,
-  "upset_rate": 20,
+  "total_games": 11,
+  "upset_count": 3,
+  "upset_rate": 27.27,
   "upsets": [
     {
-      "winner_tricode": "LAC",
-      "winner": "Los Angeles Clippers",
+      "winner_tricode": "NYK",
+      "winner": "New York Knicks",
+      "winner_score": 114,
+      "winner_odds": 104,
+      "loser_tricode": "SAS",
+      "loser": "San Antonio Spurs",
+      "loser_score": 89,
+      "loser_odds": -122
+    },
+    {
+      "winner_tricode": "CHI",
+      "winner": "Chicago Bulls",
+      "winner_score": 120,
+      "winner_odds": 134,
+      "loser_tricode": "MIL",
+      "loser": "Milwaukee Bucks",
+      "loser_score": 97,
+      "loser_odds": -158
+    },
+    {
+      "winner_tricode": "MIN",
+      "winner": "Minnesota Timberwolves",
       "winner_score": 117,
-      "winner_odds": 127,
-      "loser_tricode": "PHX",
-      "loser": "Phoenix Suns",
-      "loser_score": 93,
+      "winner_odds": 128,
+      "loser_tricode": "DEN",
+      "loser": "Denver Nuggets",
+      "loser_score": 108,
       "loser_odds": -152
     }
   ],
-  "date": "2026-02-02",
-  "updated": "2026-02-02 12:00"
+  "date": "2026-03-02",
+  "updated": "2026-03-02 15:27"
 }
