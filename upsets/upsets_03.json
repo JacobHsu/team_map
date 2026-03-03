@@ -1,19 +1,8 @@
 {
-  "total_games": 3,
-  "upset_count": 1,
-  "upset_rate": 33.33,
-  "upsets": [
-    {
-      "winner_tricode": "MEM",
-      "winner": "Memphis Grizzlies",
-      "winner_score": 137,
-      "winner_odds": 240,
-      "loser_tricode": "MIN",
-      "loser": "Minnesota Timberwolves",
-      "loser_score": 128,
-      "loser_odds": -303
-    }
-  ],
-  "date": "2026-02-03",
-  "updated": "2026-02-03 23:15"
+  "total_games": 4,
+  "upset_count": 0,
+  "upset_rate": 0.0,
+  "upsets": [],
+  "date": "2026-03-03",
+  "updated": "2026-03-03 15:23"
 }
