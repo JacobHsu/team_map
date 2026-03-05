@@ -1,49 +1,29 @@
 {
-  "total_games": 7,
-  "upset_count": 4,
-  "upset_rate": 57.14,
+  "total_games": 6,
+  "upset_count": 2,
+  "upset_rate": 33.33,
   "upsets": [
     {
-      "winner_tricode": "MIL",
-      "winner": "Milwaukee Bucks",
-      "winner_score": 141,
-      "winner_odds": 152,
-      "loser_tricode": "NOP",
-      "loser": "New Orleans Pelicans",
-      "loser_score": 137,
-      "loser_odds": -180
+      "winner_tricode": "CHA",
+      "winner": "Charlotte Hornets",
+      "winner_score": 118,
+      "winner_odds": 205,
+      "loser_tricode": "BOS",
+      "loser": "Boston Celtics",
+      "loser_score": 89,
+      "loser_odds": -250
     },
     {
-      "winner_tricode": "BOS",
-      "winner": "Boston Celtics",
-      "winner_score": 114,
-      "winner_odds": 190,
-      "loser_tricode": "HOU",
-      "loser": "Houston Rockets",
-      "loser_score": 93,
-      "loser_odds": -230
-    },
-    {
-      "winner_tricode": "SAS",
-      "winner": "San Antonio Spurs",
-      "winner_score": 116,
-      "winner_odds": 116,
-      "loser_tricode": "OKC",
-      "loser": "Oklahoma City Thunder",
-      "loser_score": 106,
-      "loser_odds": -136
-    },
-    {
-      "winner_tricode": "MEM",
-      "winner": "Memphis Grizzlies",
-      "winner_score": 129,
-      "winner_odds": 102,
-      "loser_tricode": "SAC",
-      "loser": "Sacramento Kings",
-      "loser_score": 125,
-      "loser_odds": -120
+      "winner_tricode": "ATL",
+      "winner": "Atlanta Hawks",
+      "winner_score": 131,
+      "winner_odds": -102,
+      "loser_tricode": "MIL",
+      "loser": "Milwaukee Bucks",
+      "loser_score": 113,
+      "loser_odds": -116
     }
   ],
-  "date": "2026-02-05",
-  "updated": "2026-02-05 15:27"
+  "date": "2026-03-05",
+  "updated": "2026-03-05 15:23"
 }
