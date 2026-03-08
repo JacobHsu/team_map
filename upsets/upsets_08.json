@@ -1,29 +1,29 @@
 {
-  "total_games": 10,
+  "total_games": 6,
   "upset_count": 2,
-  "upset_rate": 20.0,
+  "upset_rate": 33.33,
   "upsets": [
     {
-      "winner_tricode": "HOU",
-      "winner": "Houston Rockets",
-      "winner_score": 112,
-      "winner_odds": 116,
-      "loser_tricode": "OKC",
-      "loser": "Oklahoma City Thunder",
-      "loser_score": 106,
-      "loser_odds": -136
+      "winner_tricode": "ORL",
+      "winner": "Orlando Magic",
+      "winner_score": 119,
+      "winner_odds": 200,
+      "loser_tricode": "MIN",
+      "loser": "Minnesota Timberwolves",
+      "loser_score": 92,
+      "loser_odds": -245
     },
     {
-      "winner_tricode": "PHI",
-      "winner": "Philadelphia 76ers",
-      "winner_score": 109,
-      "winner_odds": 104,
-      "loser_tricode": "PHX",
-      "loser": "Phoenix Suns",
-      "loser_score": 103,
-      "loser_odds": -122
+      "winner_tricode": "BKN",
+      "winner": "Brooklyn Nets",
+      "winner_score": 107,
+      "winner_odds": 610,
+      "loser_tricode": "DET",
+      "loser": "Detroit Pistons",
+      "loser_score": 105,
+      "loser_odds": -900
     }
   ],
-  "date": "2026-02-08",
-  "updated": "2026-02-08 15:21"
+  "date": "2026-03-08",
+  "updated": "2026-03-08 15:18"
 }
