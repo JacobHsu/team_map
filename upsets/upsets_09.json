@@ -1,29 +1,49 @@
 {
-  "total_games": 4,
-  "upset_count": 2,
-  "upset_rate": 50.0,
+  "total_games": 10,
+  "upset_count": 4,
+  "upset_rate": 40.0,
   "upsets": [
     {
-      "winner_tricode": "NYK",
-      "winner": "New York Knicks",
-      "winner_score": 111,
-      "winner_odds": 146,
-      "loser_tricode": "BOS",
-      "loser": "Boston Celtics",
-      "loser_score": 89,
-      "loser_odds": -174
+      "winner_tricode": "LAL",
+      "winner": "Los Angeles Lakers",
+      "winner_score": 110,
+      "winner_odds": 130,
+      "loser_tricode": "NYK",
+      "loser": "New York Knicks",
+      "loser_score": 97,
+      "loser_odds": -154
     },
     {
-      "winner_tricode": "LAC",
-      "winner": "Los Angeles Clippers",
-      "winner_score": 115,
-      "winner_odds": 260,
-      "loser_tricode": "MIN",
-      "loser": "Minnesota Timberwolves",
-      "loser_score": 96,
-      "loser_odds": -320
+      "winner_tricode": "MIA",
+      "winner": "Miami Heat",
+      "winner_score": 121,
+      "winner_odds": 102,
+      "loser_tricode": "DET",
+      "loser": "Detroit Pistons",
+      "loser_score": 110,
+      "loser_odds": -120
+    },
+    {
+      "winner_tricode": "SAC",
+      "winner": "Sacramento Kings",
+      "winner_score": 126,
+      "winner_odds": 122,
+      "loser_tricode": "CHI",
+      "loser": "Chicago Bulls",
+      "loser_score": 110,
+      "loser_odds": -144
+    },
+    {
+      "winner_tricode": "PHX",
+      "winner": "Phoenix Suns",
+      "winner_score": 111,
+      "winner_odds": 152,
+      "loser_tricode": "CHA",
+      "loser": "Charlotte Hornets",
+      "loser_score": 99,
+      "loser_odds": -180
     }
   ],
-  "date": "2026-02-09",
-  "updated": "2026-02-09 15:31"
+  "date": "2026-03-09",
+  "updated": "2026-03-09 15:28"
 }
