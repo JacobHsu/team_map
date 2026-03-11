@@ -1,19 +1,29 @@
 {
-  "total_games": 4,
-  "upset_count": 1,
-  "upset_rate": 25.0,
+  "total_games": 11,
+  "upset_count": 2,
+  "upset_rate": 18.18,
   "upsets": [
     {
-      "winner_tricode": "IND",
-      "winner": "Indiana Pacers",
-      "winner_score": 137,
-      "winner_odds": 480,
-      "loser_tricode": "NYK",
-      "loser": "New York Knicks",
-      "loser_score": 134,
-      "loser_odds": -650
+      "winner_tricode": "CHI",
+      "winner": "Chicago Bulls",
+      "winner_score": 130,
+      "winner_odds": 198,
+      "loser_tricode": "GSW",
+      "loser": "Golden State Warriors",
+      "loser_score": 124,
+      "loser_odds": -240
+    },
+    {
+      "winner_tricode": "LAL",
+      "winner": "Los Angeles Lakers",
+      "winner_score": 120,
+      "winner_odds": 118,
+      "loser_tricode": "MIN",
+      "loser": "Minnesota Timberwolves",
+      "loser_score": 106,
+      "loser_odds": -138
     }
   ],
-  "date": "2026-02-11",
-  "updated": "2026-02-11 15:29"
+  "date": "2026-03-11",
+  "updated": "2026-03-11 15:24"
 }
