@@ -1,5 +1,86 @@
 {
-  "date": "2026-02-13",
-  "fetched": "2026-02-13 18:15",
-  "games": []
+  "date": "2026-03-13",
+  "fetched": "2026-03-13 18:11",
+  "games": [
+    {
+      "id": "fff92660471a227787e69030342c161a",
+      "home_team": "Dallas Mavericks",
+      "away_team": "Cleveland Cavaliers",
+      "home_tricode": "DAL",
+      "away_tricode": "CLE",
+      "commence_time": "2026-03-13T23:40:00Z",
+      "home_odds": 490,
+      "away_odds": -700
+    },
+    {
+      "id": "9f90f0cfcf3b921f77ede1f83724a96f",
+      "home_team": "Detroit Pistons",
+      "away_team": "Memphis Grizzlies",
+      "home_tricode": "DET",
+      "away_tricode": "MEM",
+      "commence_time": "2026-03-13T23:40:00Z",
+      "home_odds": -1350,
+      "away_odds": 810
+    },
+    {
+      "id": "aef5ba1e4c95ece8672f8bb0672fe17d",
+      "home_team": "Indiana Pacers",
+      "away_team": "New York Knicks",
+      "home_tricode": "IND",
+      "away_tricode": "NYK",
+      "commence_time": "2026-03-13T23:40:00Z",
+      "home_odds": 640,
+      "away_odds": -950
+    },
+    {
+      "id": "9d9b5899c3a11e2fb35194811631cd40",
+      "home_team": "Toronto Raptors",
+      "away_team": "Phoenix Suns",
+      "home_tricode": "TOR",
+      "away_tricode": "PHX",
+      "commence_time": "2026-03-13T23:40:00Z",
+      "home_odds": -176,
+      "away_odds": 148
+    },
+    {
+      "id": "8d4b91d706b4ca4f3b81cc33346b3d14",
+      "home_team": "Houston Rockets",
+      "away_team": "New Orleans Pelicans",
+      "home_tricode": "HOU",
+      "away_tricode": "NOP",
+      "commence_time": "2026-03-14T00:10:00Z",
+      "home_odds": -260,
+      "away_odds": 215
+    },
+    {
+      "id": "8f70af8b76f27c4f0a7a6957464edf9d",
+      "home_team": "Golden State Warriors",
+      "away_team": "Minnesota Timberwolves",
+      "home_tricode": "GSW",
+      "away_tricode": "MIN",
+      "commence_time": "2026-03-14T02:10:00Z",
+      "home_odds": 184,
+      "away_odds": -220
+    },
+    {
+      "id": "d935250226e658edb6e7a0f1eaf4edea",
+      "home_team": "Portland Trail Blazers",
+      "away_team": "Utah Jazz",
+      "home_tricode": "POR",
+      "away_tricode": "UTA",
+      "commence_time": "2026-03-14T02:10:00Z",
+      "home_odds": -1200,
+      "away_odds": 750
+    },
+    {
+      "id": "3e5d3f236671e27e0921615898f5f035",
+      "home_team": "Los Angeles Clippers",
+      "away_team": "Chicago Bulls",
+      "home_tricode": "LAC",
+      "away_tricode": "CHI",
+      "commence_time": "2026-03-14T02:40:00Z",
+      "home_odds": -670,
+      "away_odds": 490
+    }
+  ]
 }
