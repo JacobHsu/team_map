@@ -1,5 +1,76 @@
 {
-  "date": "2026-02-14",
-  "fetched": "2026-02-14 18:06",
-  "games": []
+  "date": "2026-03-14",
+  "fetched": "2026-03-14 18:06",
+  "games": [
+    {
+      "id": "12c0f198cfa33b284457ae31066ace94",
+      "home_team": "Philadelphia 76ers",
+      "away_team": "Brooklyn Nets",
+      "home_tricode": "PHI",
+      "away_tricode": "BKN",
+      "commence_time": "2026-03-14T17:10:00Z",
+      "home_odds": -375,
+      "away_odds": 300
+    },
+    {
+      "id": "67fd3c76881fc3018d06f51684b04db5",
+      "home_team": "Atlanta Hawks",
+      "away_team": "Milwaukee Bucks",
+      "home_tricode": "ATL",
+      "away_tricode": "MIL",
+      "commence_time": "2026-03-14T19:10:00Z",
+      "home_odds": -295,
+      "away_odds": 240
+    },
+    {
+      "id": "385c8f2c3153a39f3b1864e324132599",
+      "home_team": "San Antonio Spurs",
+      "away_team": "Charlotte Hornets",
+      "home_tricode": "SAS",
+      "away_tricode": "CHA",
+      "commence_time": "2026-03-14T19:40:00Z",
+      "home_odds": -230,
+      "away_odds": 190
+    },
+    {
+      "id": "99121dd3b759ee039a7172119402defe",
+      "home_team": "Boston Celtics",
+      "away_team": "Washington Wizards",
+      "home_tricode": "BOS",
+      "away_tricode": "WAS",
+      "commence_time": "2026-03-14T22:10:00Z",
+      "home_odds": -2200,
+      "away_odds": 1100
+    },
+    {
+      "id": "5b7467a257447a40f885525e863992a5",
+      "home_team": "Los Angeles Lakers",
+      "away_team": "Denver Nuggets",
+      "home_tricode": "LAL",
+      "away_tricode": "DEN",
+      "commence_time": "2026-03-14T22:40:00Z",
+      "home_odds": 120,
+      "away_odds": -142
+    },
+    {
+      "id": "b356eed95fac84c751e3a07a9b013bdb",
+      "home_team": "Miami Heat",
+      "away_team": "Orlando Magic",
+      "home_tricode": "MIA",
+      "away_tricode": "ORL",
+      "commence_time": "2026-03-15T00:10:00Z",
+      "home_odds": -166,
+      "away_odds": 140
+    },
+    {
+      "id": "fd3cb91e05ed15d6fa70f51f1d305f3b",
+      "home_team": "Los Angeles Clippers",
+      "away_team": "Sacramento Kings",
+      "home_tricode": "LAC",
+      "away_tricode": "SAC",
+      "commence_time": "2026-03-15T02:40:00Z",
+      "home_odds": -800,
+      "away_odds": 560
+    }
+  ]
 }
