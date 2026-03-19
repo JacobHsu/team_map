@@ -1,8 +1,29 @@
 {
-  "total_games": 0,
-  "upset_count": 0,
-  "upset_rate": 0,
-  "upsets": [],
-  "date": "2026-02-19",
-  "updated": "2026-02-19 15:27"
+  "total_games": 9,
+  "upset_count": 2,
+  "upset_rate": 22.22,
+  "upsets": [
+    {
+      "winner_tricode": "MEM",
+      "winner": "Memphis Grizzlies",
+      "winner_score": 125,
+      "winner_odds": 540,
+      "loser_tricode": "DEN",
+      "loser": "Denver Nuggets",
+      "loser_score": 118,
+      "loser_odds": -770
+    },
+    {
+      "winner_tricode": "LAL",
+      "winner": "Los Angeles Lakers",
+      "winner_score": 124,
+      "winner_odds": 118,
+      "loser_tricode": "HOU",
+      "loser": "Houston Rockets",
+      "loser_score": 116,
+      "loser_odds": -138
+    }
+  ],
+  "date": "2026-03-19",
+  "updated": "2026-03-19 15:26"
 }
