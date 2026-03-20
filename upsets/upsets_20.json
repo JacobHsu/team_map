@@ -1,49 +1,29 @@
 {
-  "total_games": 10,
-  "upset_count": 4,
-  "upset_rate": 40.0,
+  "total_games": 8,
+  "upset_count": 2,
+  "upset_rate": 25.0,
   "upsets": [
     {
-      "winner_tricode": "WAS",
-      "winner": "Washington Wizards",
-      "winner_score": 112,
-      "winner_odds": 126,
-      "loser_tricode": "IND",
-      "loser": "Indiana Pacers",
-      "loser_score": 105,
-      "loser_odds": -148
+      "winner_tricode": "LAL",
+      "winner": "Los Angeles Lakers",
+      "winner_score": 134,
+      "winner_odds": 122,
+      "loser_tricode": "MIA",
+      "loser": "Miami Heat",
+      "loser_score": 126,
+      "loser_odds": -144
     },
     {
-      "winner_tricode": "ATL",
-      "winner": "Atlanta Hawks",
-      "winner_score": 117,
-      "winner_odds": 100,
-      "loser_tricode": "PHI",
-      "loser": "Philadelphia 76ers",
-      "loser_score": 107,
-      "loser_odds": -118
-    },
-    {
-      "winner_tricode": "DET",
-      "winner": "Detroit Pistons",
-      "winner_score": 126,
-      "winner_odds": 146,
-      "loser_tricode": "NYK",
-      "loser": "New York Knicks",
-      "loser_score": 111,
-      "loser_odds": -174
-    },
-    {
-      "winner_tricode": "LAC",
-      "winner": "Los Angeles Clippers",
-      "winner_score": 115,
-      "winner_odds": 152,
-      "loser_tricode": "DEN",
-      "loser": "Denver Nuggets",
-      "loser_score": 114,
-      "loser_odds": -180
+      "winner_tricode": "UTA",
+      "winner": "Utah Jazz",
+      "winner_score": 128,
+      "winner_odds": 172,
+      "loser_tricode": "MIL",
+      "loser": "Milwaukee Bucks",
+      "loser_score": 96,
+      "loser_odds": -205
     }
   ],
-  "date": "2026-02-20",
-  "updated": "2026-02-20 15:26"
+  "date": "2026-03-20",
+  "updated": "2026-03-20 15:25"
 }
