@@ -1,54 +1,39 @@
 {
-  "date": "2026-01-29",
-  "updated": "2026-01-29 23:05",
-  "total_games": 9,
-  "upset_count": 5,
-  "upset_rate": 56,
+  "total_games": 6,
+  "upset_count": 3,
+  "upset_rate": 50.0,
   "upsets": [
     {
-      "winner_tricode": "ATL",
-      "winner": "Atlanta Hawks",
-      "winner_score": 117,
-      "winner_odds": 170,
-      "loser_tricode": "BOS",
-      "loser": "Boston Celtics",
-      "loser_score": 106
+      "winner_tricode": "DET",
+      "winner": "Detroit Pistons",
+      "winner_score": 109,
+      "winner_odds": 118,
+      "loser_tricode": "MIN",
+      "loser": "Minnesota Timberwolves",
+      "loser_score": 87,
+      "loser_odds": -138
     },
     {
-      "winner_tricode": "ORL",
-      "winner": "Orlando Magic",
-      "winner_score": 133,
-      "winner_odds": 125,
-      "loser_tricode": "MIA",
-      "loser": "Miami Heat",
-      "loser_score": 124
+      "winner_tricode": "PHI",
+      "winner": "Philadelphia 76ers",
+      "winner_score": 118,
+      "winner_odds": 190,
+      "loser_tricode": "CHA",
+      "loser": "Charlotte Hornets",
+      "loser_score": 114,
+      "loser_odds": -230
     },
     {
-      "winner_tricode": "SAS",
-      "winner": "San Antonio Spurs",
-      "winner_score": 111,
-      "winner_odds": 120,
-      "loser_tricode": "HOU",
-      "loser": "Houston Rockets",
-      "loser_score": 99
-    },
-    {
-      "winner_tricode": "IND",
-      "winner": "Indiana Pacers",
-      "winner_score": 113,
-      "winner_odds": 106,
+      "winner_tricode": "MEM",
+      "winner": "Memphis Grizzlies",
+      "winner_score": 125,
+      "winner_odds": 144,
       "loser_tricode": "CHI",
       "loser": "Chicago Bulls",
-      "loser_score": 110
-    },
-    {
-      "winner_tricode": "NYK",
-      "winner": "New York Knicks",
-      "winner_score": 119,
-      "winner_odds": 104,
-      "loser_tricode": "TOR",
-      "loser": "Toronto Raptors",
-      "loser_score": 92
+      "loser_score": 124,
+      "loser_odds": -172
     }
-  ]
+  ],
+  "date": "2026-03-29",
+  "updated": "2026-03-29 15:28"
 }
