@@ -1,39 +1,29 @@
 {
-  "date": "2026-01-30",
-  "updated": "2026-01-30 15:50",
-  "total_games": 8,
-  "upset_count": 3,
-  "upset_rate": 38,
+  "total_games": 9,
+  "upset_count": 2,
+  "upset_rate": 22.22,
   "upsets": [
     {
-      "winner_tricode": "MIN",
-      "winner": "Minnesota Timberwolves",
-      "winner_score": 123,
-      "winner_odds": 168,
-      "loser_tricode": "OKC",
-      "loser": "Oklahoma City Thunder",
-      "loser_score": 111,
-      "loser_odds": -200
+      "winner_tricode": "IND",
+      "winner": "Indiana Pacers",
+      "winner_score": 135,
+      "winner_odds": 310,
+      "loser_tricode": "MIA",
+      "loser": "Miami Heat",
+      "loser_score": 118,
+      "loser_odds": -390
     },
     {
-      "winner_tricode": "PHX",
-      "winner": "Phoenix Suns",
-      "winner_score": 114,
-      "winner_odds": 127,
-      "loser_tricode": "DET",
-      "loser": "Detroit Pistons",
-      "loser_score": 96,
-      "loser_odds": -152
-    },
-    {
-      "winner_tricode": "WAS",
-      "winner": "Washington Wizards",
-      "winner_score": 109,
-      "winner_odds": 106,
-      "loser_tricode": "MIL",
-      "loser": "Milwaukee Bucks",
+      "winner_tricode": "BKN",
+      "winner": "Brooklyn Nets",
+      "winner_score": 116,
+      "winner_odds": -102,
+      "loser_tricode": "SAC",
+      "loser": "Sacramento Kings",
       "loser_score": 99,
-      "loser_odds": -127
+      "loser_odds": -116
     }
-  ]
+  ],
+  "date": "2026-03-30",
+  "updated": "2026-03-30 15:39"
 }
