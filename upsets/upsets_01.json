@@ -1,19 +1,29 @@
 {
-  "total_games": 5,
-  "upset_count": 1,
-  "upset_rate": 20.0,
+  "total_games": 7,
+  "upset_count": 2,
+  "upset_rate": 28.57,
   "upsets": [
     {
-      "winner_tricode": "MIA",
-      "winner": "Miami Heat",
-      "winner_score": 115,
-      "winner_odds": 128,
-      "loser_tricode": "HOU",
-      "loser": "Houston Rockets",
-      "loser_score": 105,
-      "loser_odds": -152
+      "winner_tricode": "MIL",
+      "winner": "Milwaukee Bucks",
+      "winner_score": 123,
+      "winner_odds": -102,
+      "loser_tricode": "DAL",
+      "loser": "Dallas Mavericks",
+      "loser_score": 99,
+      "loser_odds": -116
+    },
+    {
+      "winner_tricode": "POR",
+      "winner": "Portland Trail Blazers",
+      "winner_score": 114,
+      "winner_odds": 188,
+      "loser_tricode": "LAC",
+      "loser": "Los Angeles Clippers",
+      "loser_score": 104,
+      "loser_odds": -225
     }
   ],
-  "date": "2026-03-01",
-  "updated": "2026-03-01 15:19"
+  "date": "2026-04-01",
+  "updated": "2026-04-01 15:39"
 }
