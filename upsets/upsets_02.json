@@ -1,39 +1,29 @@
 {
-  "total_games": 11,
-  "upset_count": 3,
-  "upset_rate": 27.27,
+  "total_games": 9,
+  "upset_count": 2,
+  "upset_rate": 22.22,
   "upsets": [
     {
-      "winner_tricode": "NYK",
-      "winner": "New York Knicks",
-      "winner_score": 114,
-      "winner_odds": 104,
-      "loser_tricode": "SAS",
-      "loser": "San Antonio Spurs",
-      "loser_score": 89,
-      "loser_odds": -122
+      "winner_tricode": "IND",
+      "winner": "Indiana Pacers",
+      "winner_score": 145,
+      "winner_odds": 166,
+      "loser_tricode": "CHI",
+      "loser": "Chicago Bulls",
+      "loser_score": 126,
+      "loser_odds": -198
     },
     {
-      "winner_tricode": "CHI",
-      "winner": "Chicago Bulls",
-      "winner_score": 120,
-      "winner_odds": 134,
-      "loser_tricode": "MIL",
-      "loser": "Milwaukee Bucks",
-      "loser_score": 97,
-      "loser_odds": -158
-    },
-    {
-      "winner_tricode": "MIN",
-      "winner": "Minnesota Timberwolves",
-      "winner_score": 117,
-      "winner_odds": 128,
-      "loser_tricode": "DEN",
-      "loser": "Denver Nuggets",
-      "loser_score": 108,
-      "loser_odds": -152
+      "winner_tricode": "SAC",
+      "winner": "Sacramento Kings",
+      "winner_score": 123,
+      "winner_odds": 550,
+      "loser_tricode": "TOR",
+      "loser": "Toronto Raptors",
+      "loser_score": 115,
+      "loser_odds": -910
     }
   ],
-  "date": "2026-03-02",
-  "updated": "2026-03-02 15:27"
+  "date": "2026-04-02",
+  "updated": "2026-04-02 15:36"
 }
