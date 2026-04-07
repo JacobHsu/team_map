@@ -1,19 +1,29 @@
 {
-  "total_games": 7,
-  "upset_count": 1,
-  "upset_rate": 14.29,
+  "total_games": 5,
+  "upset_count": 2,
+  "upset_rate": 40.0,
   "upsets": [
     {
-      "winner_tricode": "MIA",
-      "winner": "Miami Heat",
-      "winner_score": 128,
-      "winner_odds": 235,
-      "loser_tricode": "CHA",
-      "loser": "Charlotte Hornets",
-      "loser_score": 120,
-      "loser_odds": -290
+      "winner_tricode": "ORL",
+      "winner": "Orlando Magic",
+      "winner_score": 123,
+      "winner_odds": 138,
+      "loser_tricode": "DET",
+      "loser": "Detroit Pistons",
+      "loser_score": 107,
+      "loser_odds": -164
+    },
+    {
+      "winner_tricode": "NYK",
+      "winner": "New York Knicks",
+      "winner_score": 108,
+      "winner_odds": 100,
+      "loser_tricode": "ATL",
+      "loser": "Atlanta Hawks",
+      "loser_score": 105,
+      "loser_odds": -118
     }
   ],
-  "date": "2026-03-07",
-  "updated": "2026-03-07 15:14"
+  "date": "2026-04-07",
+  "updated": "2026-04-07 15:38"
 }
