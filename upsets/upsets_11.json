@@ -1,29 +1,49 @@
 {
-  "total_games": 11,
-  "upset_count": 2,
-  "upset_rate": 18.18,
+  "total_games": 15,
+  "upset_count": 4,
+  "upset_rate": 26.67,
   "upsets": [
     {
-      "winner_tricode": "CHI",
-      "winner": "Chicago Bulls",
-      "winner_score": 130,
-      "winner_odds": 198,
+      "winner_tricode": "DET",
+      "winner": "Detroit Pistons",
+      "winner_score": 118,
+      "winner_odds": 148,
+      "loser_tricode": "CHA",
+      "loser": "Charlotte Hornets",
+      "loser_score": 100,
+      "loser_odds": -176
+    },
+    {
+      "winner_tricode": "MIN",
+      "winner": "Minnesota Timberwolves",
+      "winner_score": 136,
+      "winner_odds": 350,
+      "loser_tricode": "HOU",
+      "loser": "Houston Rockets",
+      "loser_score": 132,
+      "loser_odds": -450
+    },
+    {
+      "winner_tricode": "SAC",
+      "winner": "Sacramento Kings",
+      "winner_score": 124,
+      "winner_odds": 410,
       "loser_tricode": "GSW",
       "loser": "Golden State Warriors",
-      "loser_score": 124,
-      "loser_odds": -240
+      "loser_score": 118,
+      "loser_odds": -550
     },
     {
       "winner_tricode": "LAL",
       "winner": "Los Angeles Lakers",
-      "winner_score": 120,
-      "winner_odds": 118,
-      "loser_tricode": "MIN",
-      "loser": "Minnesota Timberwolves",
-      "loser_score": 106,
-      "loser_odds": -138
+      "winner_score": 101,
+      "winner_odds": 110,
+      "loser_tricode": "PHX",
+      "loser": "Phoenix Suns",
+      "loser_score": 73,
+      "loser_odds": -130
     }
   ],
-  "date": "2026-03-11",
-  "updated": "2026-03-11 15:24"
+  "date": "2026-04-11",
+  "updated": "2026-04-11 15:27"
 }
