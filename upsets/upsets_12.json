@@ -1,29 +1,8 @@
 {
-  "total_games": 6,
-  "upset_count": 2,
-  "upset_rate": 33.33,
-  "upsets": [
-    {
-      "winner_tricode": "ORL",
-      "winner": "Orlando Magic",
-      "winner_score": 128,
-      "winner_odds": 136,
-      "loser_tricode": "CLE",
-      "loser": "Cleveland Cavaliers",
-      "loser_score": 122,
-      "loser_odds": -162
-    },
-    {
-      "winner_tricode": "NOP",
-      "winner": "New Orleans Pelicans",
-      "winner_score": 122,
-      "winner_odds": 106,
-      "loser_tricode": "TOR",
-      "loser": "Toronto Raptors",
-      "loser_score": 111,
-      "loser_odds": -124
-    }
-  ],
-  "date": "2026-03-12",
-  "updated": "2026-03-12 15:25"
+  "total_games": 0,
+  "upset_count": 0,
+  "upset_rate": 0,
+  "upsets": [],
+  "date": "2026-04-12",
+  "updated": "2026-04-12 15:36"
 }
