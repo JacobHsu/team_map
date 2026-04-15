@@ -1,39 +1,19 @@
 {
-  "total_games": 7,
-  "upset_count": 3,
-  "upset_rate": 42.86,
+  "total_games": 2,
+  "upset_count": 1,
+  "upset_rate": 50.0,
   "upsets": [
     {
-      "winner_tricode": "ORL",
-      "winner": "Orlando Magic",
-      "winner_score": 121,
-      "winner_odds": 140,
-      "loser_tricode": "MIA",
-      "loser": "Miami Heat",
-      "loser_score": 117,
-      "loser_odds": -166
-    },
-    {
-      "winner_tricode": "LAL",
-      "winner": "Los Angeles Lakers",
-      "winner_score": 127,
-      "winner_odds": 120,
-      "loser_tricode": "DEN",
-      "loser": "Denver Nuggets",
-      "loser_score": 125,
-      "loser_odds": -142
-    },
-    {
-      "winner_tricode": "SAC",
-      "winner": "Sacramento Kings",
-      "winner_score": 118,
-      "winner_odds": 560,
-      "loser_tricode": "LAC",
-      "loser": "Los Angeles Clippers",
-      "loser_score": 109,
-      "loser_odds": -800
+      "winner_tricode": "POR",
+      "winner": "Portland Trail Blazers",
+      "winner_score": 114,
+      "winner_odds": 136,
+      "loser_tricode": "PHX",
+      "loser": "Phoenix Suns",
+      "loser_score": 110,
+      "loser_odds": -162
     }
   ],
-  "date": "2026-03-15",
-  "updated": "2026-03-15 15:25"
+  "date": "2026-04-15",
+  "updated": "2026-04-15 15:40"
 }
