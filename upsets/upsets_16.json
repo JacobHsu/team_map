@@ -1,39 +1,19 @@
 {
-  "total_games": 7,
-  "upset_count": 3,
-  "upset_rate": 42.86,
+  "total_games": 2,
+  "upset_count": 1,
+  "upset_rate": 50.0,
   "upsets": [
     {
-      "winner_tricode": "DAL",
-      "winner": "Dallas Mavericks",
-      "winner_score": 130,
-      "winner_odds": 750,
-      "loser_tricode": "CLE",
-      "loser": "Cleveland Cavaliers",
-      "loser_score": 120,
-      "loser_odds": -1200
-    },
-    {
-      "winner_tricode": "TOR",
-      "winner": "Toronto Raptors",
-      "winner_score": 119,
-      "winner_odds": 134,
-      "loser_tricode": "DET",
-      "loser": "Detroit Pistons",
-      "loser_score": 108,
-      "loser_odds": -158
-    },
-    {
-      "winner_tricode": "PHI",
-      "winner": "Philadelphia 76ers",
-      "winner_score": 109,
-      "winner_odds": 235,
-      "loser_tricode": "POR",
-      "loser": "Portland Trail Blazers",
-      "loser_score": 103,
-      "loser_odds": -290
+      "winner_tricode": "GSW",
+      "winner": "Golden State Warriors",
+      "winner_score": 126,
+      "winner_odds": 170,
+      "loser_tricode": "LAC",
+      "loser": "Los Angeles Clippers",
+      "loser_score": 121,
+      "loser_odds": -205
     }
   ],
-  "date": "2026-03-16",
-  "updated": "2026-03-16 15:38"
+  "date": "2026-04-16",
+  "updated": "2026-04-16 15:40"
 }
