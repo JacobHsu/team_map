@@ -1,8 +1,19 @@
 {
-  "total_games": 8,
-  "upset_count": 0,
-  "upset_rate": 0.0,
-  "upsets": [],
-  "date": "2026-03-18",
-  "updated": "2026-03-18 15:29"
+  "total_games": 2,
+  "upset_count": 1,
+  "upset_rate": 50.0,
+  "upsets": [
+    {
+      "winner_tricode": "ORL",
+      "winner": "Orlando Magic",
+      "winner_score": 121,
+      "winner_odds": 136,
+      "loser_tricode": "CHA",
+      "loser": "Charlotte Hornets",
+      "loser_score": 90,
+      "loser_odds": -162
+    }
+  ],
+  "date": "2026-04-18",
+  "updated": "2026-04-18 15:31"
 }
