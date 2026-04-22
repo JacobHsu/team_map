@@ -1,19 +1,39 @@
 {
-  "total_games": 10,
-  "upset_count": 1,
-  "upset_rate": 10.0,
+  "total_games": 3,
+  "upset_count": 3,
+  "upset_rate": 100.0,
   "upsets": [
     {
-      "winner_tricode": "MIL",
-      "winner": "Milwaukee Bucks",
-      "winner_score": 108,
-      "winner_odds": 420,
-      "loser_tricode": "PHX",
-      "loser": "Phoenix Suns",
-      "loser_score": 105,
-      "loser_odds": -560
+      "winner_tricode": "PHI",
+      "winner": "Philadelphia 76ers",
+      "winner_score": 111,
+      "winner_odds": 575,
+      "loser_tricode": "BOS",
+      "loser": "Boston Celtics",
+      "loser_score": 97,
+      "loser_odds": -850
+    },
+    {
+      "winner_tricode": "POR",
+      "winner": "Portland Trail Blazers",
+      "winner_score": 106,
+      "winner_odds": 500,
+      "loser_tricode": "SAS",
+      "loser": "San Antonio Spurs",
+      "loser_score": 103,
+      "loser_odds": -700
+    },
+    {
+      "winner_tricode": "LAL",
+      "winner": "Los Angeles Lakers",
+      "winner_score": 101,
+      "winner_odds": 164,
+      "loser_tricode": "HOU",
+      "loser": "Houston Rockets",
+      "loser_score": 94,
+      "loser_odds": -196
     }
   ],
-  "date": "2026-03-22",
-  "updated": "2026-03-22 15:21"
+  "date": "2026-04-22",
+  "updated": "2026-04-22 15:40"
 }
