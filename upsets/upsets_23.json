@@ -1,29 +1,8 @@
 {
-  "total_games": 5,
-  "upset_count": 2,
-  "upset_rate": 40.0,
-  "upsets": [
-    {
-      "winner_tricode": "MIN",
-      "winner": "Minnesota Timberwolves",
-      "winner_score": 102,
-      "winner_odds": 295,
-      "loser_tricode": "BOS",
-      "loser": "Boston Celtics",
-      "loser_score": 92,
-      "loser_odds": -370
-    },
-    {
-      "winner_tricode": "PHX",
-      "winner": "Phoenix Suns",
-      "winner_score": 120,
-      "winner_odds": 112,
-      "loser_tricode": "TOR",
-      "loser": "Toronto Raptors",
-      "loser_score": 98,
-      "loser_odds": -132
-    }
-  ],
-  "date": "2026-03-23",
-  "updated": "2026-03-23 15:35"
+  "total_games": 2,
+  "upset_count": 0,
+  "upset_rate": 0.0,
+  "upsets": [],
+  "date": "2026-04-23",
+  "updated": "2026-04-23 15:41"
 }
