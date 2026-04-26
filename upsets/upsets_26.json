@@ -1,59 +1,29 @@
 {
-  "total_games": 12,
-  "upset_count": 5,
-  "upset_rate": 41.67,
+  "total_games": 4,
+  "upset_count": 2,
+  "upset_rate": 50.0,
   "upsets": [
     {
-      "winner_tricode": "ATL",
-      "winner": "Atlanta Hawks",
-      "winner_score": 130,
-      "winner_odds": 130,
+      "winner_tricode": "ORL",
+      "winner": "Orlando Magic",
+      "winner_score": 113,
+      "winner_odds": 114,
       "loser_tricode": "DET",
       "loser": "Detroit Pistons",
-      "loser_score": 129,
-      "loser_odds": -154
-    },
-    {
-      "winner_tricode": "BOS",
-      "winner": "Boston Celtics",
-      "winner_score": 119,
-      "winner_odds": 124,
-      "loser_tricode": "OKC",
-      "loser": "Oklahoma City Thunder",
-      "loser_score": 109,
-      "loser_odds": -146
-    },
-    {
-      "winner_tricode": "MIA",
-      "winner": "Miami Heat",
-      "winner_score": 120,
-      "winner_odds": 134,
-      "loser_tricode": "CLE",
-      "loser": "Cleveland Cavaliers",
-      "loser_score": 103,
-      "loser_odds": -158
-    },
-    {
-      "winner_tricode": "WAS",
-      "winner": "Washington Wizards",
-      "winner_score": 133,
-      "winner_odds": 162,
-      "loser_tricode": "UTA",
-      "loser": "Utah Jazz",
-      "loser_score": 110,
-      "loser_odds": -194
+      "loser_score": 105,
+      "loser_odds": -135
     },
     {
       "winner_tricode": "MIN",
       "winner": "Minnesota Timberwolves",
-      "winner_score": 110,
-      "winner_odds": 106,
-      "loser_tricode": "HOU",
-      "loser": "Houston Rockets",
-      "loser_score": 108,
-      "loser_odds": -124
+      "winner_score": 112,
+      "winner_odds": 108,
+      "loser_tricode": "DEN",
+      "loser": "Denver Nuggets",
+      "loser_score": 96,
+      "loser_odds": -126
     }
   ],
-  "date": "2026-03-26",
-  "updated": "2026-03-26 15:33"
+  "date": "2026-04-26",
+  "updated": "2026-04-26 15:37"
 }
