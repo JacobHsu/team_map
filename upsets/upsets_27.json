@@ -1,8 +1,19 @@
 {
-  "total_games": 3,
-  "upset_count": 0,
-  "upset_rate": 0.0,
-  "upsets": [],
-  "date": "2026-03-27",
-  "updated": "2026-03-27 15:32"
+  "total_games": 4,
+  "upset_count": 1,
+  "upset_rate": 25.0,
+  "upsets": [
+    {
+      "winner_tricode": "TOR",
+      "winner": "Toronto Raptors",
+      "winner_score": 93,
+      "winner_odds": 142,
+      "loser_tricode": "CLE",
+      "loser": "Cleveland Cavaliers",
+      "loser_score": 89,
+      "loser_odds": -170
+    }
+  ],
+  "date": "2026-04-27",
+  "updated": "2026-04-27 15:52"
 }
