@@ -1,19 +1,19 @@
 {
-  "total_games": 10,
+  "total_games": 3,
   "upset_count": 1,
-  "upset_rate": 10.0,
+  "upset_rate": 33.33,
   "upsets": [
     {
-      "winner_tricode": "DAL",
-      "winner": "Dallas Mavericks",
-      "winner_score": 100,
-      "winner_odds": 310,
-      "loser_tricode": "POR",
-      "loser": "Portland Trail Blazers",
-      "loser_score": 93,
-      "loser_odds": -390
+      "winner_tricode": "ORL",
+      "winner": "Orlando Magic",
+      "winner_score": 94,
+      "winner_odds": 124,
+      "loser_tricode": "DET",
+      "loser": "Detroit Pistons",
+      "loser_score": 88,
+      "loser_odds": -148
     }
   ],
-  "date": "2026-03-28",
-  "updated": "2026-03-28 15:25"
+  "date": "2026-04-28",
+  "updated": "2026-04-28 15:51"
 }
