@@ -1,29 +1,19 @@
 {
-  "total_games": 9,
-  "upset_count": 2,
-  "upset_rate": 22.22,
+  "total_games": 3,
+  "upset_count": 1,
+  "upset_rate": 33.33,
   "upsets": [
     {
-      "winner_tricode": "IND",
-      "winner": "Indiana Pacers",
-      "winner_score": 135,
-      "winner_odds": 310,
-      "loser_tricode": "MIA",
-      "loser": "Miami Heat",
-      "loser_score": 118,
-      "loser_odds": -390
-    },
-    {
-      "winner_tricode": "BKN",
-      "winner": "Brooklyn Nets",
-      "winner_score": 116,
-      "winner_odds": -102,
-      "loser_tricode": "SAC",
-      "loser": "Sacramento Kings",
-      "loser_score": 99,
-      "loser_odds": -116
+      "winner_tricode": "HOU",
+      "winner": "Houston Rockets",
+      "winner_score": 99,
+      "winner_odds": 150,
+      "loser_tricode": "LAL",
+      "loser": "Los Angeles Lakers",
+      "loser_score": 93,
+      "loser_odds": -180
     }
   ],
-  "date": "2026-03-30",
-  "updated": "2026-03-30 15:39"
+  "date": "2026-04-30",
+  "updated": "2026-04-30 15:50"
 }
