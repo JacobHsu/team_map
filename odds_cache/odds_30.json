@@ -1,86 +1,66 @@
 {
-  "date": "2026-03-30",
-  "fetched": "2026-03-30 18:30",
+  "date": "2026-04-30",
+  "fetched": "2026-04-30 18:36",
   "games": [
     {
-      "id": "2ba4ff0cef51aafdf9c5509533b14091",
-      "home_team": "Miami Heat",
-      "away_team": "Philadelphia 76ers",
-      "home_tricode": "MIA",
-      "away_tricode": "PHI",
-      "commence_time": "2026-03-30T23:10:00Z",
-      "home_odds": 116,
-      "away_odds": -136
-    },
-    {
-      "id": "6faf1f26b1e369d008c889f78e15732b",
+      "id": "24992ea72a9115eaa601ff602cc60468",
       "home_team": "Atlanta Hawks",
-      "away_team": "Boston Celtics",
+      "away_team": "New York Knicks",
       "home_tricode": "ATL",
+      "away_tricode": "NYK",
+      "commence_time": "2026-04-30T23:10:00Z",
+      "home_odds": 114,
+      "away_odds": -134
+    },
+    {
+      "id": "b2f1e46d7adfcf49fa68a52df4938626",
+      "home_team": "Philadelphia 76ers",
+      "away_team": "Boston Celtics",
+      "home_tricode": "PHI",
       "away_tricode": "BOS",
-      "commence_time": "2026-03-30T23:40:00Z",
-      "home_odds": -110,
-      "away_odds": -106
+      "commence_time": "2026-05-01T00:10:00Z",
+      "home_odds": 190,
+      "away_odds": -230
     },
     {
-      "id": "99052db19c4b4026e439fcc94cd4f6e8",
-      "home_team": "San Antonio Spurs",
-      "away_team": "Chicago Bulls",
-      "home_tricode": "SAS",
-      "away_tricode": "CHI",
-      "commence_time": "2026-03-31T00:10:00Z",
-      "home_odds": -1600,
-      "away_odds": 900
+      "id": "b981ac0f551b6f109cd18fa31de439b4",
+      "home_team": "Minnesota Timberwolves",
+      "away_team": "Denver Nuggets",
+      "home_tricode": "MIN",
+      "away_tricode": "DEN",
+      "commence_time": "2026-05-01T01:40:00Z",
+      "home_odds": 198,
+      "away_odds": -240
     },
     {
-      "id": "7d18651bc9124e2b06c6ffbc3af06ee6",
-      "home_team": "Memphis Grizzlies",
-      "away_team": "Phoenix Suns",
-      "home_tricode": "MEM",
-      "away_tricode": "PHX",
-      "commence_time": "2026-03-31T00:10:00Z",
-      "home_odds": 560,
-      "away_odds": -800
-    },
-    {
-      "id": "529b588f29593d9353dc633d814bc188",
-      "home_team": "Dallas Mavericks",
-      "away_team": "Minnesota Timberwolves",
-      "home_tricode": "DAL",
-      "away_tricode": "MIN",
-      "commence_time": "2026-03-31T00:40:00Z",
-      "home_odds": 210,
-      "away_odds": -255
-    },
-    {
-      "id": "2d048fe85c2360eaad38501d77dd41e4",
-      "home_team": "Utah Jazz",
-      "away_team": "Cleveland Cavaliers",
-      "home_tricode": "UTA",
-      "away_tricode": "CLE",
-      "commence_time": "2026-03-31T01:10:00Z",
-      "home_odds": 870,
-      "away_odds": -1500
-    },
-    {
-      "id": "e3266348b9f8e04ffa8ca5bbe8e55265",
-      "home_team": "Oklahoma City Thunder",
+      "id": "88e10294c54deffd6e9e6efcba249d2c",
+      "home_team": "Orlando Magic",
       "away_team": "Detroit Pistons",
-      "home_tricode": "OKC",
+      "home_tricode": "ORL",
       "away_tricode": "DET",
-      "commence_time": "2026-03-31T01:40:00Z",
-      "home_odds": -720,
-      "away_odds": 520
+      "commence_time": "2026-05-01T23:10:00Z",
+      "home_odds": 136,
+      "away_odds": -162
     },
     {
-      "id": "7bab999d0c94806e44c5de1d60333079",
-      "home_team": "Los Angeles Lakers",
-      "away_team": "Washington Wizards",
-      "home_tricode": "LAL",
-      "away_tricode": "WAS",
-      "commence_time": "2026-03-31T02:10:00Z",
-      "home_odds": -1800,
-      "away_odds": 980
+      "id": "d1938a9c13602a661e894f996f2680e8",
+      "home_team": "Toronto Raptors",
+      "away_team": "Cleveland Cavaliers",
+      "home_tricode": "TOR",
+      "away_tricode": "CLE",
+      "commence_time": "2026-05-01T23:40:00Z",
+      "home_odds": 142,
+      "away_odds": -170
+    },
+    {
+      "id": "c361a0b8c035a055bd9497b52674e3fb",
+      "home_team": "Houston Rockets",
+      "away_team": "Los Angeles Lakers",
+      "home_tricode": "HOU",
+      "away_tricode": "LAL",
+      "commence_time": "2026-05-02T01:40:00Z",
+      "home_odds": -180,
+      "away_odds": 150
     }
   ]
 }
