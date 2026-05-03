@@ -1,8 +1,19 @@
 {
-  "total_games": 6,
-  "upset_count": 0,
-  "upset_rate": 0.0,
-  "upsets": [],
-  "date": "2026-04-03",
-  "updated": "2026-04-03 15:34"
+  "total_games": 1,
+  "upset_count": 1,
+  "upset_rate": 100.0,
+  "upsets": [
+    {
+      "winner_tricode": "PHI",
+      "winner": "Philadelphia 76ers",
+      "winner_score": 109,
+      "winner_odds": 235,
+      "loser_tricode": "BOS",
+      "loser": "Boston Celtics",
+      "loser_score": 100,
+      "loser_odds": -290
+    }
+  ],
+  "date": "2026-05-03",
+  "updated": "2026-05-03 15:39"
 }
