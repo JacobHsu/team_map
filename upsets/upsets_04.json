@@ -1,19 +1,8 @@
 {
-  "total_games": 9,
-  "upset_count": 1,
-  "upset_rate": 11.11,
-  "upsets": [
-    {
-      "winner_tricode": "SAC",
-      "winner": "Sacramento Kings",
-      "winner_score": 117,
-      "winner_odds": 162,
-      "loser_tricode": "NOP",
-      "loser": "New Orleans Pelicans",
-      "loser_score": 113,
-      "loser_odds": -194
-    }
-  ],
-  "date": "2026-04-04",
-  "updated": "2026-04-04 15:27"
+  "total_games": 2,
+  "upset_count": 0,
+  "upset_rate": 0.0,
+  "upsets": [],
+  "date": "2026-05-04",
+  "updated": "2026-05-04 16:01"
 }
