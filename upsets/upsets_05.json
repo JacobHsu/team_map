@@ -1,19 +1,19 @@
 {
-  "total_games": 3,
+  "total_games": 2,
   "upset_count": 1,
-  "upset_rate": 33.33,
+  "upset_rate": 50.0,
   "upsets": [
     {
-      "winner_tricode": "DEN",
-      "winner": "Denver Nuggets",
-      "winner_score": 136,
-      "winner_odds": 112,
+      "winner_tricode": "MIN",
+      "winner": "Minnesota Timberwolves",
+      "winner_score": 104,
+      "winner_odds": 440,
       "loser_tricode": "SAS",
       "loser": "San Antonio Spurs",
-      "loser_score": 134,
-      "loser_odds": -132
+      "loser_score": 102,
+      "loser_odds": -600
     }
   ],
-  "date": "2026-04-05",
-  "updated": "2026-04-05 15:30"
+  "date": "2026-05-05",
+  "updated": "2026-05-05 15:45"
 }
