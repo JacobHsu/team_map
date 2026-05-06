@@ -1,19 +1,8 @@
 {
-  "total_games": 11,
-  "upset_count": 1,
-  "upset_rate": 9.09,
-  "upsets": [
-    {
-      "winner_tricode": "DAL",
-      "winner": "Dallas Mavericks",
-      "winner_score": 134,
-      "winner_odds": 102,
-      "loser_tricode": "LAL",
-      "loser": "Los Angeles Lakers",
-      "loser_score": 128,
-      "loser_odds": -120
-    }
-  ],
-  "date": "2026-04-06",
-  "updated": "2026-04-06 15:39"
+  "total_games": 2,
+  "upset_count": 0,
+  "upset_rate": 0.0,
+  "upsets": [],
+  "date": "2026-05-06",
+  "updated": "2026-05-06 15:52"
 }
