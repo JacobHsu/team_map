@@ -1,39 +1,8 @@
 {
-  "total_games": 15,
-  "upset_count": 3,
-  "upset_rate": 20.0,
-  "upsets": [
-    {
-      "winner_tricode": "BOS",
-      "winner": "Boston Celtics",
-      "winner_score": 113,
-      "winner_odds": 540,
-      "loser_tricode": "ORL",
-      "loser": "Orlando Magic",
-      "loser_score": 108,
-      "loser_odds": -770
-    },
-    {
-      "winner_tricode": "PHX",
-      "winner": "Phoenix Suns",
-      "winner_score": 135,
-      "winner_odds": 180,
-      "loser_tricode": "OKC",
-      "loser": "Oklahoma City Thunder",
-      "loser_score": 103,
-      "loser_odds": -215
-    },
-    {
-      "winner_tricode": "DEN",
-      "winner": "Denver Nuggets",
-      "winner_score": 128,
-      "winner_odds": 400,
-      "loser_tricode": "SAS",
-      "loser": "San Antonio Spurs",
-      "loser_score": 118,
-      "loser_odds": -520
-    }
-  ],
-  "date": "2026-04-13",
-  "updated": "2026-04-13 15:41"
+  "total_games": 1,
+  "upset_count": 0,
+  "upset_rate": 0.0,
+  "upsets": [],
+  "date": "2026-05-13",
+  "updated": "2026-05-13 16:04"
 }
