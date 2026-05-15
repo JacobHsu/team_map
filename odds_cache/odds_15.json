@@ -1,76 +1,26 @@
 {
-  "date": "2026-04-15",
-  "fetched": "2026-04-15 18:29",
+  "date": "2026-05-15",
+  "fetched": "2026-05-15 18:48",
   "games": [
     {
-      "id": "f7264c00c662a127d58f4ab12fc498bc",
-      "home_team": "Philadelphia 76ers",
-      "away_team": "Orlando Magic",
-      "home_tricode": "PHI",
-      "away_tricode": "ORL",
-      "commence_time": "2026-04-15T23:40:00Z",
-      "home_odds": -130,
-      "away_odds": 110
-    },
-    {
-      "id": "7cfae0891b99865ef7fc9d357b69ca28",
-      "home_team": "Los Angeles Clippers",
-      "away_team": "Golden State Warriors",
-      "home_tricode": "LAC",
-      "away_tricode": "GSW",
-      "commence_time": "2026-04-16T02:10:00Z",
-      "home_odds": -205,
-      "away_odds": 170
-    },
-    {
-      "id": "2a8e5a45f1bcb477a6f9cbd7739d005e",
+      "id": "745d265e0d83dac45060b44665d8cbe5",
       "home_team": "Cleveland Cavaliers",
-      "away_team": "Toronto Raptors",
+      "away_team": "Detroit Pistons",
       "home_tricode": "CLE",
-      "away_tricode": "TOR",
-      "commence_time": "2026-04-18T17:10:00Z",
-      "home_odds": -360,
-      "away_odds": 290
+      "away_tricode": "DET",
+      "commence_time": "2026-05-15T23:10:00Z",
+      "home_odds": -168,
+      "away_odds": 142
     },
     {
-      "id": "526f783434e5dabca25ee032d8fee612",
-      "home_team": "Denver Nuggets",
-      "away_team": "Minnesota Timberwolves",
-      "home_tricode": "DEN",
-      "away_tricode": "MIN",
-      "commence_time": "2026-04-18T19:40:00Z",
-      "home_odds": -245,
-      "away_odds": 200
-    },
-    {
-      "id": "bee2c9ea4bf8df373aa45af7005b583d",
-      "home_team": "New York Knicks",
-      "away_team": "Atlanta Hawks",
-      "home_tricode": "NYK",
-      "away_tricode": "ATL",
-      "commence_time": "2026-04-18T22:10:00Z",
-      "home_odds": -210,
-      "away_odds": 176
-    },
-    {
-      "id": "1a9383105929a09e5662227ad45554b8",
-      "home_team": "Los Angeles Lakers",
-      "away_team": "Houston Rockets",
-      "home_tricode": "LAL",
-      "away_tricode": "HOU",
-      "commence_time": "2026-04-19T00:40:00Z",
-      "home_odds": 170,
-      "away_odds": -205
-    },
-    {
-      "id": "04e3ad1ccbad6419ac711ff120fd5cbe",
-      "home_team": "San Antonio Spurs",
-      "away_team": "Portland Trail Blazers",
-      "home_tricode": "SAS",
-      "away_tricode": "POR",
-      "commence_time": "2026-04-20T01:00:00Z",
-      "home_odds": -450,
-      "away_odds": 350
+      "id": "1bd4432ce20bc61756180bf2d1c59c91",
+      "home_team": "Minnesota Timberwolves",
+      "away_team": "San Antonio Spurs",
+      "home_tricode": "MIN",
+      "away_tricode": "SAS",
+      "commence_time": "2026-05-16T01:40:00Z",
+      "home_odds": 176,
+      "away_odds": -210
     }
   ]
 }
