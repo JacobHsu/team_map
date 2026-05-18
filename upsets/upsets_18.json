@@ -1,19 +1,19 @@
 {
-  "total_games": 2,
+  "total_games": 1,
   "upset_count": 1,
-  "upset_rate": 50.0,
+  "upset_rate": 100.0,
   "upsets": [
     {
-      "winner_tricode": "ORL",
-      "winner": "Orlando Magic",
-      "winner_score": 121,
-      "winner_odds": 136,
-      "loser_tricode": "CHA",
-      "loser": "Charlotte Hornets",
-      "loser_score": 90,
-      "loser_odds": -162
+      "winner_tricode": "CLE",
+      "winner": "Cleveland Cavaliers",
+      "winner_score": 125,
+      "winner_odds": 150,
+      "loser_tricode": "DET",
+      "loser": "Detroit Pistons",
+      "loser_score": 94,
+      "loser_odds": -180
     }
   ],
-  "date": "2026-04-18",
-  "updated": "2026-04-18 15:31"
+  "date": "2026-05-18",
+  "updated": "2026-05-18 16:27"
 }
