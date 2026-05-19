@@ -1,19 +1,19 @@
 {
-  "total_games": 4,
+  "total_games": 1,
   "upset_count": 1,
-  "upset_rate": 25.0,
+  "upset_rate": 100.0,
   "upsets": [
     {
-      "winner_tricode": "LAL",
-      "winner": "Los Angeles Lakers",
-      "winner_score": 107,
-      "winner_odds": 170,
-      "loser_tricode": "HOU",
-      "loser": "Houston Rockets",
-      "loser_score": 98,
-      "loser_odds": -205
+      "winner_tricode": "SAS",
+      "winner": "San Antonio Spurs",
+      "winner_score": 122,
+      "winner_odds": 200,
+      "loser_tricode": "OKC",
+      "loser": "Oklahoma City Thunder",
+      "loser_score": 115,
+      "loser_odds": -245
     }
   ],
-  "date": "2026-04-19",
-  "updated": "2026-04-19 15:37"
+  "date": "2026-05-19",
+  "updated": "2026-05-19 16:16"
 }
