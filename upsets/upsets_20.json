@@ -1,19 +1,8 @@
 {
-  "total_games": 4,
-  "upset_count": 1,
-  "upset_rate": 25.0,
-  "upsets": [
-    {
-      "winner_tricode": "ORL",
-      "winner": "Orlando Magic",
-      "winner_score": 112,
-      "winner_odds": 275,
-      "loser_tricode": "DET",
-      "loser": "Detroit Pistons",
-      "loser_score": 101,
-      "loser_odds": -345
-    }
-  ],
-  "date": "2026-04-20",
-  "updated": "2026-04-20 15:42"
+  "total_games": 1,
+  "upset_count": 0,
+  "upset_rate": 0.0,
+  "upsets": [],
+  "date": "2026-05-20",
+  "updated": "2026-05-20 16:14"
 }
