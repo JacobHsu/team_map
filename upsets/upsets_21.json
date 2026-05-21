@@ -1,29 +1,8 @@
 {
-  "total_games": 3,
-  "upset_count": 2,
-  "upset_rate": 66.67,
-  "upsets": [
-    {
-      "winner_tricode": "ATL",
-      "winner": "Atlanta Hawks",
-      "winner_score": 107,
-      "winner_odds": 190,
-      "loser_tricode": "NYK",
-      "loser": "New York Knicks",
-      "loser_score": 106,
-      "loser_odds": -230
-    },
-    {
-      "winner_tricode": "MIN",
-      "winner": "Minnesota Timberwolves",
-      "winner_score": 119,
-      "winner_odds": 210,
-      "loser_tricode": "DEN",
-      "loser": "Denver Nuggets",
-      "loser_score": 114,
-      "loser_odds": -258
-    }
-  ],
-  "date": "2026-04-21",
-  "updated": "2026-04-21 15:41"
+  "total_games": 1,
+  "upset_count": 0,
+  "upset_rate": 0.0,
+  "upsets": [],
+  "date": "2026-05-21",
+  "updated": "2026-05-21 16:17"
 }
