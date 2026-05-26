@@ -1,29 +1,8 @@
 {
-  "total_games": 4,
-  "upset_count": 2,
-  "upset_rate": 50.0,
-  "upsets": [
-    {
-      "winner_tricode": "ORL",
-      "winner": "Orlando Magic",
-      "winner_score": 113,
-      "winner_odds": 114,
-      "loser_tricode": "DET",
-      "loser": "Detroit Pistons",
-      "loser_score": 105,
-      "loser_odds": -135
-    },
-    {
-      "winner_tricode": "MIN",
-      "winner": "Minnesota Timberwolves",
-      "winner_score": 112,
-      "winner_odds": 108,
-      "loser_tricode": "DEN",
-      "loser": "Denver Nuggets",
-      "loser_score": 96,
-      "loser_odds": -126
-    }
-  ],
-  "date": "2026-04-26",
-  "updated": "2026-04-26 15:37"
+  "total_games": 1,
+  "upset_count": 0,
+  "upset_rate": 0.0,
+  "upsets": [],
+  "date": "2026-05-26",
+  "updated": "2026-05-26 16:18"
 }
