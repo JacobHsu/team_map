@@ -1,19 +1,8 @@
 {
-  "total_games": 3,
-  "upset_count": 1,
-  "upset_rate": 33.33,
-  "upsets": [
-    {
-      "winner_tricode": "HOU",
-      "winner": "Houston Rockets",
-      "winner_score": 99,
-      "winner_odds": 150,
-      "loser_tricode": "LAL",
-      "loser": "Los Angeles Lakers",
-      "loser_score": 93,
-      "loser_odds": -180
-    }
-  ],
-  "date": "2026-04-30",
-  "updated": "2026-04-30 15:50"
+  "total_games": 0,
+  "upset_count": 0,
+  "upset_rate": 0,
+  "upsets": [],
+  "date": "2026-05-30",
+  "updated": "2026-05-30 15:56"
 }
