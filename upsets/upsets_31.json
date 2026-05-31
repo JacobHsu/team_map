@@ -1,19 +1,19 @@
 {
-  "total_games": 8,
+  "total_games": 1,
   "upset_count": 1,
-  "upset_rate": 12.5,
+  "upset_rate": 100.0,
   "upsets": [
     {
-      "winner_tricode": "MIA",
-      "winner": "Miami Heat",
-      "winner_score": 119,
-      "winner_odds": 116,
-      "loser_tricode": "PHI",
-      "loser": "Philadelphia 76ers",
-      "loser_score": 109,
-      "loser_odds": -136
+      "winner_tricode": "SAS",
+      "winner": "San Antonio Spurs",
+      "winner_score": 111,
+      "winner_odds": 130,
+      "loser_tricode": "OKC",
+      "loser": "Oklahoma City Thunder",
+      "loser_score": 103,
+      "loser_odds": -155
     }
   ],
-  "date": "2026-03-31",
-  "updated": "2026-03-31 15:37"
+  "date": "2026-05-31",
+  "updated": "2026-05-31 16:07"
 }
