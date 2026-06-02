@@ -1,29 +1,8 @@
 {
-  "total_games": 3,
-  "upset_count": 2,
-  "upset_rate": 66.67,
-  "upsets": [
-    {
-      "winner_tricode": "TOR",
-      "winner": "Toronto Raptors",
-      "winner_score": 112,
-      "winner_odds": 145,
-      "loser_tricode": "CLE",
-      "loser": "Cleveland Cavaliers",
-      "loser_score": 110,
-      "loser_odds": -175
-    },
-    {
-      "winner_tricode": "LAL",
-      "winner": "Los Angeles Lakers",
-      "winner_score": 98,
-      "winner_odds": 142,
-      "loser_tricode": "HOU",
-      "loser": "Houston Rockets",
-      "loser_score": 78,
-      "loser_odds": -170
-    }
-  ],
-  "date": "2026-05-02",
-  "updated": "2026-05-02 15:39"
+  "total_games": 0,
+  "upset_count": 0,
+  "upset_rate": 0,
+  "upsets": [],
+  "date": "2026-06-02",
+  "updated": "2026-06-02 16:36"
 }
