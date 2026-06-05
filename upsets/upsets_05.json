@@ -1,19 +1,8 @@
 {
-  "total_games": 2,
-  "upset_count": 1,
-  "upset_rate": 50.0,
-  "upsets": [
-    {
-      "winner_tricode": "MIN",
-      "winner": "Minnesota Timberwolves",
-      "winner_score": 104,
-      "winner_odds": 440,
-      "loser_tricode": "SAS",
-      "loser": "San Antonio Spurs",
-      "loser_score": 102,
-      "loser_odds": -600
-    }
-  ],
-  "date": "2026-05-05",
-  "updated": "2026-05-05 15:45"
+  "total_games": 0,
+  "upset_count": 0,
+  "upset_rate": 0,
+  "upsets": [],
+  "date": "2026-06-05",
+  "updated": "2026-06-05 16:26"
 }
