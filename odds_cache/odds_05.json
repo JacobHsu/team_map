@@ -1,46 +1,16 @@
 {
-  "date": "2026-05-05",
-  "fetched": "2026-05-05 18:34",
+  "date": "2026-06-05",
+  "fetched": "2026-06-05 19:07",
   "games": [
     {
-      "id": "0d7933fbc3dd3e384f9b709cff4e882c",
-      "home_team": "Detroit Pistons",
-      "away_team": "Cleveland Cavaliers",
-      "home_tricode": "DET",
-      "away_tricode": "CLE",
-      "commence_time": "2026-05-05T23:10:00Z",
-      "home_odds": -148,
-      "away_odds": 126
-    },
-    {
-      "id": "689b4554b0b10e67f46872eb2e74b98d",
-      "home_team": "Oklahoma City Thunder",
-      "away_team": "Los Angeles Lakers",
-      "home_tricode": "OKC",
-      "away_tricode": "LAL",
-      "commence_time": "2026-05-06T00:40:00Z",
-      "home_odds": -1050,
-      "away_odds": 675
-    },
-    {
-      "id": "d146e10295545e18ac8915a1f5860317",
-      "home_team": "New York Knicks",
-      "away_team": "Philadelphia 76ers",
-      "home_tricode": "NYK",
-      "away_tricode": "PHI",
-      "commence_time": "2026-05-06T23:10:00Z",
-      "home_odds": -280,
-      "away_odds": 230
-    },
-    {
-      "id": "246001ab42d44857430f7fe63f423461",
+      "id": "2852e944f8ef0bc3eba79f883b9101ba",
       "home_team": "San Antonio Spurs",
-      "away_team": "Minnesota Timberwolves",
+      "away_team": "New York Knicks",
       "home_tricode": "SAS",
-      "away_tricode": "MIN",
-      "commence_time": "2026-05-07T01:40:00Z",
-      "home_odds": -360,
-      "away_odds": 285
+      "away_tricode": "NYK",
+      "commence_time": "2026-06-06T00:40:00Z",
+      "home_odds": -230,
+      "away_odds": 190
     }
   ]
 }
