@@ -1,8 +1,19 @@
 {
-  "total_games": 2,
-  "upset_count": 0,
-  "upset_rate": 0.0,
-  "upsets": [],
-  "date": "2026-05-06",
-  "updated": "2026-05-06 15:52"
+  "total_games": 1,
+  "upset_count": 1,
+  "upset_rate": 100.0,
+  "upsets": [
+    {
+      "winner_tricode": "NYK",
+      "winner": "New York Knicks",
+      "winner_score": 105,
+      "winner_odds": 190,
+      "loser_tricode": "SAS",
+      "loser": "San Antonio Spurs",
+      "loser_score": 104,
+      "loser_odds": -230
+    }
+  ],
+  "date": "2026-06-06",
+  "updated": "2026-06-06 16:00"
 }
