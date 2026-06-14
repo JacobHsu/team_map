@@ -1,26 +1,5 @@
 {
-  "date": "2026-05-14",
-  "fetched": "2026-05-14 18:48",
-  "games": [
-    {
-      "id": "745d265e0d83dac45060b44665d8cbe5",
-      "home_team": "Cleveland Cavaliers",
-      "away_team": "Detroit Pistons",
-      "home_tricode": "CLE",
-      "away_tricode": "DET",
-      "commence_time": "2026-05-15T23:10:00Z",
-      "home_odds": -172,
-      "away_odds": 144
-    },
-    {
-      "id": "1bd4432ce20bc61756180bf2d1c59c91",
-      "home_team": "Minnesota Timberwolves",
-      "away_team": "San Antonio Spurs",
-      "home_tricode": "MIN",
-      "away_tricode": "SAS",
-      "commence_time": "2026-05-16T01:40:00Z",
-      "home_odds": 154,
-      "away_odds": -186
-    }
-  ]
+  "date": "2026-06-14",
+  "fetched": "2026-06-14 18:59",
+  "games": []
 }
