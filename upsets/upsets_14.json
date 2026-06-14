@@ -4,16 +4,16 @@
   "upset_rate": 100.0,
   "upsets": [
     {
-      "winner_tricode": "CLE",
-      "winner": "Cleveland Cavaliers",
-      "winner_score": 117,
-      "winner_odds": 150,
-      "loser_tricode": "DET",
-      "loser": "Detroit Pistons",
-      "loser_score": 113,
-      "loser_odds": -180
+      "winner_tricode": "NYK",
+      "winner": "New York Knicks",
+      "winner_score": 94,
+      "winner_odds": 166,
+      "loser_tricode": "SAS",
+      "loser": "San Antonio Spurs",
+      "loser_score": 90,
+      "loser_odds": -198
     }
   ],
-  "date": "2026-05-14",
-  "updated": "2026-05-14 16:00"
+  "date": "2026-06-14",
+  "updated": "2026-06-14 16:26"
 }
