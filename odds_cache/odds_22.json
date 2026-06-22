@@ -1,26 +1,5 @@
 {
-  "date": "2026-05-22",
-  "fetched": "2026-05-22 19:02",
-  "games": [
-    {
-      "id": "7b814a0bc57622abcbc708d9e9a27fca",
-      "home_team": "San Antonio Spurs",
-      "away_team": "Oklahoma City Thunder",
-      "home_tricode": "SAS",
-      "away_tricode": "OKC",
-      "commence_time": "2026-05-23T00:40:00Z",
-      "home_odds": -126,
-      "away_odds": 108
-    },
-    {
-      "id": "4247d31ac7706ebe455b8f221c9e4184",
-      "home_team": "Cleveland Cavaliers",
-      "away_team": "New York Knicks",
-      "home_tricode": "CLE",
-      "away_tricode": "NYK",
-      "commence_time": "2026-05-24T00:10:00Z",
-      "home_odds": -135,
-      "away_odds": 114
-    }
-  ]
+  "date": "2026-06-22",
+  "fetched": "2026-06-22 20:01",
+  "games": []
 }
