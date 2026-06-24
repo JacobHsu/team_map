@@ -1,19 +1,8 @@
 {
-  "total_games": 1,
-  "upset_count": 1,
-  "upset_rate": 100.0,
-  "upsets": [
-    {
-      "winner_tricode": "NYK",
-      "winner": "New York Knicks",
-      "winner_score": 121,
-      "winner_odds": 110,
-      "loser_tricode": "CLE",
-      "loser": "Cleveland Cavaliers",
-      "loser_score": 108,
-      "loser_odds": -130
-    }
-  ],
-  "date": "2026-05-24",
-  "updated": "2026-05-24 15:58"
+  "total_games": 0,
+  "upset_count": 0,
+  "upset_rate": 0,
+  "upsets": [],
+  "date": "2026-06-24",
+  "updated": "2026-06-24 16:13"
 }
